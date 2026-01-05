@@ -262,10 +262,10 @@ export default function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="md:hidden h-12 w-12 rounded-full hover:bg-accent active:scale-95 transition-all"
+                  className="md:hidden h-24 w-24 rounded-full hover:bg-accent active:scale-95 transition-all"
                   aria-label="Menu"
                 >
-                  <Menu className="h-8 w-8 text-foreground" />
+                  <Menu className="h-24 w-24 text-foreground" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto p-0 border-l border-border/40">

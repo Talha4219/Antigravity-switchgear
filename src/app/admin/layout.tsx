@@ -132,7 +132,7 @@ export default function AdminLayout({
           </SidebarMenu>
         </SidebarHeader>
         <SidebarContent className="px-3 py-4">
-          <SidebarMenu space-y-1>
+          <SidebarMenu className="space-y-1">
             {adminNavItems.map((item) => {
               const isActive = pathname === item.href;
               return (
