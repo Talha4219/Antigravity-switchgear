@@ -258,7 +258,7 @@ export default function ContactPage() {
                   </div>
                   <CardContent className="p-4 bg-muted/50">
                     <Button variant="outline" className="w-full font-semibold" asChild>
-                      <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">
+                      <a href="https://www.google.com/maps/search/Plot+%23+56,+Street+%23+13,+I-9%2F2+,Islamabad,+Pakistan" target="_blank" rel="noopener noreferrer">
                         Get Directions
                       </a>
                     </Button>
