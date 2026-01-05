@@ -1,0 +1,98 @@
+{
+  "entities": {
+    "blogPost": {
+      "title": "Blog Post",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "published_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "title",
+        "content"
+      ],
+      "description": "Represents a single blog post entry."
+    },
+    "product": {
+      "title": "Product",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "image_url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "name",
+        "price"
+      ],
+      "description": "Represents a product in the catalog."
+    },
+    "specialOffer": {
+      "title": "Special Offer",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "discount_code": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "description"
+      ],
+      "description": "Represents a special offer or promotion."
+    }
+  },
+  "auth": {
+    "providers": [
+      "google.com",
+      "password"
+    ]
+  },
+  "firestore": {
+    "/blogPosts/{postId}": {
+      "schema": {
+        "$ref": "#/entities/blogPost"
+      },
+      "description": "Collection of all blog posts."
+    },
+    "/products/{productId}": {
+      "schema": {
+        "$ref": "#/entities/product"
+      },
+      "description": "Collection of all products."
+    },
+    "/specialOffers/{offerId}": {
+      "schema": {
+        "$ref": "#/entities/specialOffer"
+      },
+      "description": "Collection of special offers."
+    }
+  }
+}

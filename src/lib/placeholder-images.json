@@ -1,0 +1,112 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "A modern power plant or electrical substation.",
+      "imageUrl": "https://images.unsplash.com/photo-1578776349090-de61da00ff1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwb3dlciUyMHBsYW50fGVufDB8fHx8MTc2NTI1MDkzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "power plant"
+    },
+    {
+      "id": "product-lv-switchgear",
+      "description": "Low Voltage Switchgear",
+      "imageUrl": "https://images.unsplash.com/photo-1635335874521-7987db781153?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxlbGVjdHJpY2FsJTIwcGFuZWx8ZW58MHx8fHwxNzY1MjY4NDIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electrical panel"
+    },
+    {
+      "id": "product-mv-switchgear",
+      "description": "Medium Voltage Switchgear",
+      "imageUrl": "https://images.unsplash.com/photo-1560700105-716e308979fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlbGVjdHJpY2FsJTIwc3dpdGNoZ2VhcnxlbnwwfHx8fDE3NjUyNjg0MjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electrical switchgear"
+    },
+    {
+      "id": "product-hv-switchgear",
+      "description": "High Voltage Switchgear",
+      "imageUrl": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwb3dlciUyMGxpbmVzfGVufDB8fHx8MTc2NTIzMjMyNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "power lines"
+    },
+    {
+      "id": "product-cb",
+      "description": "Circuit Breaker",
+      "imageUrl": "https://images.unsplash.com/photo-1613315622081-3b066dbe5d83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjaXJjdWl0JTIwYnJlYWtlcnxlbnwwfHx8fDE3NjUxNDg0NDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "circuit breaker"
+    },
+    {
+      "id": "product-relay",
+      "description": "Protective Relay",
+      "imageUrl": "https://images.unsplash.com/photo-1562877773-c6dd55a1415e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlbGVjdHJpY2FsJTIwcmVsYXl8ZW58MHx8fHwxNzY1MjY4NDIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electrical relay"
+    },
+    {
+      "id": "product-transformer",
+      "description": "Control Transformer",
+      "imageUrl": "https://images.unsplash.com/photo-1624535793654-a88b4a1abc8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWxlY3RyaWNhbCUyMHRyYW5zZm9ybWVyfGVufDB8fHx8MTc2NTI2ODQyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electrical transformer"
+    },
+    {
+      "id": "cert-iso9001",
+      "description": "ISO 9001 Certification Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1762329352849-f4d0c9e7696a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2VydGlmaWNhdGlvbiUyMGxvZ298ZW58MHx8fHwxNzY1MTkxODA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "certification logo"
+    },
+    {
+      "id": "cert-iso14001",
+      "description": "ISO 14001 Certification Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1762329352849-f4d0c9e7696a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2VydGlmaWNhdGlvbiUyMGxvZ298ZW58MHx8fHwxNzY1MTkxODA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "certification logo"
+    },
+    {
+      "id": "cert-iec",
+      "description": "IEC Standards Compliant Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1762330910399-95caa55acf04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjZXJ0aWZpY2F0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjUxOTE4MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "certification logo"
+    },
+    {
+      "id": "cert-ul",
+      "description": "UL Listed Mark",
+      "imageUrl": "https://images.unsplash.com/photo-1762329352849-f4d0c9e7696a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2VydGlmaWNhdGlvbiUyMGxvZ298ZW58MHx8fHwxNzY1MTkxODA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "certification logo"
+    },
+    {
+      "id": "cert-ce",
+      "description": "CE Marking",
+      "imageUrl": "https://images.unsplash.com/photo-1762329386486-f38ef2077a06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjZXJ0aWZpY2F0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjUxOTE4MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "certification logo"
+    },
+    {
+      "id": "cert-rohs",
+      "description": "RoHS Compliant Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1762330917920-141e05d4eb9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjZXJ0aWZpY2F0aW9uJTIwbG9nb3xlbnwwfHx8fDE3NjUxOTE4MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "certification logo"
+    },
+    {
+      "id": "blog-1",
+      "description": "An engineer working on an electrical panel",
+      "imageUrl": "https://images.unsplash.com/photo-1581091226507-ca552def2daf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxlbmdpbmVlciUyMGVsZWN0cmljYWx8ZW58MHx8fHwxNzY1MjY4NDIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "engineer electrical"
+    },
+    {
+      "id": "blog-2",
+      "description": "A close-up of complex wiring inside a switchgear cabinet",
+      "imageUrl": "https://images.unsplash.com/photo-1762145334460-4b80a782c629?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb21wbGV4JTIwd2lyaW5nfGVufDB8fHx8MTc2NTI2ODQyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "complex wiring"
+    },
+    {
+      "id": "blog-3",
+      "description": "A team of engineers collaborating on a blueprint",
+      "imageUrl": "https://images.unsplash.com/photo-1764740109279-c7a8abd78821?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxlbmdpbmVlcnMlMjBibHVlcHJpbnR8ZW58MHx8fHwxNzY1MjY4NDIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "engineers blueprint"
+    },
+    {
+      "id": "contact-map",
+      "description": "A map showing the location of the company headquarters",
+      "imageUrl": "https://images.unsplash.com/photo-1717343823307-973d0903d222?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjaXR5JTIwbWFwfGVufDB8fHx8MTc2NTE4NTMyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "city map"
+    },
+    {
+      "id": "about-team",
+      "description": "A diverse team of professionals in a modern office",
+      "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjB0ZWFtfGVufDB8fHx8MTc2NTE4NzczMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional team"
+    }
+  ]
+}
