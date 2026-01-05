@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { calculatorData, type CalculatorInfo } from '@/lib/calculators';
-import AdvancedCalculatorWrapper from '../components/AdvancedCalculatorWrapper';
+import ResponsiveCalculatorWrapper from '../components/ResponsiveCalculatorWrapper';
 import connectDB from '@/lib/db';
 import BlogPost from '@/models/BlogPost';
 import { products } from '@/lib/product-data';
@@ -95,7 +95,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     }));
 
   return (
-    <AdvancedCalculatorWrapper
+    <ResponsiveCalculatorWrapper
       title={calculator.title}
       shortDescription={calculator.description as any}
       formula={calculator.formula}
@@ -112,6 +112,6 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
       }
     >
       <CalculatorComponent />
-    </AdvancedCalculatorWrapper>
+    </ResponsiveCalculatorWrapper>
   );
 }

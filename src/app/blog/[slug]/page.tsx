@@ -105,7 +105,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <div className="min-h-screen bg-background pb-20">
       {/* Navigation / Header */}
       <div className="bg-primary/5 border-b border-primary/10">
-        <div className="container py-8">
+        <div className="container px-4 md:px-6 py-6 md:py-8">
           <Link href="/blog" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-4">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
           </Link>
@@ -137,29 +137,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </div>
 
       {/* Main Content Area with Sidebar */}
-      <div className="container max-w-7xl mx-auto px-4 mt-8 md:mt-12">
-        <div className="grid lg:grid-cols-12 gap-12">
+      <div className="container max-w-7xl mx-auto px-4 md:px-6 mt-6 md:mt-8 lg:mt-12">
+        <div className="grid lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12">
 
           {/* Left Column: Article */}
-          <main className="lg:col-span-8">
+          <main className="lg:col-span-8 w-full min-w-0">
             {finalImage && (
-              <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl mb-8 md:mb-10">
+              <div className="relative w-full aspect-video md:aspect-[21/9] rounded-lg md:rounded-xl overflow-hidden shadow-lg md:shadow-xl mb-6 md:mb-8">
                 <Image
                   src={finalImage}
                   alt={title}
                   fill
                   className="object-cover"
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
                 />
               </div>
             )}
 
-            <article className="max-w-none space-y-6">
+            <article className="max-w-none space-y-4 md:space-y-6 w-full overflow-hidden">
               <p className="lead text-xl md:text-2xl text-muted-foreground font-medium italic border-l-4 border-accent pl-6 py-2 max-w-3xl">
                 {excerpt}
               </p>
 
-              <div className="mt-8 not-prose ql-snow max-w-3xl">
+              <div className="mt-8 not-prose ql-snow max-w-3xl overflow-hidden break-words">
                 <div className="ql-editor p-0" dangerouslySetInnerHTML={{ __html: content }} />
               </div>
 

@@ -96,9 +96,20 @@
 
 /* Premium Blog Readability Overrides for Quill Content */
 .ql-editor {
-  @apply text-foreground/90 leading-[1.8] antialiased;
+  @apply font-sans selection:bg-primary/20 selection:text-primary antialiased;
+  line-height: 1.8;
   font-size: 1.125rem;
+  color: #000000;
+  /* Default black for light mode */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
   /* 18px */
+}
+
+.dark .ql-editor {
+  color: #ffffff;
+  /* Pure white for dark mode */
 }
 
 @media (min-width: 768px) {
@@ -110,13 +121,15 @@
 
 .ql-editor p {
   @apply mb-8;
+  color: inherit;
 }
 
 .ql-editor h1,
 .ql-editor h2,
 .ql-editor h3 {
-  @apply font-headline font-bold text-foreground mt-12 mb-6 tracking-tight;
+  @apply font-headline font-bold mt-12 mb-6 tracking-tight;
   line-height: 1.2;
+  color: inherit;
 }
 
 .ql-editor h1 {
@@ -134,6 +147,7 @@
 .ql-editor ul,
 .ql-editor ol {
   @apply mb-8 pl-6 space-y-3;
+  color: inherit;
 }
 
 .ql-editor ul {
@@ -149,7 +163,22 @@
 }
 
 .ql-editor img {
-  @apply rounded-xl shadow-lg my-12 mx-auto;
+  @apply rounded-xl shadow-lg my-8 md:my-12 mx-auto;
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain;
+  display: block;
+}
+
+.ql-editor video,
+.ql-editor iframe {
+  @apply rounded-xl shadow-lg my-8 md:my-12 mx-auto max-w-full;
+}
+
+.ql-editor table {
+  @apply w-full mb-8 border-collapse overflow-hidden rounded-lg;
+  display: block;
+  overflow-x: auto;
 }
 
 .ql-editor a {
