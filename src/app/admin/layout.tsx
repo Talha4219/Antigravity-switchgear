@@ -123,7 +123,7 @@ export default function AdminLayout({
                     <Zap className="size-5 text-white" />
                   </div>
                   <div className="grid flex-1 text-left text-sm leading-tight">
-                    <span className="truncate font-bold text-slate-900">Antigravity</span>
+                    <span className="truncate font-bold text-slate-900">Dashboard</span>
                     <span className="truncate text-[10px] font-medium text-slate-500 uppercase tracking-widest">Admin Panel</span>
                   </div>
                 </Link>
@@ -272,7 +272,7 @@ export default function AdminLayout({
           <footer className="mt-auto px-8 py-6 border-t border-slate-200/60 bg-white/50 backdrop-blur-sm">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="flex items-center gap-2 text-sm text-slate-500">
-                <span className="font-bold text-slate-900">Antigravity</span>
+                <span className="font-bold text-slate-900">Agilex Developers</span>
                 <span className="text-slate-300">|</span>
                 <span>© {new Date().getFullYear()} Evergreen Switchgear. All rights reserved.</span>
               </div>

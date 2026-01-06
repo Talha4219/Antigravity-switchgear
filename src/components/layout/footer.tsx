@@ -229,7 +229,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-2">
             <span>Designed & Secured by</span>
-            <span className="text-gray-300 font-medium">Antigravity</span>
+            <span className="text-gray-300 font-medium"><Link href="https://talhashams.vercel.app" target="_blank">Agilex Developers</Link></span>
           </div>
         </div>
       </div>
