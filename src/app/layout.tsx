@@ -11,6 +11,7 @@ import NextAuthSessionProvider from '@/components/providers/session-provider';
 import { QuoteDialogProvider } from '@/components/conversion/quote-dialog-provider';
 import { WhatsAppButton } from '@/components/conversion/whatsapp-button';
 import MotionShell from '@/components/animations/motion-shell';
+import Script from 'next/script';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -86,6 +87,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3210886528292703"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased',
