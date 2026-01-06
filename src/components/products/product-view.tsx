@@ -81,6 +81,7 @@ export function StaticProductView({ product, nextProduct, prevProduct }: Product
                            Static data uses imageUrl in imageId prop now (mapped in page.tsx). 
                         */}
                         <img
+                            // src={product.imageId}
                             src={product.imageId && (product.imageId.startsWith('/') || product.imageId.startsWith('http')) ? product.imageId : '/placeholder-product.jpg'}
                             alt={product.title}
                             className="object-cover w-full h-full"
