@@ -1,17 +1,16 @@
-
 import { MetadataRoute } from 'next';
 import connectDB from '@/lib/db';
 import Product from '@/models/Product';
 import BlogPost from '@/models/BlogPost';
 import { getProductList } from '@/lib/product-data';
-
 import { getIndustryList } from '@/lib/industry-data';
+import { calculatorData } from '@/lib/calculators';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://www.egswitchgear.com';
 
     // 1. Static Routes
-    const routes = [
+    const staticRoutes = [
         '',
         '/products',
         '/services',
@@ -24,6 +23,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/terms-conditions',
         '/why-choose-us',
         '/resources',
+        '/projects',
+        '/search',
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
@@ -47,9 +48,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.8
     }));
 
-    // 4. Dynamic Data (DB Products & Blog Posts)
-    let productUrls = [];
-    let blogUrls = [];
+    // 4. Calculator Pages (From calculators.tsx)
+    const calculatorPages = calculatorData.map((calc) => ({
+        url: `${baseUrl}/calculators/${calc.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.7
+    }));
+
+    // 5. Dynamic Data (DB Products & Blog Posts)
+    let productUrls: MetadataRoute.Sitemap = [];
+    let blogUrls: MetadataRoute.Sitemap = [];
 
     try {
         await connectDB();
@@ -58,7 +67,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         productUrls = products.map((product) => ({
             url: `${baseUrl}/products/${product._id}`,
-            lastModified: product.updatedAt || new Date(),
+            lastModified: (product.updatedAt as Date) || new Date(),
             changeFrequency: 'weekly' as const,
             priority: 0.7,
         }));
@@ -74,6 +83,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         // Continue with only static routes
     }
 
-    return [...routes, ...staticProducts, ...industryPages, ...productUrls, ...blogUrls];
+    return [
+        ...staticRoutes,
+        ...staticProducts,
+        ...industryPages,
+        ...calculatorPages,
+        ...productUrls,
+        ...blogUrls
+    ];
 }
 

@@ -244,27 +244,27 @@ export default function ContactPage() {
                 </CardContent>
               </Card>
 
-              {mapImage && (
-                <Card className="overflow-hidden shadow-md border-primary/10">
-                  <div className="relative h-64 w-full">
-                    <Image
-                      src={mapImage.imageUrl}
-                      alt="Location Map"
-                      fill
-                      className="object-cover"
-                      data-ai-hint={mapImage.imageHint}
-                    />
-                    <div className="absolute inset-0 bg-primary/10 pointer-events-none" />
-                  </div>
-                  <CardContent className="p-4 bg-muted/50">
-                    <Button variant="outline" className="w-full font-semibold" asChild>
-                      <a href="https://www.google.com/maps/search/Plot+%23+56,+Street+%23+13,+I-9%2F2+,Islamabad,+Pakistan" target="_blank" rel="noopener noreferrer">
-                        Get Directions
-                      </a>
-                    </Button>
-                  </CardContent>
-                </Card>
-              )}
+              <Card className="overflow-hidden shadow-md border-primary/10">
+                <div className="relative h-80 w-full">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320.3687355041077!2d73.04169731520556!3d33.65171798071661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df949e29548f07%3A0xc665e38161f36471!2sPlot%2056%2C%20Street%2013%2C%20I-9%2F2%20I-9%2C%20Islamabad%2C%20Islamabad%20Capital%20Territory%2C%20Pakistan!5e0!3m2!1sen!2s!4v1690000000000!5m2!1sen!2s"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="EgSwitchgear Islamabad Location"
+                  />
+                </div>
+                <CardContent className="p-4 bg-muted/50">
+                  <Button variant="outline" className="w-full font-semibold" asChild>
+                    <a href="https://www.google.com/maps/search/Plot+%23+56,+Street+%23+13,+I-9%2F2+,Islamabad,+Pakistan" target="_blank" rel="noopener noreferrer">
+                      Get Directions
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
             </AnimateOnScroll>
           </div>
         </div>

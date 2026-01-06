@@ -31,6 +31,7 @@ import Logo from './logo';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { NavSearch } from './nav-search';
+import { allCategories, normalizeSlug } from '@/lib/product-data';
 
 // --- Components ---
 
@@ -45,9 +46,6 @@ function QuoteTriggerButton() {
     </Button>
   );
 }
-
-// --- Data ---
-import { allCategories } from '@/lib/product-data';
 
 const productCategories = allCategories.map(cat => ({
   title: cat.group,
@@ -209,7 +207,7 @@ export default function Header() {
                                       {category.items.map((item: string) => (
                                         <li key={item}>
                                           <Link
-                                            href={`/products/${item.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-')}`}
+                                            href={`/products/${normalizeSlug(item)}`}
                                             className="block text-[13px] text-muted-foreground hover:text-primary hover:underline transition-all"
                                           >
                                             {item}
@@ -312,7 +310,7 @@ export default function Header() {
                                     {category.items.map((item: string) => (
                                       <Link
                                         key={item}
-                                        href={`/products/${item.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-')}`}
+                                        href={`/products/${normalizeSlug(item)}`}
                                         onClick={() => setMobileMenuOpen(false)}
                                         className="block py-1.5 text-sm text-muted-foreground hover:text-primary"
                                       >

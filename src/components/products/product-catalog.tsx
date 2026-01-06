@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import * as motion from 'framer-motion/client';
 import AnimateOnScroll from '@/components/animations/animate-on-scroll';
+import { normalizeSlug } from '@/lib/product-data';
 
 interface Category {
     group: string;
@@ -78,7 +79,7 @@ export default function ProductCatalog({ categories }: ProductCatalogProps) {
             {filteredCategories.length > 0 ? (
                 <div className="grid gap-12">
                     {filteredCategories.map((category, idx) => (
-                        <section key={idx} className="scroll-mt-24" id={category.group.toLowerCase().replace(/\s+/g, '-')}>
+                        <section key={idx} className="scroll-mt-24" id={normalizeSlug(category.group)}>
                             <div className="flex items-center gap-4 mb-8">
                                 <div className="h-10 w-2 bg-accent rounded-full" />
                                 <h2 className="text-2xl md:text-3xl font-bold font-headline text-foreground">{category.group}</h2>
@@ -86,7 +87,7 @@ export default function ProductCatalog({ categories }: ProductCatalogProps) {
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {category.items.map((item, itemIdx) => {
-                                    const slug = item.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-');
+                                    const slug = normalizeSlug(item);
                                     return (
                                         <AnimateOnScroll key={itemIdx} delay={itemIdx % 3 * 0.1} animation="fade-up">
                                             <Link href={`/products/${slug}`} className="group h-full block">

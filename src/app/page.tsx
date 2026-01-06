@@ -3,7 +3,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { ArrowRight, BadgeCheck, CheckCircle2, Factory, FileText, Globe, Lightbulb, Shield, Zap } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { allCategories } from '@/lib/product-data';
+import { allCategories, normalizeSlug } from '@/lib/product-data';
 import { Metadata } from 'next';
 import connectDB from '@/lib/db';
 import BlogPost from '@/models/BlogPost';
@@ -62,7 +62,7 @@ function CogIcon(props: any) {
 }
 
 export default async function Home() {
-  let latestPosts = [];
+  let latestPosts: any[] = [];
   try {
     await connectDB();
     latestPosts = await BlogPost.find({ status: 'Published' })
@@ -182,7 +182,7 @@ export default async function Home() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {allCategories.slice(0, 6).map((cat, idx) => {
                 const Icon = categoryIcons[cat.group] || Zap;
-                const firstItemSlug = cat.items[0].toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-');
+                const firstItemSlug = normalizeSlug(cat.items[0]);
                 const linkHref = `/products/${firstItemSlug}`;
 
                 return (

@@ -13,8 +13,16 @@ export interface ProductData {
 
 
 // --- Helper to normalize slugs ---
-function normalizeSlug(text: string): string {
-    return text.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-');
+// --- Helper to normalize slugs ---
+export function normalizeSlug(text: string): string {
+    return text
+        .toLowerCase()
+        .replace(/&/g, '-and-') // Replace & with -and-
+        .replace(/\s+/g, '-')   // Replace spaces with -
+        .replace(/\//g, '-')    // Replace / with -
+        .replace(/[^a-z0-9-]/g, '') // Remove any other non-URL-friendly characters
+        .replace(/-+/g, '-')    // Remove consecutive hyphens
+        .replace(/^-+|-+$/g, ''); // Trim hyphens from start/end
 }
 
 // --- Factory for Default Content ---
