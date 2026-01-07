@@ -131,8 +131,26 @@ export function StaticProductView({ product, nextProduct, prevProduct }: Product
                     <div className="space-y-6">
                         <div className="rounded-xl border bg-card text-card-foreground shadow-sm">
                             <CardContent className="pt-6">
+                                <h3 className="text-lg font-semibold mb-4 text-primary">Manufacturing Excellence</h3>
+                                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                                    All our panels are fabricated using the <strong>largest CNC laser cutting facility in the region</strong> for precision fitment and superior quality.
+                                </p>
+                                <Button
+                                    variant="outline"
+                                    className="w-full border-primary/20 text-primary hover:bg-primary/5 group"
+                                    asChild
+                                >
+                                    <Link href="/manufacturing" className="flex items-center justify-center gap-2">
+                                        View Our Facility <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                                    </Link>
+                                </Button>
+                            </CardContent>
+                        </div>
+
+                        <div className="rounded-xl border bg-card text-card-foreground shadow-sm">
+                            <CardContent className="pt-6">
                                 <h3 className="text-lg font-semibold mb-4">Need Technical Help?</h3>
-                                <p className="text-sm text-muted-foreground mb-4">
+                                <p className="text-sm text-muted-foreground mb-4 font-normal">
                                     Our engineers are available to assist with load calculations and design.
                                 </p>
                                 <Button
@@ -192,6 +210,6 @@ export function StaticProductView({ product, nextProduct, prevProduct }: Product
                     ) : (<div />)}
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

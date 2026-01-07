@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, BadgeCheck, CheckCircle2, Factory, FileText, Globe, Lightbulb, Shield, Zap } from 'lucide-react';
+import { ArrowRight, BadgeCheck, CheckCircle2, ChevronRight, Factory, FileText, Globe, Lightbulb, Shield, Zap } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { allCategories, normalizeSlug } from '@/lib/product-data';
@@ -160,7 +160,12 @@ export default async function Home() {
                     </div>
                     <div>
                       <h3 className="font-bold text-lg mb-1">{item.title}</h3>
-                      <p className="text-muted-foreground text-sm">{item.desc}</p>
+                      <p className="text-muted-foreground text-sm mb-2">{item.desc}</p>
+                      {item.title === 'Custom Fabrication' && (
+                        <Link href="/manufacturing" className="text-xs font-semibold text-primary hover:underline flex items-center">
+                          View Our Facility <ChevronRight size={12} className="ml-0.5" />
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </AnimateOnScroll>
@@ -346,7 +351,7 @@ export default async function Home() {
                     <Link href="/contact">Get a Free Quote</Link>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="h-12 md:h-14 px-8 md:px-10 text-base md:text-lg w-full sm:w-auto">
-                    <Link href="tel:+923001234567">Call Sales Team</Link>
+                    <Link href="tel:+92 321 9574003">Call Sales Team</Link>
                   </Button>
                 </div>
               </div>

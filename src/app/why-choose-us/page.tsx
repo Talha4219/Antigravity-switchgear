@@ -84,6 +84,28 @@ export default function WhyChooseUsPage() {
                 </div>
             </section>
 
+            {/* Manufacturing Excellence Highlight */}
+            <section className="py-12 bg-primary/5 border-y border-primary/10">
+                <div className="container">
+                    <div className="bg-card rounded-3xl p-8 md:p-12 border border-primary/20 shadow-xl flex flex-col md:flex-row items-center gap-8">
+                        <div className="flex-1 text-center md:text-left">
+                            <h2 className="text-3xl font-bold text-primary mb-4">Precision Manufacturing Excellence</h2>
+                            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                                Evergreen Switchgear (EG Switchgear) stands apart with the <strong>largest CNC laser cutting machine in the region</strong>. This investment enables high-precision fabrication, faster turnaround times, and superior product consistency that local assemblers simply cannot match.
+                            </p>
+                            <Button asChild variant="outline" className="rounded-full border-primary text-primary hover:bg-primary hover:text-white group">
+                                <Link href="/manufacturing" className="flex items-center gap-2">
+                                    Explore Our Facility <CheckCircle2 size={16} className="group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            </Button>
+                        </div>
+                        <div className="w-full md:w-1/3 bg-muted rounded-2xl aspect-video md:aspect-square flex items-center justify-center relative overflow-hidden group">
+                            <ShieldCheck size={80} className="text-primary/20 group-hover:scale-110 transition-transform duration-500" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Competitor Comparison Table */}
             <section className="py-20 bg-muted/20">
                 <div className="container max-w-5xl">
@@ -106,7 +128,7 @@ export default function WhyChooseUsPage() {
                                 <TableRow>
                                     <TableCell className="font-medium">Component Authenticity</TableCell>
                                     <TableCell className="text-green-600 font-semibold bg-green-50 dark:bg-green-900/10">100% Genuine (Verifiable)</TableCell>
-                                    <TableCell className="text-muted-foreground">Often Counterfeit/Refurbished</TableCell>
+                                    <TableCell className="text-muted-foreground">Often Counterfeit / Refurbished</TableCell>
                                     <TableCell className="text-muted-foreground">Genuine</TableCell>
                                 </TableRow>
                                 <TableRow>

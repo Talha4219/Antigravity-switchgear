@@ -45,7 +45,10 @@ export default function ProductsIndexPage() {
             <div className="container py-12 border-t mt-12 text-center overflow-hidden">
                 <AnimateOnScroll animation="scale-up">
                     <h3 className="text-2xl font-bold mb-4">Can't ensure what you need?</h3>
-                    <p className="text-muted-foreground mb-8 text-lg">Our engineering team can help select the right solution for your project.</p>
+                    <p className="text-muted-foreground mb-8 text-lg">
+                        Our engineering team can help select the right solution for your project, backed by our
+                        <Link href="/manufacturing" className="text-primary font-bold hover:underline mx-1">advanced CNC manufacturing facility</Link>.
+                    </p>
                     <Button size="lg" asChild className="px-8 font-bold">
                         <Link href="/contact">Contact Engineering Team</Link>
                     </Button>

@@ -36,10 +36,12 @@ export const metadata: Metadata = {
     // Core / High-Intent Keywords
     'industrial switchgear', 'switchgear products', 'switchgear supplier', 'switchgear manufacturer',
     'switchgear distributor', 'custom switchgear solutions', 'switchgear systems', 'switchgear equipment',
+    'switchgear solutions', 'industrial switchgear systems',
     // By Voltage Level
     'low voltage switchgear', 'medium voltage switchgear', 'high voltage switchgear',
     'LV switchgear panels', 'MV switchgear cabinets', 'HV switchgear solutions',
     'ultra high voltage switchgear', '11kV switchgear', '33kV switchgear', '66kV switchgear',
+    'medium voltage power solutions',
     // By Type / Technology
     'gas insulated switchgear (GIS)', 'air insulated switchgear (AIS)', 'vacuum switchgear',
     'oil switchgear', 'hybrid switchgear systems', 'modular switchgear', 'smart switchgear',
@@ -48,15 +50,17 @@ export const metadata: Metadata = {
     'circuit breaker switchgear', 'busbar switchgear', 'protection relay switchgear',
     'disconnect switch switchgear', 'isolator switchgear', 'fused switchgear',
     // Long-Tail / Specialist
+    'switchgear services', 'switchgear services for reliable power', 'switch gear services',
     'switchgear installation services', 'switchgear maintenance and testing',
     'switchgear repair near me', 'switchgear replacement parts', 'switchgear for power distribution',
     'switchgear for industrial applications', 'switchgear for commercial buildings',
     'intelligent switchgear monitoring', 'switchgear safety standards', 'IEC switchgear specifications',
     'switchgear electrical design', 'switchgear cost and pricing guide',
+    'electric cable capacity calculator', 'cable ratings calculator', 'domestic cable size calculator',
     // Product Specifics from Mega Menu
     'LT Panels', 'HT Panels', 'VCB', 'ACB', 'PFI Plant', 'ATS Panel', 'AMF Panel',
     'Cable Trays', 'Industrial Automation', 'Solar Systems',
-    'Pakistan', 'Islamabad', 'Rawalpindi'
+    'Pakistan', 'Islamabad', 'Rawalpindi', 'eg switch'
   ],
   alternates: {
     canonical: './',

@@ -124,8 +124,8 @@ export default function CalculatorsPage() {
                   key={cat.name}
                   onClick={() => setActiveCategory(cat.name)}
                   className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all border ${activeCategory === cat.name
-                      ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20 scale-105'
-                      : 'bg-card/50 backdrop-blur-sm text-muted-foreground border-border hover:border-primary/40 hover:text-primary'
+                    ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20 scale-105'
+                    : 'bg-card/50 backdrop-blur-sm text-muted-foreground border-border hover:border-primary/40 hover:text-primary'
                     }`}
                 >
                   {cat.name}
@@ -230,7 +230,7 @@ export default function CalculatorsPage() {
                 </Button>
               </div>
               <p className="mt-8 text-xs text-slate-500 italic">
-                Explore our <Link href="/products/lt-panels" className="underline hover:text-primary">LT Panels</Link>, <Link href="/products/ats-amf-panels" className="underline hover:text-primary">ATS/AMF Systems</Link>, and <Link href="/products/pfi-plant" className="underline hover:text-primary">PFI Plants</Link>
+                Explore our <Link href="/products/lt-panels" className="underline hover:text-primary">LT Panels</Link>, <Link href="/products/ats-amf-panels" className="underline hover:text-primary">ATS/AMF Systems</Link>, <Link href="/products/pfi-plant" className="underline hover:text-primary">PFI Plants</Link>, and our advanced <Link href="/manufacturing" className="underline hover:text-primary font-bold">Manufacturing Facility</Link>
               </p>
             </div>
           </div>

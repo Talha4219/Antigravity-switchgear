@@ -92,6 +92,11 @@
   .font-headline {
     font-family: 'Space Grotesk', sans-serif;
   }
+
+  p,
+  li {
+    text-align: justify;
+  }
 }
 
 /* Premium Blog Readability Overrides for Quill Content */
@@ -104,6 +109,7 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
+  text-align: justify;
   /* 18px */
 }
 

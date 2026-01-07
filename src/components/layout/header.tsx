@@ -2,8 +2,9 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, Phone, Search } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Search, ArrowRight, Instagram, Linkedin, Facebook, Mail, MapPin, ExternalLink } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useQuoteDialog } from '@/components/conversion/quote-dialog-provider';
 
 import { Button } from '@/components/ui/button';
@@ -33,19 +34,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { NavSearch } from './nav-search';
 import { allCategories, normalizeSlug } from '@/lib/product-data';
 
-// --- Components ---
-
-function QuoteTriggerButton() {
-  const { openQuoteDialog } = useQuoteDialog();
-  return (
-    <Button
-      onClick={() => openQuoteDialog()}
-      className="hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 font-semibold px-6"
-    >
-      Get a Quote
-    </Button>
-  );
-}
+// --- Desktop Nav Data ---
 
 const productCategories = allCategories.map(cat => ({
   title: cat.group,
@@ -81,6 +70,7 @@ const navLinks = [
     items: [
       { label: 'About Us', href: '/about' },
       { label: 'Why Choose Us', href: '/why-choose-us' },
+      { label: 'Manufacturing Facility', href: '/manufacturing' },
       { label: 'Knowledge Hub', href: '/resources' },
       { label: 'Certifications', href: '/certifications' },
       { label: 'Our Projects', href: '/projects' },
@@ -94,269 +84,311 @@ export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const { openQuoteDialog } = useQuoteDialog();
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const NavLink = ({
-    href,
-    label,
-    isMobile = false,
-  }: {
-    href: string;
-    label: string;
-    isMobile?: boolean;
-  }) => {
-    const isActive = pathname === href;
-    return (
-      <Link
-        href={href}
-        onClick={() => setMobileMenuOpen(false)}
-        className={cn(
-          'transition-all duration-300 relative group',
-          isActive ? 'text-primary font-bold' : 'text-foreground/80 hover:text-primary',
-          isMobile ? 'text-xl py-3 block font-medium border-b border-border/50' : 'text-sm font-medium tracking-wide'
-        )}
-      >
-        {label}
-        {!isMobile && (
-          <span className={cn(
-            "absolute -bottom-[21px] left-0 w-full h-[3px] bg-primary rounded-t-full origin-bottom transition-transform duration-300",
-            isActive ? "scale-y-100" : "scale-y-0 group-hover:scale-y-100"
-          )} />
-        )}
-      </Link>
-    );
-  };
-
   if (pathname.startsWith('/admin')) return null;
 
   return (
     <>
-      {/* Top Bar for contact info - Optional for "Industrial" feel */}
-      <div className="bg-[#0B1221] text-white text-[10px] md:text-xs py-1.5 px-4 hidden sm:block">
-        <div className="container flex justify-between items-center">
-          <span className="opacity-80">Leading Manufacturer of Industrial Switchgear & Automated Solutions</span>
-          <div className="flex items-center gap-4">
-            <a href="tel:+923001234567" className="flex items-center gap-1.5 hover:text-primary transition-colors">
-              <Phone size={12} className="text-primary" />
-              <span className="font-medium">Sales: +92 300 123 4567</span>
+      {/* Premium Top Bar */}
+      <div className="bg-[#0B1221] text-white overflow-hidden py-2 px-4 hidden lg:block border-b border-white/5 relative">
+        <div className="container flex justify-between items-center relative z-10">
+          <div className="flex items-center gap-6 text-[11px] font-medium tracking-wide uppercase opacity-70">
+            <div className="flex items-center gap-2">
+              <div className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+              <span>Leading Switchgear Manufacturer</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="h-1.5 w-1.5 rounded-full bg-green-500" />
+              <span>ISO 9001:2015 Certified</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-6">
+            <a href="tel:+923219574003" className="flex items-center gap-2 text-xs hover:text-primary transition-all duration-300">
+              <Phone size={14} className="text-primary" />
+              <span className="font-bold">+92 321 9574003</span>
             </a>
+            <div className="h-4 w-[1px] bg-white/10" />
+            <div className="flex items-center gap-4">
+              <Link href="#" className="opacity-60 hover:opacity-100 hover:text-primary transition-all"><Facebook size={14} /></Link>
+              <Link href="#" className="opacity-60 hover:opacity-100 hover:text-primary transition-all"><Linkedin size={14} /></Link>
+              <Link href="#" className="opacity-60 hover:opacity-100 hover:text-primary transition-all"><Instagram size={14} /></Link>
+            </div>
           </div>
         </div>
       </div>
 
       <header
         className={cn(
-          "sticky top-0 z-50 w-full border-b transition-all duration-300 backdrop-blur-md",
+          "sticky top-0 z-50 w-full transition-all duration-500",
           scrolled
-            ? "bg-background/95 border-border/40 shadow-sm py-2"
-            : "bg-background/80 border-transparent py-4"
+            ? "bg-white/80 dark:bg-[#0B1221]/80 backdrop-blur-xl shadow-2xl shadow-primary/5 py-1 border-b border-primary/10"
+            : "bg-white dark:bg-[#0B1221] py-4 border-b border-transparent"
         )}
       >
-        <div className="container flex h-14 items-center justify-between">
-          {/* Logo Section */}
-          <div className="flex-shrink-0 mr-8">
+        <div className="container flex h-16 items-center justify-between gap-4">
+          {/* Logo */}
+          <div className="flex-shrink-0 relative group">
             <Logo />
+            <div className="absolute -inset-2 bg-primary/5 rounded-xl scale-0 group-hover:scale-100 transition-transform duration-300 -z-10" />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-6 flex-1 justify-center">
-            {navLinks.map((link) => {
-              if (link.isMenu) {
-                return (
-                  <DropdownMenu key={link.href}>
-                    <DropdownMenuTrigger className={cn(
-                      "flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-primary transition-colors focus:outline-none px-3 py-2 rounded-md hover:bg-accent/50",
-                      pathname.startsWith(link.href) && "text-primary font-bold bg-accent/30"
-                    )}>
-                      {link.label} <ChevronDown className="h-4 w-4 opacity-50" />
-                    </DropdownMenuTrigger>
+          <nav className="hidden xl:flex items-center justify-center flex-1">
+            <div className="bg-muted/30 dark:bg-white/5 px-2 py-1.5 rounded-full border border-border/40 backdrop-blur-md flex items-center gap-0.5">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href || (link.isMenu && pathname.startsWith(link.href));
 
-                    {link.isMegaMenu ? (
-                      <DropdownMenuContent align="center" className="w-[90vw] max-w-[1000px] p-0 border-border/40 shadow-2xl bg-background/95 backdrop-blur-xl animate-in fade-in-0 zoom-in-95">
-                        <div className="grid grid-cols-12 h-[500px]">
-                          {/* Decorative Sidebar */}
-                          <div className="col-span-3 bg-muted/30 p-8 border-r border-border/50">
-                            <h3 className="font-headline font-bold text-2xl mb-4 text-primary">Our Products</h3>
-                            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                              Explore our comprehensive range of industrial power distribution and automation solutions, engineered for safety and reliability.
-                            </p>
-                            <Button variant="outline" className="w-full justify-between" asChild>
-                              <Link href="/products">All Products <ChevronDown className="rotate-270 h-4 w-4" /></Link>
-                            </Button>
-                          </div>
+                if (link.isMenu) {
+                  return (
+                    <DropdownMenu key={link.href}>
+                      <DropdownMenuTrigger
+                        className={cn(
+                          "relative px-4 py-2 text-[13px] font-bold transition-all duration-300 rounded-full flex items-center gap-1.5 focus:outline-none",
+                          isActive ? "text-primary bg-primary/10" : "text-foreground/70 hover:text-primary hover:bg-primary/5"
+                        )}
+                        onMouseEnter={() => setHoveredLink(link.label)}
+                        onMouseLeave={() => setHoveredLink(null)}
+                      >
+                        {link.label}
+                        <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-300", hoveredLink === link.label && "rotate-180")} />
+                      </DropdownMenuTrigger>
 
-                          {/* Content Grid */}
-                          <div className="col-span-9 p-8">
-                            <ScrollArea className="h-full pr-6">
-                              <div className="grid grid-cols-3 gap-x-8 gap-y-10">
-                                {/* @ts-ignore */}
-                                {link.items.map((category: any, idx: number) => (
-                                  <div key={idx} className="space-y-4">
-                                    <div className="flex items-center gap-2 border-b border-border/50 pb-2 mb-2">
-                                      <div className="h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                                      <h4 className="font-bold text-sm leading-tight text-foreground/90">{category.title}</h4>
-                                    </div>
-                                    <ul className="space-y-2">
-                                      {/* @ts-ignore */}
-                                      {category.items.map((item: string) => (
-                                        <li key={item}>
-                                          <Link
-                                            href={`/products/${normalizeSlug(item)}`}
-                                            className="block text-[13px] text-muted-foreground hover:text-primary hover:underline transition-all"
-                                          >
-                                            {item}
-                                          </Link>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                ))}
+                      {link.isMegaMenu ? (
+                        <DropdownMenuContent
+                          align="center"
+                          className="w-[100vw] lg:w-[1000px] p-0 border-primary/20 bg-white/95 dark:bg-[#0B1221]/95 backdrop-blur-2xl shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] animate-in fade-in zoom-in-95 duration-300 rounded-3xl overflow-hidden"
+                        >
+                          <div className="grid grid-cols-12 h-[550px]">
+                            {/* Mega Menu Branding Sidebar */}
+                            <div className="col-span-3 bg-primary/5 p-10 border-r border-primary/10 flex flex-col justify-between">
+                              <div>
+                                <div className="h-12 w-12 bg-primary rounded-2xl flex items-center justify-center text-white mb-6 shadow-xl shadow-primary/20">
+                                  <ExternalLink size={24} />
+                                </div>
+                                <h3 className="font-headline font-black text-3xl text-primary leading-tight mb-4">Precision Engineering</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed mb-8">
+                                  Every unit is a masterpiece of safety and reliability, fabricated using Pakistan's largest CNC laser cutting technology.
+                                </p>
                               </div>
-                            </ScrollArea>
+                              <Button asChild className="rounded-xl h-12 font-bold group">
+                                <Link href="/products" className="flex items-center gap-2">
+                                  View All Categories <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                              </Button>
+                            </div>
+
+                            {/* Mega Menu Content */}
+                            <div className="col-span-9 p-8">
+                              <ScrollArea className="h-full pr-4">
+                                <div className="grid grid-cols-3 gap-8">
+                                  {link.items.map((category: any, idx: number) => (
+                                    <div key={idx} className="group/cat">
+                                      <h4 className="flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-primary mb-4 opacity-70 group-hover/cat:opacity-100 transition-opacity">
+                                        <span className="h-[2px] w-4 bg-primary rounded-full" />
+                                        {category.title}
+                                      </h4>
+                                      <ul className="space-y-2">
+                                        {category.items.map((item: string) => (
+                                          <li key={item}>
+                                            <Link
+                                              href={`/products/${normalizeSlug(item)}`}
+                                              className="flex items-center gap-2 text-[13px] font-medium text-muted-foreground hover:text-primary transition-all duration-200"
+                                            >
+                                              <span className="h-1 w-1 rounded-full bg-border group-hover:bg-primary transition-colors" />
+                                              {item}
+                                            </Link>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  ))}
+                                </div>
+                              </ScrollArea>
+                            </div>
                           </div>
-                        </div>
-                      </DropdownMenuContent>
-                    ) : (
-                      <DropdownMenuContent align="start" className="w-56 p-1 animate-in fade-in-0 zoom-in-95 border-border/40 bg-background/95 backdrop-blur-xl">
-                        {/* @ts-ignore */}
-                        {link.items?.map((item: any) => (
-                          <DropdownMenuItem key={item.label} asChild>
-                            <Link
-                              href={item.href}
-                              className="w-full cursor-pointer py-2.5 px-3 font-medium text-sm text-foreground/80 focus:text-primary focus:bg-primary/10 rounded-sm"
-                            >
-                              {item.label}
-                            </Link>
-                          </DropdownMenuItem>
-                        ))}
-                      </DropdownMenuContent>
+                        </DropdownMenuContent>
+                      ) : (
+                        <DropdownMenuContent
+                          align="center"
+                          className="w-64 p-2 bg-white/95 dark:bg-[#0B1221]/95 backdrop-blur-2xl border-primary/20 shadow-2xl rounded-2xl animate-in fade-in slide-in-from-top-2 duration-300"
+                        >
+                          {link.items?.map((item: any) => (
+                            <DropdownMenuItem key={item.label} asChild className="focus:bg-primary/10 rounded-xl transition-colors">
+                              <Link
+                                href={item.href}
+                                className="w-full flex items-center justify-between p-3 text-sm font-bold text-foreground/80 hover:text-primary"
+                              >
+                                {item.label} <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                              </Link>
+                            </DropdownMenuItem>
+                          ))}
+                        </DropdownMenuContent>
+                      )}
+                    </DropdownMenu>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                      "relative px-5 py-2 text-[13px] font-bold transition-all duration-300 rounded-full",
+                      isActive ? "text-primary bg-primary/10" : "text-foreground/70 hover:text-primary hover:bg-primary/5"
                     )}
-                  </DropdownMenu>
+                  >
+                    {link.label}
+                  </Link>
                 );
-              }
-              return (
-                <NavLink key={link.href} href={link.href} label={link.label} />
-              );
-            })}
+              })}
+            </div>
           </nav>
 
-          {/* Right Actions */}
+          {/* Right Section */}
           <div className="flex items-center gap-2 sm:gap-4">
-            <NavSearch />
-            <ThemeToggle />
-            <div className="hidden sm:block">
-              <QuoteTriggerButton />
+            <div className="hidden lg:flex items-center gap-2">
+              <NavSearch />
+              <ThemeToggle />
             </div>
 
-            {/* Mobile Menu Trigger - Large as per request */}
+            <Button
+              onClick={() => openQuoteDialog()}
+              className="hidden lg:flex bg-primary hover:bg-primary/90 text-white font-bold h-11 px-8 rounded-full shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-300 active:scale-95"
+            >
+              Get a Quote
+            </Button>
+
+            {/* Mobile Nav Button */}
             <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="md:hidden h-24 w-24 rounded-full hover:bg-accent active:scale-95 transition-all"
-                  aria-label="Menu"
+                  className="xl:hidden h-12 w-12 rounded-2xl bg-muted/40 hover:bg-primary/10 hover:text-primary transition-all active:scale-90"
                 >
-                  <Menu className="h-24 w-24 text-foreground" />
+                  <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto p-0 border-l border-border/40">
-                <SheetHeader className="p-6 text-left border-b bg-muted/30">
-                  <div className="mb-4">
+              <SheetContent side="right" className="w-full sm:w-[450px] p-0 border-l border-primary/10 bg-white dark:bg-[#0B1221] overflow-hidden flex flex-col">
+                <SheetHeader className="p-8 border-b border-primary/5 text-left flex flex-row items-center justify-between">
+                  <div>
                     <Logo />
+                    <SheetTitle className="sr-only">Main Menu</SheetTitle>
+                    <SheetDescription className="text-[10px] font-black uppercase tracking-widest text-primary mt-2">
+                      Precision Power Solutions
+                    </SheetDescription>
                   </div>
-                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-                  <SheetDescription className="text-xs">
-                    Industrial Power Solutions & Engineering
-                  </SheetDescription>
+                  <ThemeToggle />
                 </SheetHeader>
-                <nav className="flex flex-col p-6 gap-2">
-                  {/* Mobile Search */}
-                  <div className="mb-6 relative">
-                    <input
-                      className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 pl-10"
-                      placeholder="Type to search..."
-                    />
-                    <Search className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
+
+                <ScrollArea className="flex-1 px-8 py-6">
+                  <div className="flex flex-col gap-1">
+                    {navLinks.map((link) => {
+                      if (link.isMenu) {
+                        return (
+                          <Collapsible key={link.href} className="w-full border-b border-primary/5 py-2">
+                            <CollapsibleTrigger className="flex w-full items-center justify-between text-2xl font-black text-foreground py-4 group">
+                              {link.label}
+                              <ChevronDown className="h-6 w-6 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                            </CollapsibleTrigger>
+                            <CollapsibleContent className="pb-4 space-y-4">
+                              {link.isMegaMenu ? (
+                                link.items.map((category: any, idx: number) => (
+                                  <div key={idx} className="mt-4 first:mt-2">
+                                    <h5 className="text-[10px] font-black uppercase tracking-widest text-primary opacity-60 mb-3">{category.title}</h5>
+                                    <div className="grid grid-cols-1 gap-2">
+                                      {category.items.map((item: string) => (
+                                        <Link
+                                          key={item}
+                                          href={`/products/${normalizeSlug(item)}`}
+                                          onClick={() => setMobileMenuOpen(false)}
+                                          className="flex items-center gap-3 py-2 text-base font-bold text-muted-foreground hover:text-primary transition-colors"
+                                        >
+                                          <div className="h-1.5 w-1.5 rounded-full bg-border" />
+                                          {item}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))
+                              ) : (
+                                <div className="grid grid-cols-1 gap-1 pt-2">
+                                  {link.items?.map((item: any) => (
+                                    <Link
+                                      key={item.label}
+                                      href={item.href}
+                                      onClick={() => setMobileMenuOpen(false)}
+                                      className="flex items-center gap-3 py-3 text-lg font-bold text-muted-foreground hover:text-primary border-b border-primary/5 last:border-0"
+                                    >
+                                      <div className="h-2 w-2 rounded-full bg-primary/20" />
+                                      {item.label}
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+                            </CollapsibleContent>
+                          </Collapsible>
+                        );
+                      }
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="text-2xl font-black text-foreground py-5 border-b border-primary/5 hover:text-primary transition-colors flex items-center justify-between group"
+                        >
+                          {link.label}
+                          <ArrowRight className="h-6 w-6 text-primary opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        </Link>
+                      );
+                    })}
                   </div>
 
-                  {navLinks.map((link) => {
-                    if (link.isMenu) {
-                      return (
-                        <Collapsible key={link.href} className="w-full border-b border-border/40 pb-2">
-                          <CollapsibleTrigger className="flex w-full items-center justify-between text-xl font-medium text-foreground py-3 group">
-                            {link.label}
-                            <div className="p-1 rounded-full bg-muted group-data-[state=open]:bg-primary/20 transition-colors">
-                              <ChevronDown className="h-5 w-5 transition-transform duration-200 group-data-[state=open]:rotate-180" />
-                            </div>
-                          </CollapsibleTrigger>
-                          <CollapsibleContent className="pl-4 space-y-2 mt-2">
-                            {link.isMegaMenu ? (
-                              // @ts-ignore
-                              link.items.map((category: any, idx: number) => (
-                                <Collapsible key={idx} className="w-full my-2">
-                                  <CollapsibleTrigger className="flex w-full items-center justify-between text-base font-semibold text-foreground/80 py-2">
-                                    {category.title}
-                                    <ChevronDown className="h-4 w-4 opacity-50" />
-                                  </CollapsibleTrigger>
-                                  <CollapsibleContent className="pl-3 mt-1 space-y-2 border-l-2 border-border/50 ml-1.5">
-                                    {/* @ts-ignore */}
-                                    {category.items.map((item: string) => (
-                                      <Link
-                                        key={item}
-                                        href={`/products/${normalizeSlug(item)}`}
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        className="block py-1.5 text-sm text-muted-foreground hover:text-primary"
-                                      >
-                                        {item}
-                                      </Link>
-                                    ))}
-                                  </CollapsibleContent>
-                                </Collapsible>
-                              ))
-                            ) : (
-                              // @ts-ignore
-                              link.items?.map((item: any) => (
-                                <Link
-                                  key={item.label}
-                                  href={item.href}
-                                  onClick={() => setMobileMenuOpen(false)}
-                                  className="block py-3 text-base text-muted-foreground hover:text-primary border-b border-border/20 last:border-0"
-                                >
-                                  {item.label}
-                                </Link>
-                              ))
-                            )}
-                          </CollapsibleContent>
-                        </Collapsible>
-                      );
-                    }
-                    return (
-                      <NavLink
-                        key={link.href}
-                        href={link.href}
-                        label={link.label}
-                        isMobile
-                      />
-                    );
-                  })}
-                  <div className="mt-8 pt-6 border-t">
-                    <Button asChild className="w-full h-12 text-lg font-bold shadow-xl" onClick={() => setMobileMenuOpen(false)}>
-                      <span className="flex items-center gap-2" onClick={() => (window.location.href = '/contact')}>
-                        Get a Quote <ChevronDown className="-rotate-90 h-5 w-5" />
-                      </span>
-                    </Button>
-                    <div className="mt-6 flex justify-center gap-6 text-muted-foreground">
-                      {/* Mobile Socials could go here */}
+                  <div className="mt-12 space-y-8">
+                    <div className="p-8 bg-primary/5 rounded-[2rem] border border-primary/10">
+                      <h4 className="text-xl font-black mb-4 flex items-center gap-2">
+                        <Phone size={20} className="text-primary" /> Contact Sales
+                      </h4>
+                      <div className="space-y-4">
+                        <a href="tel:+923219574003" className="block text-2xl font-black hover:text-primary transition-colors">+92 321 9574003</a>
+                        <div className="flex items-center gap-4 text-muted-foreground">
+                          <Mail size={18} /> <span>sales@egswitchgear.com</span>
+                        </div>
+                        <div className="flex items-center gap-4 text-muted-foreground">
+                          <MapPin size={18} /> <span className="text-xs">Plot 7, Sector I-9/2, Islamabad</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex justify-center gap-8 py-4">
+                      <Link href="#" className="h-12 w-12 rounded-2xl bg-muted/40 flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-all"><Facebook size={24} /></Link>
+                      <Link href="#" className="h-12 w-12 rounded-2xl bg-muted/40 flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-all"><Linkedin size={24} /></Link>
+                      <Link href="#" className="h-12 w-12 rounded-2xl bg-muted/40 flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-all"><Instagram size={24} /></Link>
                     </div>
                   </div>
-                </nav>
+                </ScrollArea>
+
+                <div className="p-8 border-t border-primary/5">
+                  <Button
+                    variant="default"
+                    size="xl"
+                    className="w-full h-16 rounded-2xl text-xl font-black shadow-2xl shadow-primary/20"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      openQuoteDialog();
+                    }}
+                  >
+                    Request a Quote
+                  </Button>
+                </div>
               </SheetContent>
             </Sheet>
           </div>

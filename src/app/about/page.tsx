@@ -5,8 +5,8 @@ import { CheckCircle, Award, Users, Target } from 'lucide-react';
 import { placeholderImages } from '@/lib/placeholder-images';
 
 export const metadata = {
-  title: 'About Us | SwitchGear Pro',
-  description: 'Learn about SwitchGear Pro\'s history, expertise, and commitment to quality and innovation in the power distribution industry.',
+  title: 'About Us | Evergreen Switchgear (EG Switchgear)',
+  description: 'Evergreen Switchgear (EG Switchgear) is a leading switchgear manufacturer providing high-quality electrical switchgear solutions for industrial, commercial, and utility applications.',
 };
 
 export default function AboutPage() {
@@ -17,10 +17,10 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
         <div className="container py-20 text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-headline font-bold tracking-tight animate-in fade-in slide-in-from-bottom-4 duration-700">
-            About SwitchGear Pro
+            About Evergreen Switchgear (EG Switchgear)
           </h1>
           <p className="mt-6 text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-5 duration-700 delay-150">
-            Pioneering the future of power distribution with an unwavering commitment to quality, innovation, and our customers.
+            Your trusted partner for advanced switchgear manufacturing and power distribution solutions.
           </p>
         </div>
       </section>
@@ -29,13 +29,23 @@ export default function AboutPage() {
         <div className="container">
           <div className="grid lg:grid-cols-5 gap-12 items-center">
             <div className="lg:col-span-3 animate-in fade-in slide-in-from-left-6 duration-700">
-              <h2 className="text-3xl font-headline font-semibold text-primary">Our Story</h2>
+              <h2 className="text-3xl font-headline font-semibold text-primary">Our Expertise</h2>
               <div className="mt-4 space-y-4 text-foreground/80 leading-relaxed">
                 <p>
-                  Founded in 1985, SwitchGear Pro began with a simple mission: to build safer and more reliable electrical switchgear. From our humble beginnings in a small workshop, we have grown into an industry leader, known for our engineering excellence and innovative solutions.
+                  Evergreen Switchgear (EG Switchgear) is a leading switchgear manufacturer providing high-quality electrical switchgear solutions for industrial, commercial, and utility applications. We specialize in the design and manufacturing of low voltage and medium voltage switchgear, ensuring safe, reliable, and efficient power distribution systems.
                 </p>
                 <p>
-                  Over the decades, we have consistently pushed the boundaries of technology, adapting to the evolving needs of the energy sector. Our journey has been one of continuous improvement, driven by a passion for solving complex challenges and a dedication to powering progress. Today, our products are integral to power grids, industrial complexes, and critical infrastructure across the globe.
+                  With advanced manufacturing facilities and strict quality control processes, EG Switchgear delivers customized switchgear panels, power control panels, and electrical distribution boards that comply with international safety and performance standards. Our products are engineered for durability, energy efficiency, and long-term operational reliability.
+                </p>
+                <p>
+                  At Evergreen Switchgear, innovation, precision engineering, and customer satisfaction drive everything we do. Our experienced technical team works closely with clients to provide cost-effective switchgear solutions, on-time project delivery, and dependable after-sales support. We are committed to powering industries with reliable electrical switchgear manufacturing that supports sustainable growth and operational excellence.
+                </p>
+              </div>
+
+              <div className="mt-10 border-l-4 border-primary bg-primary/5 p-6 rounded-r-xl">
+                <h3 className="text-xl font-headline font-semibold text-primary mb-2">Our Manufacturing Capability</h3>
+                <p className="text-foreground/80 leading-relaxed">
+                  Evergreen Switchgear (EG Switchgear) stands apart with the largest CNC laser cutting machine in the region, enabling high-precision fabrication, faster turnaround times, and superior product consistency across all switchgear components.
                 </p>
               </div>
               <div className="mt-12 grid sm:grid-cols-2 gap-8">
@@ -64,7 +74,7 @@ export default function AboutPage() {
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <Image
                     src={teamImage.imageUrl}
-                    alt="SwitchGear Pro Team"
+                    alt="Evergreen Switchgear Team"
                     width={500}
                     height={600}
                     className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
