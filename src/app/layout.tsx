@@ -98,6 +98,12 @@ export default function RootLayout({
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
+        {/* Google tag (gtag.js) */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-N543VB3RVL" strategy="afterInteractive" />
+        <Script id="google-gtag" strategy="afterInteractive">
+          {`\n            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-N543VB3RVL');\n          `}
+        </Script>
       </head>
       <body
         className={cn(
