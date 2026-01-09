@@ -363,7 +363,7 @@ export default function Header() {
                           <Mail size={18} /> <span>sales@egswitchgear.com</span>
                         </div>
                         <div className="flex items-center gap-4 text-muted-foreground">
-                          <MapPin size={18} /> <span className="text-xs">Plot 7, Sector I-9/2, Islamabad</span>
+                          <MapPin size={18} /> <span className="text-xs">Plot # 56, Street # 13, Sector I-9/2, Islamabad</span>
                         </div>
                       </div>
                     </div>
