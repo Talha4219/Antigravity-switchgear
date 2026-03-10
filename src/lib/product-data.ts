@@ -2059,7 +2059,7 @@ export const allCategories = [
     // Cable Management Solutions
     { group: 'Cable Management Solutions', items: ['Cable Trays', 'Cable Trunking', 'Cable Ladders', 'Cable Tray Accessories', 'Services Boxes', 'Bus Way System'] },
     // Industrial Automation & Control
-    { group: 'Industrial Automation', items: ['PLC Automation Systems', 'Building Management Systems (BMS)', 'Energy Monitoring Systems'] },
+    { group: 'Industrial Automation & Control', items: ['PLC Automation Systems', 'Building Management Systems (BMS)', 'Energy Monitoring Systems'] },
     // Lighting & Emergency Systems
     { group: 'Lighting & Emergency Systems', items: ['Commercial & Industrial Lighting', 'Street Lighting Poles', 'Emergency Lighting (CBS)', 'Power Backup Systems'] },
     // Security & Safety Solutions
@@ -2115,4 +2115,8 @@ export function getPrevProduct(currentSlug: string): ProductData | null {
     const index = keys.indexOf(currentSlug);
     if (index === -1 || index === 0) return null;
     return products[keys[index - 1]];
+}
+
+export function getCategoryBySlug(slug: string) {
+    return allCategories.find(cat => normalizeSlug(cat.group) === slug || normalizeSlug(cat.group).replace('-and-', '-') === slug);
 }

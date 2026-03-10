@@ -39,6 +39,7 @@ export const metadata: Metadata = {
     'electrical panel manufacturer Islamabad', 'IEC compliant panels',
     'electric cable capacity calculator', 'cable ratings calculator', 'domestic cable size calculator',
     'LT Panels', 'HT Panels', 'VCB', 'ACB', 'Cable Trays', 'Industrial Automation', 'Solar Systems',
+    'switchgear rating calculation', 'electrical switchgear cost estimate', 'industrial switchgear solutions',
     'Pakistan', 'Islamabad', 'eg switch'
   ],
   alternates: {

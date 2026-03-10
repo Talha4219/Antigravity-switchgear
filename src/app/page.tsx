@@ -20,7 +20,8 @@ export const metadata: Metadata = {
   keywords: [
     'Evergreen Switchgear', 'custom switchgear solutions', 'electrical panel manufacturer Islamabad',
     'IEC compliant panels', 'industrial automation Pakistan', 'LV panels manufacturer',
-    'power distribution solutions Islamabad', 'certified electrical engineering'
+    'power distribution solutions Islamabad', 'certified electrical engineering',
+    'switchgear rating calculation', 'electrical switchgear cost estimate', 'industrial switchgear solutions'
   ],
 };
 

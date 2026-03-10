@@ -41,7 +41,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.9,
     }));
 
-    // 3. Industry Pages (From industry-data.ts)
+    // 3. Category Pages (From product-data.ts)
+    const categoryPages = [
+        'cable-management-solutions',
+        'fabrication-coating-services',
+        'lighting-emergency-systems',
+        'industrial-telecom-enclosures',
+        'solar-systems',
+        'security-safety-solutions',
+        'industrial-automation-control',
+        'storage-infrastructure-solutions'
+    ].map((slug) => ({
+        url: `${baseUrl}/products/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }));
+
+    // 4. Industry Pages (From industry-data.ts)
     const industryPages = getIndustryList().map((ind) => ({
         url: `${baseUrl}/industries/${ind.slug}`,
         lastModified: new Date(),
@@ -87,6 +104,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return [
         ...staticRoutes,
         ...staticProducts,
+        ...categoryPages,
         ...industryPages,
         ...calculatorPages,
         ...productUrls,

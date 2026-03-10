@@ -1,11 +1,12 @@
 import { notFound } from 'next/navigation';
-import { getProductBySlug, getNextProduct, getPrevProduct } from '@/lib/product-data';
+import { getProductBySlug, getNextProduct, getPrevProduct, getCategoryBySlug, products } from '@/lib/product-data';
 import { StaticProductView } from '@/components/products/product-view';
+import ProductCatalog from '@/components/products/product-catalog';
 
 interface ProductPageProps {
-  params: {
+  params: Promise<{
     id: string; // The folder is [id], so the param is id. We treat it as slug.
-  };
+  }>;
 }
 
 export const revalidate = 60;
@@ -22,42 +23,63 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       },
     };
   }
+
+  const category = getCategoryBySlug(id);
+  if (category) {
+    return {
+      title: `${category.group} | Industrial Switchgear Solutions`,
+      description: `Explore our specialized range of ${category.group.toLowerCase()} systems. Precision-engineered solutions for industrial and commercial electrical infrastructure.`,
+      alternates: {
+        canonical: `/products/${id}`,
+      },
+    };
+  }
+
   return {
     title: 'Product Not Found',
   };
 }
 
 export default async function ProductDetailPage({ params }: ProductPageProps) {
-  const resolvedParams = await params;
-  // The folder is named [id], so next passes the slug as `id`.
-  const { id } = resolvedParams;
+  const { id } = await params;
 
   const product = getProductBySlug(id);
 
-  if (!product) {
-    notFound();
+  if (product) {
+    const nextProduct = getNextProduct(id);
+    const prevProduct = getPrevProduct(id);
+
+    const mappedProduct: any = {
+      ...product,
+      description: product.overview,
+      specs: Object.entries(product.specifications).map(([k, v]) => `${k}: ${v}`).join(', '),
+      imageId: product.imageUrl,
+      relatedCalculators: product.relatedCalculators
+    };
+
+    return <StaticProductView product={mappedProduct} nextProduct={nextProduct as any} prevProduct={prevProduct as any} />;
   }
 
-  const nextProduct = getNextProduct(id);
-  const prevProduct = getPrevProduct(id);
+  const category = getCategoryBySlug(id);
+  if (category) {
+    return (
+      <div className="min-h-screen bg-background pb-20">
+        <div className="bg-primary py-12 text-primary-foreground relative overflow-hidden">
+          <div className="container relative z-10">
+            <h1 className="text-3xl md:text-4xl font-headline font-bold mb-2 uppercase tracking-tight">
+              {category.group}
+            </h1>
+            <p className="text-primary-foreground/70 max-w-2xl text-sm font-medium">
+              Browse our high-quality {category.group.toLowerCase()} range. All products are manufactured in our ISO certified CNC facility.
+            </p>
+          </div>
+        </div>
+        <div className="container py-12 px-4">
+          <ProductCatalog categories={[category]} />
+        </div>
+      </div>
+    );
+  }
 
-  // Casting or mapping might be needed if StaticProductView expects specific types, 
-  // but typically StaticProductView was built for this static data.
-  // We need to double check ProductViewProps in product-view.tsx matches ProductData.
-  // Based on previous reads, StaticProductView uses `product.title` etc which matches ProductData.
-
-  // We need to map ProductData to the interface expected by StaticProductView if they differ.
-  // ProductData has: slug, title, shortDescription, overview, features, specifications, applications, whyChooseUs, imageUrl
-  // StaticProductView Props: product: Product (from models?) or similar.
-  // Let's coerce it for now as they share common fields like title, description (overview vs description).
-
-  const mappedProduct: any = {
-    ...product,
-    description: product.overview, // Map overview to description if component expects description
-    specs: Object.entries(product.specifications).map(([k, v]) => `${k}: ${v}`).join(', '), // simplistic map
-    imageId: product.imageUrl, // map imageUrl to imageId? Component logic seemed to handle image parsing.
-    relatedCalculators: product.relatedCalculators
-  };
-
-  return <StaticProductView product={mappedProduct} nextProduct={nextProduct as any} prevProduct={prevProduct as any} />;
+  notFound();
 }
