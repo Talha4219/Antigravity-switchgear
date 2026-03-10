@@ -7,7 +7,11 @@ import { placeholderImages } from '@/lib/placeholder-images';
 
 export const metadata = {
   title: 'About Us | Evergreen Switchgear (EG Switchgear)',
-  description: 'Evergreen Switchgear (EG Switchgear) is a leading switchgear manufacturer providing high-quality electrical switchgear solutions for industrial, commercial, and utility applications.',
+  description: 'Learn about Evergreen Switchgear, a leading manufacturer in Pakistan specializing in high-quality LV/MV switchgear and precision CNC industrial fabrication. Our history, mission, and commitment to quality.',
+  keywords: [
+    'switchgear history', 'electrical engineering expertise Pakistan', 'CNC laser cutting Islamabad',
+    'about Evergreen Switchgear', 'industrial fabrication Pakistan', 'ISO 9001:2015 certified'
+  ],
 };
 
 export default function AboutPage() {

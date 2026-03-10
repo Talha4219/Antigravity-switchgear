@@ -24,59 +24,47 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://egswitchgear.com'), // Replace with actual domain in production
+  metadataBase: new URL('https://www.egswitchgear.com'),
   title: {
-    default: 'EgSwitchGear | High Quality Industrial Switchgear',
-    template: '%s | EgSwitchGear',
+    default: 'Evergreen Switchgear | Leading Electrical Solutions in Pakistan',
+    template: '%s | Evergreen Switchgear',
   },
-  description: 'Leading manufacturer of high-quality switchgear products, HT/LT Panels, VCB, ACB, and power distribution solutions for industrial applications. Ensuring electrical safety and reliability.',
+  description: 'Expert manufacturers of premium LV/MV switchgear, control panels, and industrial electrical solutions. ISO 9001:2015 certified electrical engineering in Pakistan.',
   keywords: [
-    // Core Identity
-    'Switchgear', 'EgSwitchgear', 'Electrical Safety', 'Power Distribution',
-    // Core / High-Intent Keywords
-    'industrial switchgear', 'switchgear products', 'switchgear supplier', 'switchgear manufacturer',
-    'switchgear distributor', 'custom switchgear solutions', 'switchgear systems', 'switchgear equipment',
-    'switchgear solutions', 'industrial switchgear systems',
-    // By Voltage Level
-    'low voltage switchgear', 'medium voltage switchgear', 'high voltage switchgear',
-    'LV switchgear panels', 'MV switchgear cabinets', 'HV switchgear solutions',
-    'ultra high voltage switchgear', '11kV switchgear', '33kV switchgear', '66kV switchgear',
-    'medium voltage power solutions',
-    // By Type / Technology
-    'gas insulated switchgear (GIS)', 'air insulated switchgear (AIS)', 'vacuum switchgear',
-    'oil switchgear', 'hybrid switchgear systems', 'modular switchgear', 'smart switchgear',
-    'metal-enclosed switchgear', 'outdoor switchgear', 'indoor switchgear',
-    // Components
-    'circuit breaker switchgear', 'busbar switchgear', 'protection relay switchgear',
-    'disconnect switch switchgear', 'isolator switchgear', 'fused switchgear',
-    // Long-Tail / Specialist
-    'switchgear services', 'switchgear services for reliable power', 'switch gear services',
-    'switchgear installation services', 'switchgear maintenance and testing',
-    'switchgear repair near me', 'switchgear replacement parts', 'switchgear for power distribution',
-    'switchgear for industrial applications', 'switchgear for commercial buildings',
-    'intelligent switchgear monitoring', 'switchgear safety standards', 'IEC switchgear specifications',
-    'switchgear electrical design', 'switchgear cost and pricing guide',
+    'Evergreen Switchgear', 'EG Switchgear', 'Switchgear Pakistan', 'Electrical Safety', 'Power Distribution',
+    'industrial switchgear', 'switchgear manufacturer', 'custom switchgear solutions',
+    'LV switchgear panels', 'MV switchgear cabinets', '11kV switchgear', '33kV switchgear',
+    'gas insulated switchgear GIS', 'air insulated switchgear AIS', 'vacuum switchgear',
+    'circuit breaker switchgear', 'busbar switchgear', 'PFI Plant Pakistan', 'ATS AMF Panels',
+    'electrical panel manufacturer Islamabad', 'IEC compliant panels',
     'electric cable capacity calculator', 'cable ratings calculator', 'domestic cable size calculator',
-    // Product Specifics from Mega Menu
-    'LT Panels', 'HT Panels', 'VCB', 'ACB', 'PFI Plant', 'ATS Panel', 'AMF Panel',
-    'Cable Trays', 'Industrial Automation', 'Solar Systems',
-    'Pakistan', 'Islamabad', 'Rawalpindi', 'eg switch'
+    'LT Panels', 'HT Panels', 'VCB', 'ACB', 'Cable Trays', 'Industrial Automation', 'Solar Systems',
+    'Pakistan', 'Islamabad', 'eg switch'
   ],
   alternates: {
-    canonical: './',
+    canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://egswitchgear.com',
-    title: 'EgSwitchGear | Industrial Switchgear Solutions',
-    description: 'Reliable and safe power distribution with top-tier HT/LT panels and switchgear.',
-    siteName: 'EgSwitchGear',
+    url: 'https://www.egswitchgear.com',
+    siteName: 'Evergreen Switchgear',
+    title: 'Evergreen Switchgear | Leading Electrical Solutions in Pakistan',
+    description: 'Expert manufacturers of premium LV/MV switchgear, control panels, and industrial electrical solutions. ISO 9001:2015 certified.',
+    images: [
+      {
+        url: '/opengraph-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Evergreen Switchgear Industrial Excellence',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'EgSwitchGear | Industrial Switchgear Solutions',
-    description: 'Reliable and safe power distribution with top-tier HT/LT panels and switchgear.',
+    title: 'Evergreen Switchgear | Precision Electrical Engineering',
+    description: 'High-quality electrical switchgear and industrial solutions tailored for safety and reliability.',
+    images: ['/opengraph-image.png'],
   },
   robots: {
     index: true,

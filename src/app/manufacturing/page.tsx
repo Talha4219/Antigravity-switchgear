@@ -5,12 +5,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata = {
-    title: 'Largest CNC Laser Cutting Machine in the Region | EG Switchgear',
-    description: 'EG Switchgear operates the largest CNC laser cutting machine in the region, delivering high-precision, fast, and reliable switchgear manufacturing solutions.',
+    title: 'Precision CNC Manufacturing Facility | Evergreen Switchgear',
+    description: 'EG Switchgear operates the largest CNC laser cutting machine in Pakistan, delivering high-precision, fast, and reliable switchgear manufacturing solutions. Precision sheet metal fabrication and bending.',
     keywords: [
-        'largest cnc laser cutting machine', 'cnc laser cutting switchgear',
-        'switchgear manufacturing facility', 'precision metal fabrication',
-        'evergreen switchgear', 'eg switchgear'
+        'CNC laser cutting Pakistan', 'precision metal fabrication Islamabad',
+        'switchgear manufacturing facility', 'sheet metal bending industrial',
+        'largest CNC laser cutting machine', 'custom enclosure fabrication'
     ],
 };
 

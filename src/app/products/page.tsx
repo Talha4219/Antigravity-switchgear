@@ -8,8 +8,12 @@ import * as motion from 'framer-motion/client';
 import AnimateOnScroll from '@/components/animations/animate-on-scroll';
 
 export const metadata = {
-    title: 'Product Catalog | EgSwitchGear',
-    description: 'Explore our complete range of industrial switchgear, automation, and power distribution solutions.',
+    title: 'Product Catalog | Industrial Switchgear & Control Panels',
+    description: 'Explore our complete range of industrial switchgear, automation panels, and power distribution solutions. Premium quality LV/MV products engineered for safety.',
+    keywords: [
+        'switchgear catalog', 'LV panels list', 'MV switchgear products',
+        'electrical product range Pakistan', 'industrial control panels', 'PFI Plant supplier'
+    ],
 };
 
 export default function ProductsIndexPage() {

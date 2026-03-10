@@ -15,8 +15,13 @@ import { Snowfall } from 'react-snowfall';
 
 
 export const metadata: Metadata = {
-  title: 'EgSwitchGear | Premium Industrial Switchgear & Power Solutions',
-  description: 'Leading manufacturer of LV/MV Switchgear, Power Distribution Panels, and Industrial Automation systems in Pakistan. IEC Compliant & ISO Certified.',
+  title: 'Evergreen Switchgear | Premium Industrial Switchgear & Power Solutions',
+  description: 'Leading manufacturer of LV/MV Switchgear, Power Distribution Panels, and Industrial Automation systems in Pakistan. IEC Compliant & ISO Certified electrical solutions.',
+  keywords: [
+    'Evergreen Switchgear', 'custom switchgear solutions', 'electrical panel manufacturer Islamabad',
+    'IEC compliant panels', 'industrial automation Pakistan', 'LV panels manufacturer',
+    'power distribution solutions Islamabad', 'certified electrical engineering'
+  ],
 };
 
 // Map categories to icons/images for visual appeal

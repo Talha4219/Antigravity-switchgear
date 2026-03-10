@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, Phone, Search, ArrowRight, Instagram, Linkedin, Facebook, Mail, MapPin, ExternalLink } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useQuoteDialog } from '@/components/conversion/quote-dialog-provider';
 
@@ -48,6 +48,12 @@ const navLinks = [
     title: 'Explore Our Full Range of Switchgear Products',
     isMenu: true,
     isMegaMenu: true,
+    branding: {
+      title: 'Precision Engineering',
+      description: "Every unit is a masterpiece of safety and reliability, fabricated using Pakistan's largest CNC laser cutting technology.",
+      actionText: 'View All Categories',
+      actionLink: '/products'
+    },
     items: productCategories,
   },
   {
@@ -55,12 +61,24 @@ const navLinks = [
     label: 'Industries',
     title: 'Precision Power Solutions for Diverse Industries',
     isMenu: true,
+    isMegaMenu: true,
+    branding: {
+      title: 'Industry Expertise',
+      description: 'Tailored electrical solutions for varied sectors, ensuring operational excellence and safety across the board.',
+      actionText: 'Explore Industries',
+      actionLink: '/industries'
+    },
     items: [
-      { label: 'Factories & Manufacturing', href: '/industries/factories-manufacturing', title: 'Power Solutions for Factories and Manufacturing Plants' },
-      { label: 'Commercial Buildings', href: '/industries/commercial-buildings', title: 'Electrical Infrastructure for Commercial Buildings' },
-      { label: 'Water Treatment', href: '/industries/water-treatment', title: 'Reliable Power for Water Treatment Facilities' },
-      { label: 'Hospitals', href: '/industries/hospitals', title: 'Critical Power Systems for Hospitals' },
-      { label: 'Solar Projects', href: '/industries/solar-projects', title: 'Sustainable Solar Power Projects' },
+      {
+        title: 'Core Sectors',
+        items: [
+          'Factories & Manufacturing',
+          'Commercial Buildings',
+          'Water Treatment',
+          'Hospitals',
+          'Solar Projects'
+        ]
+      }
     ]
   },
   { href: '/services', label: 'Services', title: 'Professional Electrical Services and Maintenance' },
@@ -70,25 +88,82 @@ const navLinks = [
     label: 'Company',
     title: 'Learn More About Evergreen Switchgear',
     isMenu: true,
+    isMegaMenu: true,
+    branding: {
+      title: 'Our Journey',
+      description: 'Discover the legacy of Evergreen Switchgear, our commitment to quality, and the people behind our success.',
+      actionText: 'About Evergreen',
+      actionLink: '/about'
+    },
     items: [
-      { label: 'About Us', href: '/about', title: 'Our History and Mission' },
-      { label: 'Why Choose Us', href: '/why-choose-us', title: 'The Evergreen Switchgear Advantage' },
-      { label: 'Manufacturing Facility', href: '/manufacturing', title: 'Our State-of-the-Art CNC Manufacturing Facility' },
-      { label: 'Knowledge Hub', href: '/resources', title: 'Electrical Engineering Resources and Guides' },
-      { label: 'Certifications', href: '/certifications', title: 'Our ISO and IEC Certifications' },
-      { label: 'Our Projects', href: '/projects', title: 'View Our Successfully Completed Projects' },
-      { label: 'Blog', href: '/blog', title: 'Latest Industry News and Technical Articles' },
+      {
+        title: 'Organization',
+        items: [
+          'About Us',
+          'Why Choose Us',
+          'Certifications',
+          'Manufacturing Facility'
+        ]
+      },
+      {
+        title: 'Resources',
+        items: [
+          'Knowledge Hub',
+          'Blog',
+          'Our Projects',
+        ]
+      }
     ]
   },
   { href: '/contact', label: 'Contact', title: 'Get in Touch with Our Engineering Team' },
 ];
+
+// Helper to get href for items not in products
+const getLinkHref = (label: string, menuHref: string) => {
+  if (menuHref === '/products') return `/products/${normalizeSlug(label)}`;
+
+  const companyLinks: Record<string, string> = {
+    'About Us': '/about',
+    'Why Choose Us': '/why-choose-us',
+    'Manufacturing Facility': '/manufacturing',
+    'Knowledge Hub': '/resources',
+    'Certifications': '/certifications',
+    'Our Projects': '/projects',
+    'Blog': '/blog'
+  };
+
+  const industryLinks: Record<string, string> = {
+    'Factories & Manufacturing': '/industries/factories-manufacturing',
+    'Commercial Buildings': '/industries/commercial-buildings',
+    'Water Treatment': '/industries/water-treatment',
+    'Hospitals': '/industries/hospitals',
+    'Solar Projects': '/industries/solar-projects'
+  };
+
+  return companyLinks[label] || industryLinks[label] || '#';
+};
 
 export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { openQuoteDialog } = useQuoteDialog();
+
+  const handleMouseEnter = (label: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setOpenMenu(label);
+    setHoveredLink(label);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setOpenMenu(null);
+      setHoveredLink(null);
+    }, 150);
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -146,96 +221,83 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden xl:flex items-center justify-center flex-1">
             <div className="bg-muted/30 dark:bg-white/5 px-2 py-1.5 rounded-full border border-border/40 backdrop-blur-md flex items-center gap-0.5">
-              {navLinks.map((link) => {
+              {navLinks.map((link: any) => {
                 const isActive = pathname === link.href || (link.isMenu && pathname.startsWith(link.href));
 
                 if (link.isMenu) {
                   return (
-                    <DropdownMenu key={link.href}>
+                    <DropdownMenu
+                      key={link.href}
+                      open={openMenu === link.label}
+                      onOpenChange={(open) => !open && setOpenMenu(null)}
+                    >
                       <DropdownMenuTrigger
                         className={cn(
                           "relative px-4 py-2 text-[13px] font-bold transition-all duration-300 rounded-full flex items-center gap-1.5 focus:outline-none",
                           isActive ? "text-primary bg-primary/10" : "text-foreground/70 hover:text-primary hover:bg-primary/5"
                         )}
-                        onMouseEnter={() => setHoveredLink(link.label)}
-                        onMouseLeave={() => setHoveredLink(null)}
+                        onMouseEnter={() => handleMouseEnter(link.label)}
+                        onMouseLeave={handleMouseLeave}
                       >
                         {link.label}
                         <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-300", hoveredLink === link.label && "rotate-180")} />
                       </DropdownMenuTrigger>
 
-                      {link.isMegaMenu ? (
-                        <DropdownMenuContent
-                          align="center"
-                          className="w-[100vw] lg:w-[1000px] p-0 border-primary/20 bg-white/95 dark:bg-[#0B1221]/95 backdrop-blur-2xl shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] animate-in fade-in zoom-in-95 duration-300 rounded-3xl overflow-hidden"
-                        >
-                          <div className="grid grid-cols-12 h-[550px]">
-                            {/* Mega Menu Branding Sidebar */}
-                            <div className="col-span-3 bg-primary/5 p-10 border-r border-primary/10 flex flex-col justify-between">
-                              <div>
-                                <div className="h-12 w-12 bg-primary rounded-2xl flex items-center justify-center text-white mb-6 shadow-xl shadow-primary/20">
-                                  <ExternalLink size={24} />
-                                </div>
-                                <h3 className="font-headline font-black text-3xl text-primary leading-tight mb-4">Precision Engineering</h3>
-                                <p className="text-sm text-muted-foreground leading-relaxed mb-8">
-                                  Every unit is a masterpiece of safety and reliability, fabricated using Pakistan's largest CNC laser cutting technology.
-                                </p>
+                      <DropdownMenuContent
+                        align="center"
+                        className="w-[100vw] lg:w-[1000px] p-0 border-primary/20 bg-white/95 dark:bg-[#0B1221]/95 backdrop-blur-2xl shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] animate-in fade-in zoom-in-95 duration-300 rounded-3xl overflow-hidden"
+                        onMouseEnter={() => handleMouseEnter(link.label)}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        <div className="grid grid-cols-12 min-h-[400px] lg:h-[550px]">
+                          {/* Mega Menu Branding Sidebar */}
+                          <div className="col-span-3 bg-primary/5 p-10 border-r border-primary/10 flex flex-col justify-between">
+                            <div>
+                              <div className="h-12 w-12 bg-primary rounded-2xl flex items-center justify-center text-white mb-6 shadow-xl shadow-primary/20">
+                                <ExternalLink size={24} />
                               </div>
-                              <Button asChild className="rounded-xl h-12 font-bold group">
-                                <Link href="/products" title="Browse all switchgear categories" className="flex items-center gap-2">
-                                  View All Categories <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                                </Link>
-                              </Button>
+                              <h3 className="font-headline font-black text-3xl text-primary leading-tight mb-4">{link.branding?.title}</h3>
+                              <p className="text-sm text-muted-foreground leading-relaxed mb-8">
+                                {link.branding?.description}
+                              </p>
                             </div>
-
-                            {/* Mega Menu Content */}
-                            <div className="col-span-9 p-8">
-                              <ScrollArea className="h-full pr-4">
-                                <div className="grid grid-cols-3 gap-8">
-                                  {link.items.map((category: any, idx: number) => (
-                                    <div key={idx} className="group/cat">
-                                      <h4 className="flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-primary mb-4 opacity-70 group-hover/cat:opacity-100 transition-opacity">
-                                        <span className="h-[2px] w-4 bg-primary rounded-full" />
-                                        {category.title}
-                                      </h4>
-                                      <ul className="space-y-2">
-                                        {category.items.map((item: string) => (
-                                          <li key={item}>
-                                            <Link
-                                              href={`/products/${normalizeSlug(item)}`}
-                                              className="flex items-center gap-2 text-[13px] font-medium text-muted-foreground hover:text-primary transition-all duration-200"
-                                            >
-                                              <span className="h-1 w-1 rounded-full bg-border group-hover:bg-primary transition-colors" />
-                                              {item}
-                                            </Link>
-                                          </li>
-                                        ))}
-                                      </ul>
-                                    </div>
-                                  ))}
-                                </div>
-                              </ScrollArea>
-                            </div>
-                          </div>
-                        </DropdownMenuContent>
-                      ) : (
-                        <DropdownMenuContent
-                          align="center"
-                          className="w-64 p-2 bg-white/95 dark:bg-[#0B1221]/95 backdrop-blur-2xl border-primary/20 shadow-2xl rounded-2xl animate-in fade-in slide-in-from-top-2 duration-300"
-                        >
-                          {link.items?.map((item: any) => (
-                            <DropdownMenuItem key={item.label} asChild className="focus:bg-primary/10 rounded-xl transition-colors">
-                              <Link
-                                href={item.href}
-                                title={item.title}
-                                className="w-full flex items-center justify-between p-3 text-sm font-bold text-foreground/80 hover:text-primary"
-                              >
-                                {item.label} <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                            <Button asChild className="rounded-xl h-12 font-bold group">
+                              <Link href={link.branding?.actionLink || '#'} title={link.branding?.actionText} className="flex items-center gap-2">
+                                {link.branding?.actionText} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                               </Link>
-                            </DropdownMenuItem>
-                          ))}
-                        </DropdownMenuContent>
-                      )}
+                            </Button>
+                          </div>
+
+                          {/* Mega Menu Content */}
+                          <div className="col-span-9 p-8">
+                            <ScrollArea className="h-full pr-4">
+                              <div className="grid grid-cols-3 gap-8">
+                                {link.items?.map((category: any, idx: number) => (
+                                  <div key={idx} className="group/cat">
+                                    <h4 className="flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-primary mb-4 opacity-70 group-hover/cat:opacity-100 transition-opacity">
+                                      <span className="h-[2px] w-4 bg-primary rounded-full" />
+                                      {category.title}
+                                    </h4>
+                                    <ul className="space-y-2">
+                                      {category.items.map((item: string) => (
+                                        <li key={item}>
+                                          <Link
+                                            href={getLinkHref(item, link.href)}
+                                            className="flex items-center gap-2 text-[13px] font-medium text-muted-foreground hover:text-primary transition-all duration-200"
+                                          >
+                                            <span className="h-1 w-1 rounded-full bg-border group-hover:bg-primary transition-colors" />
+                                            {item}
+                                          </Link>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                ))}
+                              </div>
+                            </ScrollArea>
+                          </div>
+                        </div>
+                      </DropdownMenuContent>
                     </DropdownMenu>
                   );
                 }
@@ -305,42 +367,25 @@ export default function Header() {
                               <ChevronDown className="h-6 w-6 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" />
                             </CollapsibleTrigger>
                             <CollapsibleContent className="pb-4 space-y-4">
-                              {link.isMegaMenu ? (
-                                link.items.map((category: any, idx: number) => (
-                                  <div key={idx} className="mt-4 first:mt-2">
-                                    <h5 className="text-[10px] font-black uppercase tracking-widest text-primary opacity-60 mb-3">{category.title}</h5>
-                                    <div className="grid grid-cols-1 gap-2">
-                                      {category.items.map((item: string) => (
-                                        <Link
-                                          key={item}
-                                          href={`/products/${normalizeSlug(item)}`}
-                                          title={`View details for ${item}`}
-                                          onClick={() => setMobileMenuOpen(false)}
-                                          className="flex items-center gap-3 py-2 text-base font-bold text-muted-foreground hover:text-primary transition-colors"
-                                        >
-                                          <div className="h-1.5 w-1.5 rounded-full bg-border" />
-                                          {item}
-                                        </Link>
-                                      ))}
-                                    </div>
+                              {link.items?.map((category: any, idx: number) => (
+                                <div key={idx} className="mt-4 first:mt-2">
+                                  <h5 className="text-[10px] font-black uppercase tracking-widest text-primary opacity-60 mb-3">{category.title}</h5>
+                                  <div className="grid grid-cols-1 gap-2">
+                                    {category.items.map((item: string) => (
+                                      <Link
+                                        key={item}
+                                        href={getLinkHref(item, link.href)}
+                                        title={`View details for ${item}`}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="flex items-center gap-3 py-2 text-base font-bold text-muted-foreground hover:text-primary transition-colors"
+                                      >
+                                        <div className="h-1.5 w-1.5 rounded-full bg-border" />
+                                        {item}
+                                      </Link>
+                                    ))}
                                   </div>
-                                ))
-                              ) : (
-                                <div className="grid grid-cols-1 gap-1 pt-2">
-                                  {link.items?.map((item: any) => (
-                                    <Link
-                                      key={item.label}
-                                      href={item.href}
-                                      title={item.title}
-                                      onClick={() => setMobileMenuOpen(false)}
-                                      className="flex items-center gap-3 py-3 text-lg font-bold text-muted-foreground hover:text-primary border-b border-primary/5 last:border-0"
-                                    >
-                                      <div className="h-2 w-2 rounded-full bg-primary/20" />
-                                      {item.label}
-                                    </Link>
-                                  ))}
                                 </div>
-                              )}
+                              ))}
                             </CollapsibleContent>
                           </Collapsible>
                         );
