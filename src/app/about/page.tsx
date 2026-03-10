@@ -37,7 +37,7 @@ export default function AboutPage() {
               <h2 className="text-3xl font-headline font-semibold text-primary">Our Expertise</h2>
               <div className="mt-4 space-y-4 text-foreground/80 leading-relaxed">
                 <p>
-                  Evergreen Switchgear (EG Switchgear) is a leading switchgear manufacturer providing high-quality electrical switchgear solutions for industrial, commercial, and utility applications. We specialize in the design and manufacturing of <Link href="/products/lt-panels" className="text-primary hover:underline font-semibold">low voltage</Link> and <Link href="/products/ht-switchgear-panels" className="text-primary hover:underline font-semibold">medium voltage switchgear</Link>, ensuring safe, reliable, and efficient power distribution systems.
+                  Evergreen Switchgear (EG Switchgear) is a leading switchgear manufacturer providing high-quality **industrial switchgear solutions** and comprehensive **switchgear services** for industrial, commercial, and utility applications. We specialize in the design and manufacturing of <Link href="/products/lt-panels" className="text-primary hover:underline font-semibold">low voltage</Link> and <Link href="/products/ht-switchgear-panels" className="text-primary hover:underline font-semibold">medium voltage switchgear</Link>, ensuring safe, reliable, and efficient power distribution systems.
                 </p>
                 <p>
                   With advanced manufacturing facilities and strict quality control processes, EG Switchgear delivers customized <Link href="/products" className="text-primary hover:underline font-semibold">switchgear panels</Link>, <Link href="/products/mcc-panels" className="text-primary hover:underline font-semibold">power control panels</Link>, and <Link href="/products/distribution-boards" className="text-primary hover:underline font-semibold">electrical distribution boards</Link> that comply with international safety and performance standards. Our products are engineered for durability, energy efficiency, and long-term operational reliability.
@@ -48,9 +48,9 @@ export default function AboutPage() {
               </div>
 
               <div className="mt-10 border-l-4 border-primary bg-primary/5 p-6 rounded-r-xl">
-                <h3 className="text-xl font-headline font-semibold text-primary mb-2">Our Manufacturing Capability</h3>
+                <h3 className="text-xl font-headline font-semibold text-primary mb-2">Technical Capabilities & Standards</h3>
                 <p className="text-foreground/80 leading-relaxed">
-                  Evergreen Switchgear (EG Switchgear) stands apart with the <Link href="/manufacturing" className="text-primary hover:underline font-semibold">largest CNC laser cutting machine</Link> in the region, enabling high-precision fabrication, faster turnaround times, and superior product consistency across all switchgear components.
+                  We specialize in **customized medium voltage solutions** and **IEC 61439 compliant busbar sizing** for heavy-duty applications. Evergreen Switchgear (EG Switchgear) stands apart with the <Link href="/manufacturing" className="text-primary hover:underline font-semibold">largest CNC laser cutting machine</Link> in the region, enabling high-precision fabrication of **bus coupler panels**, **PFI plants**, and **central battery system (CBS)** housings.
                 </p>
               </div>
               <div className="mt-12 grid sm:grid-cols-2 gap-8">

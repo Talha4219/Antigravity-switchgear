@@ -40,6 +40,10 @@ export const metadata: Metadata = {
     'electric cable capacity calculator', 'cable ratings calculator', 'domestic cable size calculator',
     'LT Panels', 'HT Panels', 'VCB', 'ACB', 'Cable Trays', 'Industrial Automation', 'Solar Systems',
     'switchgear rating calculation', 'electrical switchgear cost estimate', 'industrial switchgear solutions',
+    'electric cable capacity calculator', 'cable ratings calculator', 'iec 61439 busbar size',
+    'busbar calculator', 'switchgear services', 'domestic cable size calculator', 'medium voltage power solutions',
+    'busbar size for 6300a', 'cbs central battery system', 'bus coupler panel', 'pfi plant', 'arc flash calculator',
+    'copper busbar size', 'iec 61439-1', 'iec 61439-2', 'switchgear solutions', 'vfd control panel',
     'Pakistan', 'Islamabad', 'eg switch'
   ],
   alternates: {

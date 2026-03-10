@@ -30,11 +30,11 @@ const CATEGORIES = [
 ] as const;
 
 const CATEGORY_DESCRIPTIONS: Record<typeof CATEGORIES[number], string> = {
-  'All Tools': 'Browse our complete suite of professional electrical engineering calculators.',
-  'System Analysis': 'Analyze fault currents, power factors, and load requirements for safe system design.',
-  'Power Distribution': 'Size transformers, breakers, and <Link href="/products/vfd-panel" className="text-primary hover:underline">VFD Control Panels</Link> for optimal performance.',
-  'Cabling & Containment': 'Calculate cable sizes, <Link href="/products/cable-trays" className="text-primary hover:underline">perforated tray fills</Link>, and containment requirements per NEC standards.',
-  'Lighting & Safety': 'Design emergency lighting, illuminance levels, and arc flash protection systems.',
+  'All Tools': 'Browse our complete suite of professional electrical engineering calculators, including busbar and cable capacity tools.',
+  'System Analysis': 'Analyze fault currents, power factors, and load requirements for safe system design and switchgear rating.',
+  'Power Distribution': 'Size transformers, breakers, and <Link href="/products/vfd-panel" className="text-primary hover:underline">VFD Control Panels</Link> for optimal performance in medium voltage power solutions.',
+  'Cabling & Containment': 'Professional **electric cable capacity calculator** and **domestic cable size calculator** tools for perforated trays and containment per NEC standards.',
+  'Lighting & Safety': 'Design emergency lighting, illuminance levels, and arc flash protection systems for industrial facilities.',
   'Renewable Energy': 'Size <Link href="/products/solar-systems" className="text-primary hover:underline">solar panels</Link>, batteries, and renewable energy systems for off-grid applications.'
 };
 

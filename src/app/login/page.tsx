@@ -149,6 +149,12 @@ export default function LoginPage() {
                 Sign In
               </Button>
             </form>
+            <div className="text-center text-sm">
+              New administrator?{' '}
+              <Link href="/admin/signup" className="text-primary hover:underline font-semibold">
+                Register Here
+              </Link>
+            </div>
           </CardContent>
         </Card>
         <p className="text-center text-sm text-muted-foreground mt-6">

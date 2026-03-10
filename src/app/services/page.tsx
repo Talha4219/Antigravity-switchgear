@@ -11,7 +11,7 @@ export const metadata = {
 const services = [
   {
     title: "Custom Engineering & Design",
-    description: "Tailored <Link href=\"/products\" className=\"text-primary hover:underline font-medium\">switchgear solutions</Link> designed to meet your specific project requirements, ensuring optimal performance and integration.",
+    description: "Tailored <Link href=\"/products\" className=\"text-primary hover:underline font-medium\">industrial switchgear solutions</Link> designed to meet your specific project requirements, ensuring optimal performance and integration.",
     icon: Cog,
   },
   {
@@ -21,12 +21,12 @@ const services = [
   },
   {
     title: "Maintenance & Support",
-    description: "Comprehensive maintenance plans and on-demand support to maximize the lifespan and reliability of your electrical infrastructure.",
+    description: "Comprehensive **switchgear services** and maintenance plans to maximize the lifespan and reliability of your electrical infrastructure.",
     icon: Zap,
   },
   {
     title: "System Modernization & Retrofitting",
-    description: "Upgrade your existing switchgear with the latest technology to enhance safety, improve efficiency, and extend service life.",
+    description: "Upgrade your existing switchgear with the latest technology for **medium voltage power solutions** to enhance safety, improve efficiency, and extend service life.",
     icon: Lightbulb,
   },
   {
@@ -48,7 +48,7 @@ export default function ServicesPage() {
         <div className="container py-16 text-center">
           <h1 className="text-4xl md:text-5xl font-headline font-bold">Our Services</h1>
           <p className="mt-4 text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto">
-            Providing end-to-end solutions to power your success, from design and installation to long-term maintenance and support.
+            Providing end-to-end **switchgear services** to power your success, from design and installation to long-term maintenance and support for industrial systems.
           </p>
         </div>
       </section>

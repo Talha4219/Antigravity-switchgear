@@ -11,6 +11,7 @@ import { placeholderImages } from '@/lib/placeholder-images';
 import { Calendar, Monitor, Cpu as CpuIcon, Layers, Zap as ZapIcon, Shield as ShieldIcon } from 'lucide-react';
 import * as motion from 'framer-motion/client';
 import AnimateOnScroll from '@/components/animations/animate-on-scroll';
+import { Badge } from '@/components/ui/badge';
 import { Snowfall } from 'react-snowfall';
 
 
@@ -20,8 +21,10 @@ export const metadata: Metadata = {
   keywords: [
     'Evergreen Switchgear', 'custom switchgear solutions', 'electrical panel manufacturer Islamabad',
     'IEC compliant panels', 'industrial automation Pakistan', 'LV panels manufacturer',
-    'power distribution solutions Islamabad', 'certified electrical engineering',
-    'switchgear rating calculation', 'electrical switchgear cost estimate', 'industrial switchgear solutions'
+    'certified electrical engineering', 'switchgear rating calculation', 'industrial switchgear solutions',
+    'electric cable capacity calculator', 'iec 61439 busbar size', 'busbar calculator',
+    'switchgear services', 'medium voltage power solutions', '6300a busbar size',
+    'bus coupler panel', 'pfi plant electrical', 'central battery systems cbs'
   ],
 };
 
@@ -234,7 +237,7 @@ export default async function Home() {
                 <div>
                   <h2 className="text-2xl md:text-5xl font-headline font-bold mb-4 md:mb-6">Built on Trust & Engineering Excellence</h2>
                   <p className="text-primary-foreground/80 text-base md:text-lg mb-8 leading-relaxed">
-                    We don't just build panels; we engineer safety and reliability. Our rigorous testing protocols ensure every unit that leaves our factory is ready for the toughest industrial environments.
+                    We don't just build panels; we provide comprehensive **Switchgear Services** and engineer safety for medium and low voltage infrastructure. Our rigorous testing protocols ensure every unit that leaves our factory is ready for the toughest industrial environments.
                   </p>
                   <div className="grid grid-cols-2 gap-8">
                     <div>
@@ -275,6 +278,19 @@ export default async function Home() {
                 </div>
               </AnimateOnScroll>
             </div>
+            <AnimateOnScroll animation="scale-up" delay={0.2}>
+              <div className="flex flex-wrap justify-center gap-4 mb-12">
+                <Badge variant="secondary" className="px-6 py-2 rounded-full text-xs font-bold bg-white/10 text-white border-white/20 backdrop-blur-md">
+                  Medium Voltage Power Solutions
+                </Badge>
+                <Badge variant="secondary" className="px-6 py-2 rounded-full text-xs font-bold bg-white/10 text-white border-white/20 backdrop-blur-md">
+                  IEC 61439 Type Tested
+                </Badge>
+                <Badge variant="secondary" className="px-6 py-2 rounded-full text-xs font-bold bg-white/10 text-white border-white/20 backdrop-blur-md">
+                  ISO 9001:2015 Certified
+                </Badge>
+              </div>
+            </AnimateOnScroll>
           </div>
         </section>
 

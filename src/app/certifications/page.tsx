@@ -6,8 +6,8 @@ import connectDB from '@/lib/db';
 import Certification from '@/models/Certification';
 
 export const metadata = {
-  title: 'Certifications & Compliance | SwitchGear Pro',
-  description: 'View our certifications and compliance standards that demonstrate our commitment to quality, safety, and environmental responsibility.',
+  title: 'Certifications & Compliance Standards | EgSwitchGear',
+  description: 'View the international certifications and compliance standards (ISO 9001, IEC 61439) that demonstrate EgSwitchGear\'s commitment to quality and safety.',
 };
 
 export const revalidate = 60;
@@ -36,15 +36,15 @@ export default async function CertificationsPage() {
                 <Card key={cert.id} className="text-center">
                   <CardHeader>
                     {certImage && (
-                        <div className="relative h-24 w-24 mx-auto mb-4">
-                            <Image
-                                src={certImage.imageUrl}
-                                alt={`${cert.name} Logo`}
-                                fill
-                                className="object-contain"
-                                data-ai-hint={certImage.imageHint}
-                            />
-                        </div>
+                      <div className="relative h-24 w-24 mx-auto mb-4">
+                        <Image
+                          src={certImage.imageUrl}
+                          alt={`${cert.name} Logo`}
+                          fill
+                          className="object-contain"
+                          data-ai-hint={certImage.imageHint}
+                        />
+                      </div>
                     )}
                     <CardTitle className="font-headline">{cert.name}</CardTitle>
                     <CardDescription>{cert.issuingBody}</CardDescription>
