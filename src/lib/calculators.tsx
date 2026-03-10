@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, TrendingDown, Server, Network, Gauge, Ruler, LayoutPanelLeft, Sun, Clock, SunMedium, Battery } from "lucide-react";
+import { Zap, TrendingDown, Server, Network, Gauge, Ruler, LayoutPanelLeft, Sun, Clock, SunMedium, Battery, ShieldCheck } from "lucide-react";
 import FaultCurrentCalculator from "@/app/calculators/components/fault-current-calculator";
 import VoltageDropCalculator from "@/app/calculators/components/voltage-drop-calculator";
 import LoadCalculator from "@/app/calculators/components/load-calculator";
