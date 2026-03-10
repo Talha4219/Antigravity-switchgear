@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, ArrowLeft, FileDown, Phone } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -80,11 +81,13 @@ export function StaticProductView({ product, nextProduct, prevProduct }: Product
                            We check if imageId is a path (contains /) or an ID.
                            Static data uses imageUrl in imageId prop now (mapped in page.tsx). 
                         */}
-                        <img
-                            // src={product.imageId}
+                        <Image
                             src={product.imageId && (product.imageId.startsWith('/') || product.imageId.startsWith('http')) ? product.imageId : '/placeholder-product.jpg'}
                             alt={product.title}
-                            className="object-cover w-full h-full"
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            className="object-cover"
+                            priority
                         />
                     </div>
                 </div>

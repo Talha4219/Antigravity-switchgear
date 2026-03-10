@@ -2,146 +2,25 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, Phone, Search, ArrowRight, Instagram, Linkedin, Facebook, Mail, MapPin, ExternalLink } from 'lucide-react';
+import { ChevronDown, Search, ArrowRight, ExternalLink } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { useQuoteDialog } from '@/components/conversion/quote-dialog-provider';
 
 import { Button } from '@/components/ui/button';
 import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetDescription,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet';
-import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible';
 import { cn } from '@/lib/utils';
 import Logo from './logo';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { NavSearch } from './nav-search';
-import { allCategories, normalizeSlug } from '@/lib/product-data';
-
-// --- Desktop Nav Data ---
-
-const productCategories = allCategories.map(cat => ({
-  title: cat.group,
-  items: cat.items
-}));
-
-const navLinks = [
-  {
-    href: '/products',
-    label: 'Products',
-    title: 'Explore Our Full Range of Switchgear Products',
-    isMenu: true,
-    isMegaMenu: true,
-    branding: {
-      title: 'Precision Engineering',
-      description: "Every unit is a masterpiece of safety and reliability, fabricated using Pakistan's largest CNC laser cutting technology.",
-      actionText: 'View All Categories',
-      actionLink: '/products'
-    },
-    items: productCategories,
-  },
-  {
-    href: '/industries',
-    label: 'Industries',
-    title: 'Precision Power Solutions for Diverse Industries',
-    isMenu: true,
-    isMegaMenu: true,
-    branding: {
-      title: 'Industry Expertise',
-      description: 'Tailored electrical solutions for varied sectors, ensuring operational excellence and safety across the board.',
-      actionText: 'Explore Industries',
-      actionLink: '/industries'
-    },
-    items: [
-      {
-        title: 'Core Sectors',
-        items: [
-          'Factories & Manufacturing',
-          'Commercial Buildings',
-          'Water Treatment',
-          'Hospitals',
-          'Solar Projects'
-        ]
-      }
-    ]
-  },
-  { href: '/services', label: 'Services', title: 'Professional Electrical Services and Maintenance' },
-  { href: '/calculators', label: 'Calculators', title: 'Advanced Electrical Load and Power Calculators' },
-  {
-    href: '/about',
-    label: 'Company',
-    title: 'Learn More About Evergreen Switchgear',
-    isMenu: true,
-    isMegaMenu: true,
-    branding: {
-      title: 'Our Journey',
-      description: 'Discover the legacy of Evergreen Switchgear, our commitment to quality, and the people behind our success.',
-      actionText: 'About Evergreen',
-      actionLink: '/about'
-    },
-    items: [
-      {
-        title: 'Organization',
-        items: [
-          'About Us',
-          'Why Choose Us',
-          'Certifications',
-          'Manufacturing Facility'
-        ]
-      },
-      {
-        title: 'Resources',
-        items: [
-          'Knowledge Hub',
-          'Blog',
-          'Our Projects',
-        ]
-      }
-    ]
-  },
-  { href: '/contact', label: 'Contact', title: 'Get in Touch with Our Engineering Team' },
-];
-
-// Helper to get href for items not in products
-const getLinkHref = (label: string, menuHref: string) => {
-  if (menuHref === '/products') return `/products/${normalizeSlug(label)}`;
-
-  const companyLinks: Record<string, string> = {
-    'About Us': '/about',
-    'Why Choose Us': '/why-choose-us',
-    'Manufacturing Facility': '/manufacturing',
-    'Knowledge Hub': '/resources',
-    'Certifications': '/certifications',
-    'Our Projects': '/projects',
-    'Blog': '/blog'
-  };
-
-  const industryLinks: Record<string, string> = {
-    'Factories & Manufacturing': '/industries/factories-manufacturing',
-    'Commercial Buildings': '/industries/commercial-buildings',
-    'Water Treatment': '/industries/water-treatment',
-    'Hospitals': '/industries/hospitals',
-    'Solar Projects': '/industries/solar-projects'
-  };
-
-  return companyLinks[label] || industryLinks[label] || '#';
-};
+import { TopBar } from './top-bar';
+import { MobileNav } from './mobile-nav';
+import { navLinks, getLinkHref } from '@/lib/nav-data';
 
 export default function Header() {
   const pathname = usePathname();
@@ -167,7 +46,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -175,33 +54,7 @@ export default function Header() {
 
   return (
     <>
-      {/* Premium Top Bar */}
-      <div className="bg-[#0B1221] text-white overflow-hidden py-2 px-4 hidden lg:block border-b border-white/5 relative">
-        <div className="container flex justify-between items-center relative z-10">
-          <div className="flex items-center gap-6 text-[11px] font-medium tracking-wide uppercase opacity-70">
-            <div className="flex items-center gap-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              <span>Leading Switchgear Manufacturer</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-green-500" />
-              <span>ISO 9001:2015 Certified</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-6">
-            <a href="tel:+923219574003" className="flex items-center gap-2 text-xs hover:text-primary transition-all duration-300">
-              <Phone size={14} className="text-primary" />
-              <span className="font-bold">+92 321 9574003</span>
-            </a>
-            <div className="h-4 w-[1px] bg-white/10" />
-            <div className="flex items-center gap-4">
-              <Link href="#" className="opacity-60 hover:opacity-100 hover:text-primary transition-all"><Facebook size={14} /></Link>
-              <Link href="#" className="opacity-60 hover:opacity-100 hover:text-primary transition-all"><Linkedin size={14} /></Link>
-              <Link href="#" className="opacity-60 hover:opacity-100 hover:text-primary transition-all"><Instagram size={14} /></Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      <TopBar />
 
       <header
         className={cn(
@@ -212,13 +65,11 @@ export default function Header() {
         )}
       >
         <div className="container flex h-16 items-center justify-between gap-4">
-          {/* Logo */}
           <div className="flex-shrink-0 relative group">
             <Logo />
             <div className="absolute -inset-2 bg-primary/5 rounded-xl scale-0 group-hover:scale-100 transition-transform duration-300 -z-10" />
           </div>
 
-          {/* Desktop Navigation */}
           <nav className="hidden xl:flex items-center justify-center flex-1">
             <div className="bg-muted/30 dark:bg-white/5 px-2 py-1.5 rounded-full border border-border/40 backdrop-blur-md flex items-center gap-0.5">
               {navLinks.map((link: any) => {
@@ -250,7 +101,6 @@ export default function Header() {
                         onMouseLeave={handleMouseLeave}
                       >
                         <div className="grid grid-cols-12 min-h-[400px] lg:h-[550px]">
-                          {/* Mega Menu Branding Sidebar */}
                           <div className="col-span-3 bg-primary/5 p-10 border-r border-primary/10 flex flex-col justify-between">
                             <div>
                               <div className="h-12 w-12 bg-primary rounded-2xl flex items-center justify-center text-white mb-6 shadow-xl shadow-primary/20">
@@ -268,12 +118,11 @@ export default function Header() {
                             </Button>
                           </div>
 
-                          {/* Mega Menu Content */}
                           <div className="col-span-9 p-8">
                             <ScrollArea className="h-full pr-4">
                               <div className="grid grid-cols-3 gap-8">
-                                {link.items?.map((category: any, idx: number) => (
-                                  <div key={idx} className="group/cat">
+                                {link.items?.map((category: any) => (
+                                  <div key={category.title} className="group/cat">
                                     <h4 className="flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-primary mb-4 opacity-70 group-hover/cat:opacity-100 transition-opacity">
                                       <span className="h-[2px] w-4 bg-primary rounded-full" />
                                       {category.title}
@@ -319,7 +168,6 @@ export default function Header() {
             </div>
           </nav>
 
-          {/* Right Section */}
           <div className="flex items-center gap-2 sm:gap-4">
             <div className="hidden lg:flex items-center gap-2">
               <NavSearch />
@@ -333,117 +181,13 @@ export default function Header() {
               Get a Quote
             </Button>
 
-            {/* Mobile Nav Button */}
-            <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="xl:hidden h-12 w-12 rounded-2xl bg-muted/40 hover:bg-primary/10 hover:text-primary transition-all active:scale-90"
-                >
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-full sm:w-[450px] p-0 border-l border-primary/10 bg-white dark:bg-[#0B1221] overflow-hidden flex flex-col">
-                <SheetHeader className="p-8 border-b border-primary/5 text-left flex flex-row items-center justify-between">
-                  <div>
-                    <Logo />
-                    <SheetTitle className="sr-only">Main Menu</SheetTitle>
-                    <SheetDescription className="text-[10px] font-black uppercase tracking-widest text-primary mt-2">
-                      Precision Power Solutions
-                    </SheetDescription>
-                  </div>
-                  <ThemeToggle />
-                </SheetHeader>
-
-                <ScrollArea className="flex-1 px-8 py-6">
-                  <div className="flex flex-col gap-1">
-                    {navLinks.map((link) => {
-                      if (link.isMenu) {
-                        return (
-                          <Collapsible key={link.href} className="w-full border-b border-primary/5 py-2">
-                            <CollapsibleTrigger className="flex w-full items-center justify-between text-2xl font-black text-foreground py-4 group">
-                              {link.label}
-                              <ChevronDown className="h-6 w-6 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                            </CollapsibleTrigger>
-                            <CollapsibleContent className="pb-4 space-y-4">
-                              {link.items?.map((category: any, idx: number) => (
-                                <div key={idx} className="mt-4 first:mt-2">
-                                  <h5 className="text-[10px] font-black uppercase tracking-widest text-primary opacity-60 mb-3">{category.title}</h5>
-                                  <div className="grid grid-cols-1 gap-2">
-                                    {category.items.map((item: string) => (
-                                      <Link
-                                        key={item}
-                                        href={getLinkHref(item, link.href)}
-                                        title={`View details for ${item}`}
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        className="flex items-center gap-3 py-2 text-base font-bold text-muted-foreground hover:text-primary transition-colors"
-                                      >
-                                        <div className="h-1.5 w-1.5 rounded-full bg-border" />
-                                        {item}
-                                      </Link>
-                                    ))}
-                                  </div>
-                                </div>
-                              ))}
-                            </CollapsibleContent>
-                          </Collapsible>
-                        );
-                      }
-                      return (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          title={link.title}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="text-2xl font-black text-foreground py-5 border-b border-primary/5 hover:text-primary transition-colors flex items-center justify-between group"
-                        >
-                          {link.label}
-                          <ArrowRight className="h-6 w-6 text-primary opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                        </Link>
-                      );
-                    })}
-                  </div>
-
-                  <div className="mt-12 space-y-8">
-                    <div className="p-8 bg-primary/5 rounded-[2rem] border border-primary/10">
-                      <h4 className="text-xl font-black mb-4 flex items-center gap-2">
-                        <Phone size={20} className="text-primary" /> Contact Sales
-                      </h4>
-                      <div className="space-y-4">
-                        <a href="tel:+923219574003" className="block text-2xl font-black hover:text-primary transition-colors">+92 321 9574003</a>
-                        <div className="flex items-center gap-4 text-muted-foreground">
-                          <Mail size={18} /> <span>sales@egswitchgear.com</span>
-                        </div>
-                        <div className="flex items-center gap-4 text-muted-foreground">
-                          <MapPin size={18} /> <span className="text-xs">Plot # 56, Street # 13, Sector I-9/2, Islamabad</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex justify-center gap-8 py-4">
-                      <Link href="#" className="h-12 w-12 rounded-2xl bg-muted/40 flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-all"><Facebook size={24} /></Link>
-                      <Link href="#" className="h-12 w-12 rounded-2xl bg-muted/40 flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-all"><Linkedin size={24} /></Link>
-                      <Link href="#" className="h-12 w-12 rounded-2xl bg-muted/40 flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-all"><Instagram size={24} /></Link>
-                    </div>
-                  </div>
-                </ScrollArea>
-
-                <div className="p-8 border-t border-primary/5">
-                  <Button
-                    variant="default"
-                    size="xl"
-                    className="w-full h-16 rounded-2xl text-xl font-black shadow-2xl shadow-primary/20"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      openQuoteDialog();
-                    }}
-                  >
-                    Request a Quote
-                  </Button>
-                </div>
-              </SheetContent>
-            </Sheet>
+            <MobileNav
+              isOpen={isMobileMenuOpen}
+              onOpenChange={setMobileMenuOpen}
+              navLinks={navLinks}
+              getLinkHref={getLinkHref}
+              openQuoteDialog={openQuoteDialog}
+            />
           </div>
         </div>
       </header>

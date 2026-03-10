@@ -11,6 +11,7 @@ import NextAuthSessionProvider from '@/components/providers/session-provider';
 import { QuoteDialogProvider } from '@/components/conversion/quote-dialog-provider';
 import { WhatsAppButton } from '@/components/conversion/whatsapp-button';
 import MotionShell from '@/components/animations/motion-shell';
+import { LazyMotion, domAnimation } from 'framer-motion';
 import Script from 'next/script';
 
 const inter = Inter({
@@ -120,21 +121,21 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-
-
           <NextAuthSessionProvider>
-            <QuoteDialogProvider>
-              <div className="relative flex min-h-dvh flex-col bg-background">
-                <Header />
-                <main className="flex-1">
-                  <MotionShell>{children}</MotionShell>
-                </main>
-                <Cta />
-                <Footer />
-                <WhatsAppButton />
-              </div>
-              <Toaster />
-            </QuoteDialogProvider>
+            <LazyMotion features={domAnimation}>
+              <QuoteDialogProvider>
+                <div className="relative flex min-h-dvh flex-col bg-background">
+                  <Header />
+                  <main className="flex-1">
+                    {children}
+                  </main>
+                  <Cta />
+                  <Footer />
+                  <WhatsAppButton />
+                </div>
+                <Toaster />
+              </QuoteDialogProvider>
+            </LazyMotion>
           </NextAuthSessionProvider>
         </ThemeProvider>
       </body>

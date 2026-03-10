@@ -96,6 +96,7 @@ export default async function Home() {
               src="/hero-image.webp" // Ensure this exists or fallback
               alt="Industrial Switchgear Facility"
               fill
+              sizes="100vw"
               className="object-cover opacity-20"
               priority
             />
@@ -162,7 +163,7 @@ export default async function Home() {
                 { title: 'Custom Fabrication', desc: 'In-house CNC manufacturing tailored to your facility dimensions.', icon: Factory },
                 { title: '24/7 Support', desc: 'Dedicated engineering team for installation and maintenance support.', icon: CheckCircle2 }
               ].map((item, i) => (
-                <AnimateOnScroll key={i} delay={i * 0.1} animation="fade-up">
+                <AnimateOnScroll key={item.title} delay={i * 0.1} animation="fade-up">
                   <div className="flex gap-4 p-6 rounded-2xl bg-secondary/30 border border-border/50 hover:bg-secondary/50 transition-colors h-full">
                     <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <item.icon className="h-6 w-6 text-primary" />
@@ -200,7 +201,7 @@ export default async function Home() {
                 const linkHref = `/products/${firstItemSlug}`;
 
                 return (
-                  <AnimateOnScroll key={idx} delay={idx * 0.1} animation="scale-up">
+                  <AnimateOnScroll key={cat.group} delay={idx * 0.1} animation="scale-up">
                     <Link href={linkHref} className="group relative overflow-hidden rounded-2xl border bg-card hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 block h-full">
                       <div className="p-8 h-full flex flex-col">
                         <div className="h-14 w-14 rounded-full bg-secondary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">

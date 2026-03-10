@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { Loader2, Eye, EyeOff } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { signIn, signOut, useSession } from 'next-auth/react';
+import Link from 'next/link';
 
 export default function LoginPage() {
   const { data: session, status } = useSession();

@@ -92,8 +92,8 @@ export function IndustryView({ industry }: IndustryViewProps) {
                             Key Challenges We Solve
                         </h3>
                         <ul className="space-y-4">
-                            {industry.challenges.map((challenge, idx) => (
-                                <li key={idx} className="flex gap-3 items-start">
+                            {industry.challenges.map((challenge) => (
+                                <li key={challenge} className="flex gap-3 items-start">
                                     <div className="mt-1 bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-full p-1 flex-shrink-0">
                                         <span className="sr-only">Challenge</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
@@ -116,8 +116,8 @@ export function IndustryView({ industry }: IndustryViewProps) {
                         </p>
                     </div>
                     <div className="grid md:grid-cols-2 gap-8">
-                        {industry.solutions.map((sol, idx) => (
-                            <Card key={idx} className="border-border/60 hover:border-primary/50 transition-colors shadow-sm bg-card/50">
+                        {industry.solutions.map((sol) => (
+                            <Card key={sol} className="border-border/60 hover:border-primary/50 transition-colors shadow-sm bg-card/50">
                                 <CardHeader className="pb-3">
                                     <CardTitle className="text-xl flex items-center gap-3">
                                         <div className="bg-primary/10 p-2 rounded-lg text-primary">
@@ -140,8 +140,8 @@ export function IndustryView({ industry }: IndustryViewProps) {
                 <div className="bg-secondary/20 rounded-3xl p-8 md:p-12">
                     <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-8">Recommended Equipment</h2>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        {industry.recommendedProducts.map((prod, idx) => (
-                            <Link key={idx} href={`/products/${prod.slug}`} className="group block">
+                        {industry.recommendedProducts.map((prod) => (
+                            <Link key={prod.slug} href={`/products/${prod.slug}`} className="group block">
                                 <div className="bg-background border rounded-xl p-6 h-full hover:shadow-md transition-all group-hover:border-primary/50 flex flex-col justify-between">
                                     <div>
                                         <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{prod.title}</h4>
