@@ -36,7 +36,11 @@ const ProductSchema = new mongoose.Schema({
   slug: {
     type: String,
     unique: true,
-  }
+  },
+  relatedCalculators: [{
+    slug: String,
+    title: String
+  }]
 }, { timestamps: true });
 
 // Pre-save hook to generate slug from title if not provided
@@ -57,6 +61,7 @@ export interface Product extends mongoose.Document {
   category?: string;
   subCategory?: string;
   slug: string;
+  relatedCalculators?: { slug: string; title: string }[];
   createdAt: Date;
   updatedAt: Date;
 }

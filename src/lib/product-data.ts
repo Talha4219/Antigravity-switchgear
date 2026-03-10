@@ -9,6 +9,7 @@ export interface ProductData {
     applications: string[];
     whyChooseUs: string[];
     imageUrl: string;
+    relatedCalculators?: { slug: string; title: string }[];
 }
 
 
@@ -103,7 +104,12 @@ const manualProducts: Record<string, ProductData> = {
             '<strong>Premium Components:</strong> We only use genuine switchgear components from reputable global brands.',
             '<strong>After-Sales Support:</strong> 24/7 technical support and maintenance services.'
         ],
-        imageUrl: '/low-tension.jpg'
+        imageUrl: '/low-tension.jpg',
+        relatedCalculators: [
+            { slug: 'voltage-drop-pro', title: 'Voltage Drop Calculator' },
+            { slug: 'short-circuit-current', title: 'Fault Current Calculator' },
+            { slug: 'breaker-selection', title: 'Breaker Selection Tool' }
+        ]
     },
     'ats-amf-panels': {
         slug: 'ats-amf-panels',
@@ -137,7 +143,11 @@ const manualProducts: Record<string, ProductData> = {
             '<strong>Component Quality:</strong> Heavy-duty contactors and motorized breakers for thousands of switching cycles.',
             '<strong>Expert Configuration:</strong> Pre-programmed settings to match your specific generator model.'
         ],
-        imageUrl: '/ats-amf-panels.jpg'
+        imageUrl: '/ats-amf-panels.jpg',
+        relatedCalculators: [
+            { slug: 'load-current-pro', title: 'Load Current Calculator' },
+            { slug: 'breaker-selection', title: 'Breaker Selection Tool' }
+        ]
     },
     'pfi-plant': {
         slug: 'pfi-plant',
@@ -171,7 +181,11 @@ const manualProducts: Record<string, ProductData> = {
             '<strong>Engineering Audit:</strong> We analyze your load profile before design.',
             '<strong>Long Life Steps:</strong> We use special contactors to prevent capacitor surge damage.'
         ],
-        imageUrl: '/pfi-plant.jpg'
+        imageUrl: '/pfi-plant.jpg',
+        relatedCalculators: [
+            { slug: 'power-factor-correction', title: 'PFI Calculator' },
+            { slug: 'energy-consumption', title: 'Energy Savings Tool' }
+        ]
     },
     'mcc-panels': {
         slug: 'mcc-panels',
@@ -188,7 +202,11 @@ const manualProducts: Record<string, ProductData> = {
         },
         applications: ['Water Pumping Stations', 'HVAC Systems', 'Conveyor Belts', 'Process Plants'],
         whyChooseUs: ['Space saving modular design', 'Easy maintenance access', 'Integrated with PLC systems'],
-        imageUrl: '/mcc-panels.jpg'
+        imageUrl: '/mcc-panels.jpg',
+        relatedCalculators: [
+            { slug: 'motor-starter-pro', title: 'Motor Starter Tool' },
+            { slug: 'busbar-sizing', title: 'Busbar Calculator' }
+        ]
     },
     'vfd-panel': {
         slug: 'vfd-panel',
@@ -2023,7 +2041,11 @@ const manualProducts: Record<string, ProductData> = {
             '<strong>Life-Cycle Value:</strong> we only supply batteries with proven high-cycle counts.',
             '<strong>Safety First:</strong> Advanced BMS keeps your batteries within safe limits.'
         ],
-        imageUrl: '/solar-batteries.webp'
+        imageUrl: '/solar-batteries.webp',
+        relatedCalculators: [
+            { slug: 'solar-battery-sizing', title: 'Battery Sizing Tool' },
+            { slug: 'solar-panel-output', title: 'Solar Output Calculator' }
+        ]
     },
 
 

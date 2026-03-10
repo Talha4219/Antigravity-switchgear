@@ -55,7 +55,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     ...product,
     description: product.overview, // Map overview to description if component expects description
     specs: Object.entries(product.specifications).map(([k, v]) => `${k}: ${v}`).join(', '), // simplistic map
-    imageId: product.imageUrl // map imageUrl to imageId? Component logic seemed to handle image parsing.
+    imageId: product.imageUrl, // map imageUrl to imageId? Component logic seemed to handle image parsing.
+    relatedCalculators: product.relatedCalculators
   };
 
   return <StaticProductView product={mappedProduct} nextProduct={nextProduct as any} prevProduct={prevProduct as any} />;

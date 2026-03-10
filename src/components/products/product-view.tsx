@@ -155,11 +155,33 @@ export function StaticProductView({ product, nextProduct, prevProduct }: Product
                                 </p>
                                 <Button
                                     variant="secondary"
-                                    className="w-full"
+                                    className="w-full mb-4"
                                     onClick={() => openQuoteDialog(`Technical Support: ${product.title}`)}
                                 >
                                     <Phone className="mr-2 h-4 w-4" /> Contact Engineers
                                 </Button>
+
+                                {product.relatedCalculators && product.relatedCalculators.length > 0 && (
+                                    <div className="pt-4 border-t space-y-4">
+                                        <h4 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Engineering Tools</h4>
+                                        <div className="grid gap-2">
+                                            {product.relatedCalculators.map((calc) => (
+                                                <Button
+                                                    key={calc.slug}
+                                                    variant="outline"
+                                                    size="sm"
+                                                    className="w-full justify-start text-xs font-medium border-primary/10 hover:border-primary/30 hover:bg-primary/5 group"
+                                                    asChild
+                                                >
+                                                    <Link href={`/calculators/${calc.slug}`}>
+                                                        <span className="truncate">{calc.title}</span>
+                                                        <ArrowRight size={12} className="ml-auto opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
+                                                    </Link>
+                                                </Button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
                             </CardContent>
                         </div>
                     </div>
