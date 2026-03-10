@@ -32,10 +32,10 @@ const CATEGORIES = [
 const CATEGORY_DESCRIPTIONS: Record<typeof CATEGORIES[number], string> = {
   'All Tools': 'Browse our complete suite of professional electrical engineering calculators.',
   'System Analysis': 'Analyze fault currents, power factors, and load requirements for safe system design.',
-  'Power Distribution': 'Size transformers, breakers, and distribution equipment for optimal performance.',
-  'Cabling & Containment': 'Calculate cable sizes, tray fills, and containment requirements per NEC standards.',
+  'Power Distribution': 'Size transformers, breakers, and <Link href="/products/vfd-panel" className="text-primary hover:underline">VFD Control Panels</Link> for optimal performance.',
+  'Cabling & Containment': 'Calculate cable sizes, <Link href="/products/cable-trays" className="text-primary hover:underline">perforated tray fills</Link>, and containment requirements per NEC standards.',
   'Lighting & Safety': 'Design emergency lighting, illuminance levels, and arc flash protection systems.',
-  'Renewable Energy': 'Size solar panels, batteries, and renewable energy systems for off-grid applications.'
+  'Renewable Energy': 'Size <Link href="/products/solar-systems" className="text-primary hover:underline">solar panels</Link>, batteries, and renewable energy systems for off-grid applications.'
 };
 
 export default function CalculatorsPage() {
@@ -230,7 +230,7 @@ export default function CalculatorsPage() {
                 </Button>
               </div>
               <p className="mt-8 text-xs text-slate-500 italic">
-                Explore our <Link href="/products/lt-panels" className="underline hover:text-primary">LT Panels</Link>, <Link href="/products/ats-amf-panels" className="underline hover:text-primary">ATS/AMF Systems</Link>, <Link href="/products/pfi-plant" className="underline hover:text-primary">PFI Plants</Link>, and our advanced <Link href="/manufacturing" className="underline hover:text-primary font-bold">Manufacturing Facility</Link>
+                Explore our <Link href="/products/lt-panels" className="underline hover:text-primary" title="Main LT Panels">LT Panels</Link>, <Link href="/products/ats-amf-panels" className="underline hover:text-primary" title="Automatic Transfer Switches">ATS/AMF Systems</Link>, <Link href="/products/pfi-plant" className="underline hover:text-primary" title="Power Factor Correction">PFI Plants</Link>, <Link href="/products/distribution-boards" className="underline hover:text-primary" title="Sub Distribution Boards">Distribution Boards</Link>, and our advanced <Link href="/manufacturing" className="underline hover:text-primary font-bold" title="Our CNC Manufacturing Facility">CNC Manufacturing Facility</Link>
               </p>
             </div>
           </div>

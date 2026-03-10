@@ -11,21 +11,21 @@ import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 
 const productLinks = [
-  { name: 'LT Switchgear Panels', href: '/products/lt-switchgear-panels' },
-  { name: 'HT Switchgear Panels', href: '/products/ht-switchgear-panels' },
-  { name: 'PFI Plants', href: '/products/pfi-plant' },
-  { name: 'Cable Trays', href: '/products/cable-trays' },
-  { name: 'Solar Solutions', href: '/products/solar-systems' },
+  { name: 'Main LT Modules (Low Tension)', href: '/products/lt-panels', title: 'Low Tension (LT) Switchgear Panels & Distribution' },
+  { name: 'HT & High Voltage Panels', href: '/products/ht-switchgear-panels', title: 'Medium and High Voltage (HT) Switchgear Panels' },
+  { name: 'PFI Plants & Power Saving', href: '/products/pfi-plant', title: 'Power Factor Improvement (PFI) Plants & Solutions' },
+  { name: 'Perforated Cable Trays', href: '/products/cable-trays', title: 'Industrial Cable Tray & Management Systems' },
+  { name: 'Industrial Solar Systems', href: '/products/solar-systems', title: 'Advanced Solar Power Solutions for Industry' },
 ];
 
 const companyLinks = [
-  { name: 'About Us', href: '/about' },
-  { name: 'Why Choose Us', href: '/why-choose-us' },
-  { name: 'Our Projects', href: '/projects' },
-  { name: 'Certifications', href: '/certifications' },
-  { name: 'Knowledge Hub', href: '/resources' },
-  { name: 'Manufacturing Facility', href: '/manufacturing' },
-  { name: 'Contact Us', href: '/contact' },
+  { name: 'About EG Switchgear', href: '/about', title: 'Learn about our history and engineering excellence' },
+  { name: 'Why Evergreen?', href: '/why-choose-us', title: 'Discover the advantages of choosing EG Switchgear' },
+  { name: 'Success Stories', href: '/projects', title: 'View our successfully completed electrical projects' },
+  { name: 'Quality Certifications', href: '/certifications', title: 'Our ISO and IEC quality certifications' },
+  { name: 'Engineering Hub', href: '/resources', title: 'Technical resources, guides, and power calculators' },
+  { name: 'CNC Laser Facility', href: '/manufacturing', title: 'Our advanced manufacturing and CNC laser cutting facility' },
+  { name: 'Contact Sales / Support', href: '/contact', title: 'Get in touch for quotes and technical assistance' },
 ];
 
 const legalLinks = [
@@ -170,6 +170,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
+                    title={link.title}
                     className="text-gray-400 hover:text-primary transition-colors text-[15px] flex items-center gap-2 group"
                   >
                     <ChevronRight size={14} className="text-white/20 group-hover:text-primary transition-colors" />
@@ -191,6 +192,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
+                    title={link.title}
                     className="text-gray-400 hover:text-primary transition-colors text-[15px] flex items-center gap-2 group"
                   >
                     <ChevronRight size={14} className="text-white/20 group-hover:text-primary transition-colors" />

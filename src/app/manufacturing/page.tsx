@@ -69,10 +69,10 @@ export default function ManufacturingPage() {
                                 <h2 className="text-3xl font-headline font-bold text-primary mb-6">Manufacturing Excellence at Evergreen Switchgear</h2>
                                 <div className="prose prose-lg dark:prose-invert max-w-none text-foreground/80 leading-relaxed">
                                     <p>
-                                        Evergreen Switchgear (EG Switchgear) operates a state-of-the-art switchgear manufacturing facility equipped with the largest CNC laser cutting machine in the region. This advanced capability allows us to deliver high-precision electrical switchgear components, superior build quality, and faster production turnaround for industrial and commercial power distribution projects.
+                                        <Link href="/about" className="text-primary hover:underline font-semibold">Evergreen Switchgear (EG Switchgear)</Link> operates a state-of-the-art switchgear manufacturing facility equipped with the largest CNC laser cutting machine in the region. This advanced capability allows us to deliver high-precision <Link href="/products" className="text-primary hover:underline font-semibold">electrical switchgear components</Link>, superior build quality, and faster production turnaround for industrial and commercial power distribution projects.
                                     </p>
                                     <p>
-                                        Our investment in advanced CNC technology reinforces our commitment to quality, innovation, and reliable electrical switchgear manufacturing.
+                                        Our investment in advanced CNC technology reinforces our commitment to quality, innovation, and reliable <Link href="/products/lt-panels" className="text-primary hover:underline font-semibold">electrical switchgear manufacturing</Link>.
                                     </p>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@ export default function ManufacturingPage() {
                             <div>
                                 <h2 className="text-3xl font-headline font-bold text-primary mb-6">Largest CNC Laser Cutting Machine for Precision Fabrication</h2>
                                 <p className="text-foreground/80 leading-relaxed mb-6">
-                                    The largest CNC laser cutting machine at EG Switchgear enables accurate cutting of complex metal components used in low voltage and medium voltage switchgear, control panels, and electrical enclosures. With exceptional cutting speed and precision, we ensure consistent quality across all switchgear products.
+                                    The largest CNC laser cutting machine at EG Switchgear enables accurate cutting of complex metal components used in <Link href="/products/lt-panels" className="text-primary hover:underline font-medium">low voltage</Link> and <Link href="/products/ht-switchgear-panels" className="text-primary hover:underline font-medium">medium voltage switchgear</Link>, control panels, and <Link href="/products/distribution-boards" className="text-primary hover:underline font-medium">electrical enclosures</Link>. With exceptional cutting speed and precision, we ensure consistent quality across all switchgear products.
                                 </p>
 
                                 <div className="grid sm:grid-cols-2 gap-4 mt-8">

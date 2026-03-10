@@ -125,7 +125,7 @@ export default async function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-base md:text-xl text-gray-400 max-w-2xl mb-8 md:mb-10 leading-relaxed px-2"
             >
-              We design and manufacture premium Low Voltage Switchgear, PFI Plants, and Automation Panels engineered for maximum efficiency and safety.
+              We design and manufacture premium <Link href="/products/lt-panels" className="text-primary hover:underline font-medium">Low Voltage Switchgear</Link>, <Link href="/products/pfi-plant" className="text-primary hover:underline font-medium">PFI Plants</Link>, and <Link href="/products/mcc-panels" className="text-primary hover:underline font-medium">Automation Panels</Link> engineered for maximum efficiency and safety.
             </motion.p>
 
             <motion.div
@@ -162,7 +162,7 @@ export default async function Home() {
                       <h3 className="font-bold text-lg mb-1">{item.title}</h3>
                       <p className="text-muted-foreground text-sm mb-2">{item.desc}</p>
                       {item.title === 'Custom Fabrication' && (
-                        <Link href="/manufacturing" className="text-xs font-semibold text-primary hover:underline flex items-center">
+                        <Link href="/manufacturing" title="Visit our CNC Manufacturing Facility" className="text-xs font-semibold text-primary hover:underline flex items-center">
                           View Our Facility <ChevronRight size={12} className="ml-0.5" />
                         </Link>
                       )}

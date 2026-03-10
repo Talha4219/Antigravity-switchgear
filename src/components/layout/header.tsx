@@ -45,6 +45,7 @@ const navLinks = [
   {
     href: '/products',
     label: 'Products',
+    title: 'Explore Our Full Range of Switchgear Products',
     isMenu: true,
     isMegaMenu: true,
     items: productCategories,
@@ -52,32 +53,34 @@ const navLinks = [
   {
     href: '/industries',
     label: 'Industries',
+    title: 'Precision Power Solutions for Diverse Industries',
     isMenu: true,
     items: [
-      { label: 'Factories & Manufacturing', href: '/industries/factories-manufacturing' },
-      { label: 'Commercial Buildings', href: '/industries/commercial-buildings' },
-      { label: 'Water Treatment', href: '/industries/water-treatment' },
-      { label: 'Hospitals', href: '/industries/hospitals' },
-      { label: 'Solar Projects', href: '/industries/solar-projects' },
+      { label: 'Factories & Manufacturing', href: '/industries/factories-manufacturing', title: 'Power Solutions for Factories and Manufacturing Plants' },
+      { label: 'Commercial Buildings', href: '/industries/commercial-buildings', title: 'Electrical Infrastructure for Commercial Buildings' },
+      { label: 'Water Treatment', href: '/industries/water-treatment', title: 'Reliable Power for Water Treatment Facilities' },
+      { label: 'Hospitals', href: '/industries/hospitals', title: 'Critical Power Systems for Hospitals' },
+      { label: 'Solar Projects', href: '/industries/solar-projects', title: 'Sustainable Solar Power Projects' },
     ]
   },
-  { href: '/services', label: 'Services' },
-  { href: '/calculators', label: 'Calculators' },
+  { href: '/services', label: 'Services', title: 'Professional Electrical Services and Maintenance' },
+  { href: '/calculators', label: 'Calculators', title: 'Advanced Electrical Load and Power Calculators' },
   {
     href: '/about',
     label: 'Company',
+    title: 'Learn More About Evergreen Switchgear',
     isMenu: true,
     items: [
-      { label: 'About Us', href: '/about' },
-      { label: 'Why Choose Us', href: '/why-choose-us' },
-      { label: 'Manufacturing Facility', href: '/manufacturing' },
-      { label: 'Knowledge Hub', href: '/resources' },
-      { label: 'Certifications', href: '/certifications' },
-      { label: 'Our Projects', href: '/projects' },
-      { label: 'Blog', href: '/blog' },
+      { label: 'About Us', href: '/about', title: 'Our History and Mission' },
+      { label: 'Why Choose Us', href: '/why-choose-us', title: 'The Evergreen Switchgear Advantage' },
+      { label: 'Manufacturing Facility', href: '/manufacturing', title: 'Our State-of-the-Art CNC Manufacturing Facility' },
+      { label: 'Knowledge Hub', href: '/resources', title: 'Electrical Engineering Resources and Guides' },
+      { label: 'Certifications', href: '/certifications', title: 'Our ISO and IEC Certifications' },
+      { label: 'Our Projects', href: '/projects', title: 'View Our Successfully Completed Projects' },
+      { label: 'Blog', href: '/blog', title: 'Latest Industry News and Technical Articles' },
     ]
   },
-  { href: '/contact', label: 'Contact' },
+  { href: '/contact', label: 'Contact', title: 'Get in Touch with Our Engineering Team' },
 ];
 
 export default function Header() {
@@ -179,7 +182,7 @@ export default function Header() {
                                 </p>
                               </div>
                               <Button asChild className="rounded-xl h-12 font-bold group">
-                                <Link href="/products" className="flex items-center gap-2">
+                                <Link href="/products" title="Browse all switchgear categories" className="flex items-center gap-2">
                                   View All Categories <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                                 </Link>
                               </Button>
@@ -224,6 +227,7 @@ export default function Header() {
                             <DropdownMenuItem key={item.label} asChild className="focus:bg-primary/10 rounded-xl transition-colors">
                               <Link
                                 href={item.href}
+                                title={item.title}
                                 className="w-full flex items-center justify-between p-3 text-sm font-bold text-foreground/80 hover:text-primary"
                               >
                                 {item.label} <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -240,6 +244,7 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    title={link.title}
                     className={cn(
                       "relative px-5 py-2 text-[13px] font-bold transition-all duration-300 rounded-full",
                       isActive ? "text-primary bg-primary/10" : "text-foreground/70 hover:text-primary hover:bg-primary/5"
@@ -309,6 +314,7 @@ export default function Header() {
                                         <Link
                                           key={item}
                                           href={`/products/${normalizeSlug(item)}`}
+                                          title={`View details for ${item}`}
                                           onClick={() => setMobileMenuOpen(false)}
                                           className="flex items-center gap-3 py-2 text-base font-bold text-muted-foreground hover:text-primary transition-colors"
                                         >
@@ -325,6 +331,7 @@ export default function Header() {
                                     <Link
                                       key={item.label}
                                       href={item.href}
+                                      title={item.title}
                                       onClick={() => setMobileMenuOpen(false)}
                                       className="flex items-center gap-3 py-3 text-lg font-bold text-muted-foreground hover:text-primary border-b border-primary/5 last:border-0"
                                     >
@@ -342,6 +349,7 @@ export default function Header() {
                         <Link
                           key={link.href}
                           href={link.href}
+                          title={link.title}
                           onClick={() => setMobileMenuOpen(false)}
                           className="text-2xl font-black text-foreground py-5 border-b border-primary/5 hover:text-primary transition-colors flex items-center justify-between group"
                         >

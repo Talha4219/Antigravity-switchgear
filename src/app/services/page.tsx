@@ -11,7 +11,7 @@ export const metadata = {
 const services = [
   {
     title: "Custom Engineering & Design",
-    description: "Tailored switchgear solutions designed to meet your specific project requirements, ensuring optimal performance and integration.",
+    description: "Tailored <Link href=\"/products\" className=\"text-primary hover:underline font-medium\">switchgear solutions</Link> designed to meet your specific project requirements, ensuring optimal performance and integration.",
     icon: Cog,
   },
   {
@@ -82,7 +82,7 @@ export default function ServicesPage() {
             <div className="flex-1 text-center md:text-left">
               <h2 className="text-2xl md:text-3xl font-headline font-bold text-primary mb-4">Advanced Manufacturing Capabilities</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Our services are backed by the **largest CNC laser cutting facility in the region**, allowing us to offer unprecedented precision in custom switchgear fabrication and rapid project delivery.
+                Our services are backed by the **largest CNC laser cutting facility in the region**, allowing us to offer unprecedented precision in <Link href="/products" className="text-primary hover:underline font-medium">custom switchgear fabrication</Link> and rapid project delivery.
               </p>
               <Button asChild variant="outline" className="rounded-full border-primary text-primary hover:bg-primary hover:text-white group">
                 <Link href="/manufacturing" className="flex items-center gap-2">
