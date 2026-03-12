@@ -8,7 +8,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Ruler, Thermometer, ShieldCheck } from 'lucide-react';
-import AdvancedCalculatorWrapper from './AdvancedCalculatorWrapper';
 
 const formSchema = z.object({
     current: z.coerce.number().min(1, "Current must be greater than 0"),

@@ -8,7 +8,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { InfoIcon, AlertTriangle, ShieldCheck, Zap } from 'lucide-react';
-import AdvancedCalculatorWrapper from './AdvancedCalculatorWrapper';
 
 const formSchema = z.object({
   voltage: z.coerce.number().min(1, "Voltage must be greater than 0"),

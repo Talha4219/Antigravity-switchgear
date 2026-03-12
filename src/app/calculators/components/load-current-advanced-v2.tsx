@@ -8,7 +8,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Server, Zap, ShieldCheck, Activity } from 'lucide-react';
-import AdvancedCalculatorWrapper from './AdvancedCalculatorWrapper';
 
 const formSchema = z.object({
     power: z.coerce.number().min(0.1, "Power must be greater than 0"),
@@ -54,25 +53,7 @@ export default function LoadCurrentAdvanced() {
     }, [form.watch]);
 
     return (
-        <AdvancedCalculatorWrapper
-            title="Switchgear Load Current Calculator"
-            shortDescription="The Load Current Calculator is designed to help engineers and electricians calculate the total current drawn by a load or electrical panel."
-            formula={<code>I = P / (&radic;3 * V * PF)</code>}
-            educationalContent={
-                <div className="space-y-4">
-                    <p>Proper load current calculation ensures correct cable sizing, protection device selection, and reliable operation of industrial and commercial switchgear panels.</p>
-                    <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10">
-                        <h4 className="font-bold flex items-center gap-2 mb-2"><Activity size={18} className="text-primary" /> Why Accuracy Matters</h4>
-                        <p className="text-sm">Underestimating load current leads to nuisance tripping and overheating, while overestimating adds unnecessary cost to cable and breaker selection.</p>
-                    </div>
-                    <p>This tool is essential for switchgear designers, electrical contractors, and maintenance engineers to ensure optimal system performance and avoid overloads.</p>
-                </div>
-            }
-            faq={[
-                { question: "kW vs kVA?", answer: "kW is 'Real Power' (work done), while kVA is 'Apparent Power' (total power supplied including reactive component)." },
-                { question: "What is a typical Power Factor?", answer: "Industrial motors usually operate between 0.7 and 0.9. Improving this saves cost (see PFI tools)." }
-            ]}
-        >
+        <div className="space-y-8">
             <Form {...form}>
                 <form className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <FormField control={form.control} name="power" render={({ field }) => (
@@ -141,6 +122,6 @@ export default function LoadCurrentAdvanced() {
                     </div>
                 </div>
             )}
-        </AdvancedCalculatorWrapper>
+        </div>
     );
 }

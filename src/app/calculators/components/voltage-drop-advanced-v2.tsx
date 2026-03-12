@@ -7,8 +7,7 @@ import { z } from 'zod';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { TrendingDown, Activity, InfoIcon, ShieldCheck } from 'lucide-react';
-import AdvancedCalculatorWrapper from './AdvancedCalculatorWrapper';
+import { Activity, InfoIcon, ShieldCheck } from 'lucide-react';
 
 const formSchema = z.object({
     current: z.coerce.number().min(1, "Current must be greater than 0"),
@@ -50,25 +49,7 @@ export default function VoltageDropAdvanced() {
     }, [form.watch]);
 
     return (
-        <AdvancedCalculatorWrapper
-            title="Voltage Drop Calculator for Switchgear Systems"
-            shortDescription="The Voltage Drop Calculator allows engineers and electricians to ensure that voltage levels remain within safe limits across switchgear systems and electrical panels."
-            formula={<code>V<sub>drop</sub> = (2 * L * I * &rho;) / Area</code>}
-            educationalContent={
-                <div className="space-y-4">
-                    <p>Excessive voltage drop can cause equipment malfunction, energy loss, and safety hazards. This calculator estimates voltage drop based on cable length, load current, conductor size, and material.</p>
-                    <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10">
-                        <h4 className="font-bold flex items-center gap-2 mb-2"><TrendingDown size={18} className="text-primary" /> Efficiency Impact</h4>
-                        <p className="text-sm">High voltage drop leads to significant $I^2R$ power losses in cables, generating heat and increasing electricity bills.</p>
-                    </div>
-                    <p>Perfect for industrial switchgear, distribution panels, and long cable runs, it helps in proper cable selection, system design optimization, and compliance with electrical codes.</p>
-                </div>
-            }
-            faq={[
-                { question: "What is a 'safe' limit?", answer: "Generally under 3% for critical power and lighting, and 5% for general purpose power." },
-                { question: "Does material affect it?", answer: "Yes, Aluminum has ~60% the conductivity of Copper, resulting in higher voltage drop for the same size." }
-            ]}
-        >
+        <div className="space-y-8">
             <Form {...form}>
                 <form className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <FormField control={form.control} name="current" render={({ field }) => (
@@ -127,6 +108,6 @@ export default function VoltageDropAdvanced() {
                     </div>
                 </div>
             )}
-        </AdvancedCalculatorWrapper>
+        </div>
     );
 }
