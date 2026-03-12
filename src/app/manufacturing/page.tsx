@@ -12,6 +12,9 @@ export const metadata = {
         'switchgear manufacturing facility', 'sheet metal bending industrial',
         'largest CNC laser cutting machine', 'custom enclosure fabrication'
     ],
+    alternates: {
+        canonical: 'https://www.egswitchgear.com/manufacturing',
+    },
 };
 
 export default function ManufacturingPage() {

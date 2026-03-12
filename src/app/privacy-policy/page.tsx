@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: 'Privacy Policy | EgSwitchGear',
     description: 'Privacy Policy for EgSwitchGear. Learn how we collect, use, and protect your personal information.',
     alternates: {
-        canonical: '/privacy-policy',
+        canonical: 'https://www.egswitchgear.com/privacy-policy',
     },
 };
 

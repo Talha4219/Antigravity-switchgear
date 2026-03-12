@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: 'Terms and Conditions | EgSwitchGear',
     description: 'Terms and Conditions for using EgSwitchGear website and services.',
     alternates: {
-        canonical: '/terms-conditions',
+        canonical: 'https://www.egswitchgear.com/terms-conditions',
     },
 };
 

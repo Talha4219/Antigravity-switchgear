@@ -8,6 +8,9 @@ import Certification from '@/models/Certification';
 export const metadata = {
   title: 'ISO & IEC Certifications | EgSwitchGear',
   description: 'View the international certifications and compliance standards (ISO 9001, IEC 61439) that demonstrate EgSwitchGear\'s commitment to quality and safety.',
+  alternates: {
+    canonical: 'https://www.egswitchgear.com/certifications',
+  },
 };
 
 export const revalidate = 60;

@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     title: 'Knowledge Hub & Resources | EgSwitchGear',
     description: 'Access technical guides, installation manuals, safety guidelines, and FAQs about industrial switchgear and power distribution.',
     keywords: ['Electrical FAQ', 'Switchgear Manuals', 'Electrical Safety Guidelines', 'Maintenance Checklist', 'EgSwitchGear Resources'],
+    alternates: {
+        canonical: 'https://www.egswitchgear.com/resources',
+    },
 };
 
 export default function ResourcesPage() {

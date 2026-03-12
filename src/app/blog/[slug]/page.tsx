@@ -50,6 +50,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         type: 'article',
         publishedTime: post.date,
         authors: [post.author]
+      },
+      alternates: {
+        canonical: `https://www.egswitchgear.com/blog/${slug}`,
       }
     };
   } catch (error) {

@@ -37,6 +37,9 @@ export async function generateMetadata({ params }: IndustryPageProps): Promise<M
                 },
             ],
         },
+        alternates: {
+            canonical: `https://www.egswitchgear.com/industries/${resolvedParams.slug}`,
+        },
     };
 }
 

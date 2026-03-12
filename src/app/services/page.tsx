@@ -6,6 +6,9 @@ import { Button } from '@/components/ui/button';
 export const metadata = {
   title: 'Engineering & Technical Services | EgSwitchGear',
   description: 'Explore the expert electrical services offered by Evergreen Switchgear, from custom CNC engineering to on-site support and maintenance.',
+  alternates: {
+    canonical: 'https://www.egswitchgear.com/services',
+  },
 };
 
 const services = [

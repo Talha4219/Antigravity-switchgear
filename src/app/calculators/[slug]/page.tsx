@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: CalculatorPageProps) {
     description: `Professional ${calculator.title} for industrial electrical engineering. IEC 61439 & NEC compliant estimations for switchgear and power systems.`,
     keywords: [`${calculator.title}`, 'Electrical Engineering', 'Switchgear Design', 'Industrial Power', 'EgSwitchgear'],
     alternates: {
-      canonical: `https://egswitchgear.com/calculators/${calculator.slug}`,
+      canonical: `https://www.egswitchgear.com/calculators/${calculator.slug}`,
     }
   };
 }

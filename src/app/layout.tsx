@@ -47,9 +47,7 @@ export const metadata: Metadata = {
     'copper busbar size', 'iec 61439-1', 'iec 61439-2', 'switchgear solutions', 'vfd control panel',
     'Pakistan', 'Islamabad', 'eg switch'
   ],
-  alternates: {
-    canonical: '/',
-  },
+  // Removed default alternates.canonical to ensure sub-pages define their own absolute URLs
   openGraph: {
     type: 'website',
     locale: 'en_US',

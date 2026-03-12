@@ -10,6 +10,9 @@ export const metadata: Metadata = {
         'electric cable capacity calculator', 'cable ratings calculator', 'busbar calculator',
         'domestic cable size calculator', 'EgSwitchGear calculators'
     ],
+    alternates: {
+        canonical: 'https://www.egswitchgear.com/calculators',
+    },
 };
 
 export default function CalculatorsLayout({

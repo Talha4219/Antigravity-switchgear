@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       title: product.seoTitle || `${product.title} | EgSwitchGear`,
       description: product.shortDescription,
       alternates: {
-        canonical: `/products/${product.slug}`,
+        canonical: `https://www.egswitchgear.com/products/${product.slug}`,
       },
     };
   }
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       title: `${category.group} | Industrial Switchgear Solutions`,
       description: `Explore our specialized range of ${category.group.toLowerCase()} systems. Precision-engineered solutions for industrial and commercial electrical infrastructure.`,
       alternates: {
-        canonical: `/products/${id}`,
+        canonical: `https://www.egswitchgear.com/products/${id}`,
       },
     };
   }

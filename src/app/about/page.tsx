@@ -12,6 +12,9 @@ export const metadata = {
     'switchgear history', 'electrical engineering expertise Pakistan', 'CNC laser cutting Islamabad',
     'about Evergreen Switchgear', 'industrial fabrication Pakistan', 'ISO 9001:2015 certified'
   ],
+  alternates: {
+    canonical: 'https://www.egswitchgear.com/about',
+  },
 };
 
 export default function AboutPage() {

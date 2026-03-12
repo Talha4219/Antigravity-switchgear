@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     title: 'Why Choose EgSwitchGear? | Expert Panels',
     description: 'Compare EgSwitchGear against other local and imported switchgear suppliers. We offer certified quality, competitive pricing, and 24/7 support.',
     keywords: ['EgSwitchGear vs Competitors', 'Best Switchgear Pakistan', 'Certified Panel Builder', 'Schneider Electric Partner'],
+    alternates: {
+        canonical: 'https://www.egswitchgear.com/why-choose-us',
+    },
 };
 
 export default function WhyChooseUsPage() {

@@ -15,6 +15,9 @@ export const metadata = {
         'electrical product range Pakistan', 'industrial control panels', 'PFI Plant supplier',
         'EgSwitchGear products'
     ],
+    alternates: {
+        canonical: 'https://www.egswitchgear.com/products',
+    },
 };
 
 export default function ProductsIndexPage() {

@@ -3,6 +3,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Electrical Industry Insights | EgSwitchGear',
     description: 'Stay updated with the latest trends in power distribution, industrial automation, and electrical safety standards from the EgSwitchGear experts.',
+    alternates: {
+        canonical: 'https://www.egswitchgear.com/blog',
+    },
     keywords: ['electrical engineering blog', 'switchgear industry news', 'power distribution trends', 'automation insights', 'technical articles Pakistan'],
 };
 

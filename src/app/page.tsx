@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     'switchgear services', 'medium voltage power solutions', '6300a busbar size',
     'bus coupler panel', 'pfi plant electrical', 'central battery systems cbs'
   ],
+  alternates: {
+    canonical: 'https://www.egswitchgear.com',
+  },
 };
 
 // Map categories to icons/images for visual appeal
