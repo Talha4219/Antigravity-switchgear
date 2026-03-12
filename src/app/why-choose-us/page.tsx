@@ -38,9 +38,6 @@ export default function WhyChooseUsPage() {
                         <Button size="lg" className="h-12 px-8 text-lg">
                             <Link href="/contact">Get a Quote</Link>
                         </Button>
-                        <Button variant="outline" size="lg" className="h-12 px-8 text-lg">
-                            <Link href="/projects">View Projects</Link>
-                        </Button>
                     </div>
                 </div>
             </section>

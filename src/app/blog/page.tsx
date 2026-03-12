@@ -74,14 +74,14 @@ export default function BlogPage() {
           >
             <Sparkles size={14} /> Knowledge Hub
           </motion.div>
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-headline font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70"
           >
-            Industry Insights & News
-          </motion.h1>
+            <h1>Industry Insights & News</h1>
+          </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

@@ -74,7 +74,6 @@ export const navLinks = [
                 items: [
                     'Knowledge Hub',
                     'Blog',
-                    'Our Projects',
                 ]
             }
         ]
@@ -91,7 +90,6 @@ export const getLinkHref = (label: string, menuHref: string) => {
         'Manufacturing Facility': '/manufacturing',
         'Knowledge Hub': '/resources',
         'Certifications': '/certifications',
-        'Our Projects': '/projects',
         'Blog': '/blog'
     };
 

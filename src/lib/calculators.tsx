@@ -832,7 +832,7 @@ export const calculatorData: CalculatorInfo[] = [
     },
     {
         slug: 'pfi-bank-sizing',
-        title: 'PFI Plant Capacity & Capacitor Bank Calculator',
+        title: 'PFI Bank Sizing Calculator',
         shortDescription: "Optimize your system's power factor and reduce energy costs with precise switchgear rating calculations for power factor correction panels.",
         description: <p>Advanced <strong>capacitor bank calculator</strong> for <strong>PFI electrical</strong> systems. Optimize power factor and reduce energy costs with precise <strong>switchgear rating calculations</strong> for power factor correction panels. Proper PFI sizing reduces reactive power charges and improves transformer efficiency.</p>,
         icon: Gauge,

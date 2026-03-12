@@ -12,7 +12,6 @@ import { useToast } from '@/hooks/use-toast';
 
 const productLinks = [
   { name: 'Main LT Modules (Low Tension)', href: '/products/lt-panels', title: 'Low Tension (LT) Switchgear Panels & Distribution' },
-  { name: 'HT & High Voltage Panels', href: '/products/ht-switchgear-panels', title: 'Medium and High Voltage (HT) Switchgear Panels' },
   { name: 'PFI Plants & Power Saving', href: '/products/pfi-plant', title: 'Power Factor Improvement (PFI) Plants & Solutions' },
   { name: 'Perforated Cable Trays', href: '/products/cable-trays', title: 'Industrial Cable Tray & Management Systems' },
   { name: 'Industrial Solar Systems', href: '/products/solar-systems', title: 'Advanced Solar Power Solutions for Industry' },
@@ -21,7 +20,6 @@ const productLinks = [
 const companyLinks = [
   { name: 'About EG Switchgear', href: '/about', title: 'Learn about our history and engineering excellence' },
   { name: 'Why Evergreen?', href: '/why-choose-us', title: 'Discover the advantages of choosing EG Switchgear' },
-  { name: 'Success Stories', href: '/projects', title: 'View our successfully completed electrical projects' },
   { name: 'Quality Certifications', href: '/certifications', title: 'Our ISO and IEC quality certifications' },
   { name: 'Engineering Hub', href: '/resources', title: 'Technical resources, guides, and power calculators' },
   { name: 'CNC Laser Facility', href: '/manufacturing', title: 'Our advanced manufacturing and CNC laser cutting facility' },

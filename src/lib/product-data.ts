@@ -32,7 +32,7 @@ function createProduct(title: string, categoryGroup: string): ProductData {
     const slug = normalizeSlug(title);
     return {
         slug,
-        title: `${title} | Pakistan Manufacturer`,
+        title: `${title}`,
         shortDescription: `Top-rated ${title} manufactured by EgSwitchGear in Pakistan. High-quality industrial solutions complying with IEC standards.`,
         keywords: [title, categoryGroup, 'Industrial Switchgear', 'Pakistan Electrical', 'EgSwitchgear', 'Manufacturer Pakistan', 'Supplier Karachi'],
         overview: `
@@ -193,7 +193,7 @@ const manualProducts: Record<string, ProductData> = {
     },
     'mcc-panels': {
         slug: 'mcc-panels',
-        title: 'MCC Panels (Motor Control Centers)',
+        title: 'MCC Panels',
         shortDescription: 'Centralized control and protection for industrial electric motors.',
         keywords: ['MCC Panel', 'Motor Control Center', 'DOL Starter Panel', 'Star Delta Starter', 'Motor Protection', 'Industrial Motor Control'],
         overview: `<p><strong>MCC Panels</strong> provide a centralized location for controlling multiple heavy-duty motors. Essential for process industries, they allow for remote start/stop, speed control, and comprehensive protection for all your electric motors.</p>`,
@@ -335,9 +335,9 @@ const manualProducts: Record<string, ProductData> = {
         ],
         imageUrl: '/SMDB.jpg'
     },
-    'auto-manual-changeover': {
-        slug: 'auto-manual-changeover',
-        title: 'Auto & Manual Changeover Panels',
+    'auto-and-manual-change-over-panels': {
+        slug: 'auto-and-manual-change-over-panels',
+        title: 'Auto & Manual Change Over Panels',
         shortDescription: 'Safe and reliable power changeover between utility and generator sources.',
         keywords: [
             'Changeover Panel',
@@ -376,8 +376,8 @@ const manualProducts: Record<string, ProductData> = {
         ],
         imageUrl: '/SMDB.jpg'
     },
-    'control-relay-panels': {
-        slug: 'control-relay-panels',
+    'control-and-relay-panels': {
+        slug: 'control-and-relay-panels',
         title: 'Control & Relay Panels',
         seoTitle: 'Control & Relay Panels | EgSwitchGear',
         shortDescription: 'Precision control and relay panels for automation and protection systems.',
@@ -766,7 +766,7 @@ const manualProducts: Record<string, ProductData> = {
     },
     'cable-tray-accessories': {
         slug: 'cable-tray-accessories',
-        title: 'Cable Tray Fittings & Accessories',
+        title: 'Cable Tray Accessories',
         shortDescription: 'Comprehensive range of bends, tees, and connectors for flexible cable tray routing.',
         keywords: [
             'Cable Tray Bends',
@@ -1024,9 +1024,9 @@ const manualProducts: Record<string, ProductData> = {
         ],
         imageUrl: '/energy-monitoring.jpg'
     },
-    'commercial-industrial-lighting': {
-        slug: 'commercial-industrial-lighting',
-        title: 'Commercial & Industrial LED Lighting',
+    'commercial-and-industrial-lighting': {
+        slug: 'commercial-and-industrial-lighting',
+        title: 'Industrial Lighting Solutions',
         shortDescription: 'High-efficacy and durable LED lighting solutions for large-scale facilities.',
         keywords: [
             'Industrial LED Light',
@@ -1155,7 +1155,8 @@ const manualProducts: Record<string, ProductData> = {
     },
     'power-backup-systems': {
         slug: 'power-backup-systems',
-        title: 'Industrial & Commercial UPS Systems',
+        title: 'Power Backup Systems',
+        seoTitle: 'Industrial & Commercial UPS',
         shortDescription: 'Uninterruptible Power Supply (UPS) solutions for critical data and industrial processes.',
         keywords: [
             'Industrial UPS',
@@ -1198,7 +1199,8 @@ const manualProducts: Record<string, ProductData> = {
     },
     'cctv-surveillance-systems': {
         slug: 'cctv-surveillance-systems',
-        title: 'Industrial CCTV Surveillance Systems',
+        title: 'CCTV Surveillance Systems',
+        seoTitle: 'Industrial CCTV Surveillance',
         shortDescription: 'Advanced IP-based CCTV systems for high-security industrial and commercial monitoring.',
         keywords: [
             'Industrial CCTV',
@@ -1326,9 +1328,9 @@ const manualProducts: Record<string, ProductData> = {
         ],
         imageUrl: '/access-control.webp'
     },
-    'lightning-protection-earthing-systems': {
-        slug: 'lightning-protection-earthing-systems',
-        title: 'Lightning Protection Systems',
+    'lightning-protection-and-earthing-systems': {
+        slug: 'lightning-protection-and-earthing-systems',
+        title: 'Lightning Protection & Earthing',
         seoTitle: 'Lightning Protection | EgSwitchGear',
         shortDescription: 'Comprehensive lightning protection systems to shield structures and electronics from strikes.',
         keywords: [
@@ -1456,9 +1458,9 @@ const manualProducts: Record<string, ProductData> = {
         ],
         imageUrl: '/data-racks.jpg'
     },
-    'tv-telephone-junction-boxes': {
-        slug: 'tv-telephone-junction-boxes',
-        title: 'TV & Telephone Connection Boxes',
+    'tv-and-telephone-junction-boxes': {
+        slug: 'tv-and-telephone-junction-boxes',
+        title: 'TV & Telephone Junction Boxes',
         shortDescription: 'Organized junction boxes for TV, telephone, and low-voltage signal distribution.',
         keywords: [
             'Telephone Junction Box',
@@ -1501,7 +1503,7 @@ const manualProducts: Record<string, ProductData> = {
     },
     'meter-boxes': {
         slug: 'meter-boxes',
-        title: 'Electrical Meter Boxes & Cabinets',
+        title: 'Electrical Meter Boxes',
         shortDescription: 'Secure and weather-protected enclosures for utility energy meters.',
         keywords: [
             'Electric Meter Box',
@@ -1542,8 +1544,8 @@ const manualProducts: Record<string, ProductData> = {
         ],
         imageUrl: '/meter-boxes.webp'
     },
-    'warehousing-racking-systems': {
-        slug: 'warehousing-racking-systems',
+    'warehousing-and-racking-systems': {
+        slug: 'warehousing-and-racking-systems',
         title: 'Industrial Warehousing & Racking',
         shortDescription: 'Heavy-duty pallet racking and shelving systems for optimized warehouse storage.',
         keywords: [
@@ -1628,10 +1630,10 @@ const manualProducts: Record<string, ProductData> = {
         ],
         imageUrl: '/industrial-furniture.webp'
     },
-    'employee-staff-lockers': {
-        slug: 'employee-staff-lockers',
+    'employee-and-staff-lockers': {
+        slug: 'employee-and-staff-lockers',
         title: 'Staff & Employee Lockers',
-        seoTitle: 'Staff Lockers | EgSwitchGear',
+        seoTitle: 'Staff Lockers',
         shortDescription: 'Secure and ventilated steel lockers for staff and employee changing rooms.',
         keywords: [
             'Staff Locker',
@@ -1674,7 +1676,7 @@ const manualProducts: Record<string, ProductData> = {
     },
     'tools-cabinets': {
         slug: 'tools-cabinets',
-        title: 'Mobile & Stationary Tool Cabinets',
+        title: 'Industrial Tool Cabinets',
         shortDescription: 'Organized and secure storage for industrial tools and sensitive equipment.',
         keywords: [
             'Tool Cabinet',
@@ -2067,9 +2069,6 @@ const manualProducts: Record<string, ProductData> = {
             { slug: 'solar-panel-output', title: 'Solar Output Calculator' }
         ]
     },
-
-
-
 };
 
 // --- Definition of All Categories ---
