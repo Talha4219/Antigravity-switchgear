@@ -45,29 +45,7 @@ export default function SolarPanelOutputCalculator() {
   }, [form.watch]);
 
   return (
-    <AdvancedCalculatorWrapper
-      title="Solar Panel Energy Output"
-      shortDescription="Estimate the daily and monthly energy production (kWh) of your solar array based on local irradiance and system efficiencies."
-      formula={
-        <div className="space-y-3">
-          <div className="flex justify-between items-center gap-4 text-primary-foreground/90">
-            <span className="text-xs font-bold uppercase tracking-tighter">Energy (kWh)</span>
-            <span className="font-mono text-sm text-right">E = P_array &middot; H_sun &middot; (1 - L)</span>
-          </div>
-        </div>
-      }
-      educationalContent={
-        <div className="space-y-6">
-          <p>
-            The actual output of a solar system depends heavily on **Location** (Peak Sun Hours) and **System Losses** (inverter inefficiency, shading, and cable losses).
-          </p>
-          <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10">
-            <h4 className="font-bold text-primary mb-2 flex items-center gap-2"><SunMedium className="h-4 w-4" /> Peak Sun Hours</h4>
-            <p className="text-sm opacity-80">This is not the total daylight duration, but the equivalent number of hours where solar irradiance is 1000W/m&sup2;. In Pakistan, this typically ranges from 4.5 to 6.5 hours.</p>
-          </div>
-        </div>
-      }
-    >
+    <>
       <Form {...form}>
         <form className="space-y-8">
           <div className="flex flex-col gap-6">
@@ -116,6 +94,6 @@ export default function SolarPanelOutputCalculator() {
           </div>
         </div>
       )}
-    </AdvancedCalculatorWrapper>
+    </>
   );
 }

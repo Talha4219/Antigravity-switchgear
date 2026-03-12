@@ -58,7 +58,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
   } : undefined;
 
   // Fetch Latest Blogs for Sidebar
-  let latestBlogs = [];
+  let latestBlogs: any[] = [];
   try {
     await connectDB();
     const blogDocs = await BlogPost.find({ status: 'Published' })
@@ -97,19 +97,20 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
   return (
     <ResponsiveCalculatorWrapper
       title={calculator.title}
-      shortDescription={calculator.description as any}
+      shortDescription={calculator.shortDescription || (calculator.description as any)}
       formula={calculator.formula}
       category={calculator.category}
       prevCalc={prevCalc}
       nextCalc={nextCalc}
       latestBlogs={latestBlogs}
       relatedProducts={relatedProducts}
-      educationalContent={
+      educationalContent={calculator.educationalContent || (
         <div className="space-y-4">
           <p>This calculator is part of the <strong>EgSwitchgear Engineering Hub</strong>, a professional suite of tools designed to assist electrical engineers, panel builders, and contractors in designing safe and efficient power distribution systems.</p>
           <p>The logic follows international standards including <strong>IEC 61439</strong> for switchgear assemblies and <strong>NEC 2024</strong> for electrical installations. For mission-critical applications, always cross-reference these results with full-scale architectural engineering audits.</p>
         </div>
-      }
+      )}
+      faq={calculator.faq}
     >
       <CalculatorComponent />
     </ResponsiveCalculatorWrapper>

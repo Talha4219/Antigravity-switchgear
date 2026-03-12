@@ -65,29 +65,7 @@ export default function CableTrayFillCalculator() {
   }, [form.watch]);
 
   return (
-    <AdvancedCalculatorWrapper
-      title="Cable Tray Fill Calculator"
-      shortDescription="Optimize containment systems by calculating volumetric fill percentages according to NEC 392 standards for commercial and industrial cable management."
-      formula={
-        <div className="space-y-3">
-          <div className="flex justify-between items-center gap-4 text-primary-foreground/90">
-            <span className="text-xs font-bold uppercase tracking-tighter">Fill %</span>
-            <span className="font-mono text-sm text-right">Fill = (&Sigma; Area_cable / Area_tray) &middot; 100</span>
-          </div>
-        </div>
-      }
-      educationalContent={
-        <div className="space-y-6">
-          <p>
-            Proper cable tray management is critical for heat dissipation and fire safety. Overfilling a tray prevents airflow, causing cables to overheat and potentially degrade insulation over time.
-          </p>
-          <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10">
-            <h4 className="font-bold text-primary mb-2 flex items-center gap-2"><InfoIcon className="h-4 w-4" /> NEC 392.22</h4>
-            <p className="text-sm opacity-80">For power cables, NEC generally suggests a maximum fill based on cross-sectional area, often limited to 40-50% for ventilated trays to ensure adequate cooling.</p>
-          </div>
-        </div>
-      }
-    >
+    <>
       <Form {...form}>
         <form className="space-y-8">
           <div className="flex flex-col gap-6 bg-secondary/20 p-8 rounded-3xl border border-border/50 shadow-inner">
@@ -199,6 +177,6 @@ export default function CableTrayFillCalculator() {
           </div>
         </div>
       )}
-    </AdvancedCalculatorWrapper>
+    </>
   );
 }

@@ -90,29 +90,7 @@ export default function CableSizeCalculator() {
   }, [form.watch]);
 
   return (
-    <AdvancedCalculatorWrapper
-      title="Cable Size Calculator"
-      shortDescription="Determine the required conductor gauge based on current carrying capacity and voltage drop limitations for industrial installations."
-      formula={
-        <div className="space-y-3">
-          <div className="flex justify-between items-center gap-4 text-primary-foreground/90">
-            <span className="text-xs font-bold uppercase tracking-tighter">Circular Mils (CM)</span>
-            <span className="font-mono text-sm text-right">CM = (K &middot; I &middot; L &middot; Multi) / V_drop</span>
-          </div>
-        </div>
-      }
-      educationalContent={
-        <div className="space-y-6">
-          <p>
-            Correct cable sizing prevents overheating and ensures that voltage levels at the load remain within the operating specifications of the connected equipment.
-          </p>
-          <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10">
-            <h4 className="font-bold text-primary mb-2 flex items-center gap-2"><InfoIcon className="h-4 w-4" /> NEC 310.15</h4>
-            <p className="text-sm opacity-80">This tool provides an estimation. Always cross-reference with NEC Table 310.15(B)(16) for specific insulation types (THHN, XHHW) and ambient temperature deratings.</p>
-          </div>
-        </div>
-      }
-    >
+    <>
       <Form {...form}>
         <form className="space-y-8">
           <div className="flex flex-col gap-6">
@@ -154,6 +132,6 @@ export default function CableSizeCalculator() {
           </div>
         </div>
       )}
-    </AdvancedCalculatorWrapper>
+    </>
   );
 }

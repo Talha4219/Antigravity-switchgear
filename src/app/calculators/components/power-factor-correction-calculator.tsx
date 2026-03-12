@@ -56,55 +56,7 @@ export default function PowerFactorCorrectionCalculator() {
   }, [form.watch]);
 
   return (
-    <AdvancedCalculatorWrapper
-      title="Power Factor Correction"
-      shortDescription="Optimize your electrical system by calculating the precise capacitor bank rating (kVAR) needed to eliminate reactive power penalties and reduce system losses."
-      formula={
-        <div className="space-y-3">
-          <div className="flex justify-between items-center gap-4 text-primary-foreground/90">
-            <span className="text-xs font-bold uppercase tracking-tighter">Capacitor kVAR</span>
-            <span className="font-mono text-sm text-right">Q = P &middot; (tan &phi;1 - tan &phi;2)</span>
-          </div>
-          <div className="pt-3 border-t border-white/10 mt-2">
-            <p className="text-[10px] opacity-70 font-sans italic leading-tight">
-              Where &phi;1 is the current angle and &phi;2 is the target angle.
-            </p>
-          </div>
-        </div>
-      }
-      educationalContent={
-        <div className="space-y-6">
-          <p>
-            Power factor is the ratio between <strong>Real Power (kW)</strong> and <strong>Apparent Power (kVA)</strong>. A low power factor means your system is drawing more current than it actually uses to do work.
-          </p>
-
-          <div className="bg-primary/5 p-6 md:p-8 rounded-2xl border border-primary/10 my-8 shadow-sm">
-            <h4 className="font-headline font-bold text-primary mb-4 flex items-center gap-3">
-              <InfoIcon className="h-5 w-5" /> The Beer Analogy
-            </h4>
-            <p className="m-0 text-sm md:text-base leading-relaxed text-muted-foreground font-medium">
-              The liquid is the <strong>Real Power (kW)</strong>. The foam is the <strong>Reactive Power (kVAR)</strong>. The entire glass is the <strong>Apparent Power (kVA)</strong>.
-            </p>
-          </div>
-
-          <h3 className="font-headline font-bold text-xl md:text-2xl mt-12 mb-6 text-foreground">Correction Benefits</h3>
-          <div className="flex flex-col gap-6">
-            <div className="p-5 rounded-2xl bg-secondary/20 border border-border">
-              <h5 className="font-bold text-primary mb-2 flex items-center gap-2"><TrendingUp className="h-4 w-4" /> Save Utility Bills</h5>
-              <p className="text-sm opacity-80">Stop paying reactive power surcharges that can inflate industrial bills by 10-15%.</p>
-            </div>
-            <div className="p-5 rounded-2xl bg-secondary/20 border border-border">
-              <h5 className="font-bold text-primary mb-2 flex items-center gap-2"><Zap className="h-4 w-4" /> Capacity Boost</h5>
-              <p className="text-sm opacity-80">Free up room on transformers and conductors for new machinery without hardware upgrades.</p>
-            </div>
-          </div>
-        </div>
-      }
-      faq={[
-        { question: "Where should I install capacitors?", answer: "Usually at the main service entrance (Centralized) or directly at large motors (Decentralized)." },
-        { question: "Can I over-correct?", answer: "Yes. Bringing the PF into a leading state (Capacitive) can cause resonance. Aiming for 0.95 is the sweet spot." }
-      ]}
-    >
+    <>
       <Form {...form}>
         <form className="space-y-8">
           <div className="flex flex-col gap-6">
@@ -164,6 +116,6 @@ export default function PowerFactorCorrectionCalculator() {
           </div>
         </div>
       )}
-    </AdvancedCalculatorWrapper>
+    </>
   );
 }

@@ -7,7 +7,6 @@ import { z } from 'zod';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Server, ShieldCheck, Activity } from 'lucide-react';
-import AdvancedCalculatorWrapper from './AdvancedCalculatorWrapper';
 
 const formSchema = z.object({
     totalLoad: z.coerce.number().min(0.1, "Load must be greater than 0"),
@@ -47,25 +46,7 @@ export default function TransformerSizingAdvanced() {
     }, [form.watch]);
 
     return (
-        <AdvancedCalculatorWrapper
-            title="Switchgear Transformer Sizing Calculator"
-            shortDescription="The Transformer Sizing Calculator is designed to help engineers select the right transformer capacity for their switchgear and distribution systems."
-            formula={<code>kVA<sub>rec</sub> &ge; (Load * DF) * (1 + Growth)</code>}
-            educationalContent={
-                <div className="space-y-4">
-                    <p>Accurate transformer sizing prevents overloading, reduces energy losses, and ensures reliable power distribution. It considers the total connected load and the diversity factor (simultaneity).</p>
-                    <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10">
-                        <h4 className="font-bold flex items-center gap-2 mb-2"><Activity size={18} className="text-primary" /> Diversity Factor</h4>
-                        <p className="text-sm">In most systems, not all loads run at 100% capacity at the same time. The Diversity Factor accounts for this, preventing over-capitalization on oversized transformers.</p>
-                    </div>
-                    <p>This calculator is an essential tool for industrial switchgear design, enabling efficient planning and safe operation of electrical systems.</p>
-                </div>
-            }
-            faq={[
-                { question: "What is a safe diversity factor?", answer: "Industrial plants usually range from 0.7 to 0.9 depending on the number of non-coincident loads." },
-                { question: "How much expansion should I plan for?", answer: "Typical engineering practice suggests 20% to 30% for future-proofing industrial infrastructure." }
-            ]}
-        >
+        <>
             <Form {...form}>
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField control={form.control} name="totalLoad" render={({ field }) => (
@@ -107,6 +88,6 @@ export default function TransformerSizingAdvanced() {
                     </div>
                 </div>
             )}
-        </AdvancedCalculatorWrapper>
+        </>
     );
 }

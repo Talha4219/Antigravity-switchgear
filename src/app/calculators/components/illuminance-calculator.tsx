@@ -46,29 +46,7 @@ export default function IlluminanceCalculator() {
   }, [form.watch]);
 
   return (
-    <AdvancedCalculatorWrapper
-      title="Illuminance Calculator"
-      shortDescription="Calculate light levels for workspaces and industrial facilities to ensure compliance with occupational health and safety standards."
-      formula={
-        <div className="space-y-3">
-          <div className="flex justify-between items-center gap-4 text-primary-foreground/90">
-            <span className="text-xs font-bold uppercase tracking-tighter">Illuminance (E)</span>
-            <span className="font-mono text-sm text-right">E = &Phi; / A</span>
-          </div>
-        </div>
-      }
-      educationalContent={
-        <div className="space-y-6">
-          <p>
-            Proper lighting is essential for precision work and safety. <strong>Lux</strong> measures light per square meter, while <strong>Foot-candles</strong> measure light per square foot.
-          </p>
-          <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10">
-            <h4 className="font-bold text-primary mb-2 flex items-center gap-2"><InfoIcon className="h-4 w-4" /> Recommended Levels</h4>
-            <p className="text-sm opacity-80">Offices generally require 300-500 Lux, while precision assembly lines may need up to 1000 Lux for optimal performance.</p>
-          </div>
-        </div>
-      }
-    >
+    <>
       <Form {...form}>
         <form className="space-y-8">
           <div className="flex flex-col gap-6">
@@ -111,6 +89,6 @@ export default function IlluminanceCalculator() {
           </div>
         </div>
       )}
-    </AdvancedCalculatorWrapper>
+    </>
   );
 }

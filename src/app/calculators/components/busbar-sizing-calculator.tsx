@@ -54,31 +54,7 @@ export default function BusbarSizingCalculator() {
     }, [form.watch]);
 
     return (
-        <AdvancedCalculatorWrapper
-            title="Busbar Size Calculator for Switchgear Panels"
-            shortDescription="The Busbar Sizing Calculator is designed for professionals who need to determine the proper busbar dimensions for switchgear and MCC panels."
-            formula={<code>Area &propto; (I/k)<sup>1.6</sup></code>}
-            educationalContent={
-                <div className="space-y-4">
-                    <p>Selecting the correct busbar size ensures optimal current-carrying capacity, reduces power losses, and prevents overheating in electrical panels.</p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
-                        <div className="p-4 rounded-xl bg-orange-50 border border-orange-100">
-                            <h5 className="font-bold text-orange-700 mb-1">Copper (Cu)</h5>
-                            <p className="text-xs text-orange-600">Higher conductivity, smaller footprint, best for high-density panels.</p>
-                        </div>
-                        <div className="p-4 rounded-xl bg-slate-50 border border-slate-100">
-                            <h5 className="font-bold text-slate-700 mb-1">Aluminum (Al)</h5>
-                            <p className="text-xs text-slate-600">Cost-effective, lighter weight, requires larger cross-section for same load.</p>
-                        </div>
-                    </div>
-                    <p>Ideal for industrial switchgear design, electrical panel manufacturing, and high-current applications, this tool simplifies a complex engineering calculation while maintaining safety and efficiency standards.</p>
-                </div>
-            }
-            faq={[
-                { question: "What is standard temperature rise?", answer: "Industrial standard is typically 30°C or 50°C above ambient." },
-                { question: "Why round to 5mm?", answer: "Most busbar manufacturers produce standard widths in 5mm or 10mm increments." }
-            ]}
-        >
+        <>
             <Form {...form}>
                 <form className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-bold">
@@ -127,6 +103,6 @@ export default function BusbarSizingCalculator() {
                     </div>
                 </div>
             )}
-        </AdvancedCalculatorWrapper>
+        </>
     );
 }

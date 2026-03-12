@@ -66,28 +66,7 @@ export default function CableSizingExpert() {
     }, [form.watch]);
 
     return (
-        <AdvancedCalculatorWrapper
-            title="Switchgear Cable Sizing Calculator"
-            shortDescription="Our Switchgear Cable Sizing Calculator helps electricians, engineers, and contractors quickly determine the correct cable size for any switchgear installation."
-            formula={<span>Area = (2 &middot; L &middot; I &middot; &rho;) / V<sub>drop</sub></span>}
-            educationalContent={
-                <div className="space-y-4">
-                    <p>Correct cable sizing is crucial to prevent overheating, voltage drop, and energy loss. By inputting load current, voltage, installation method, cable material, and length, this tool provides the minimum cross-section area required for safe operation.</p>
-                    <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10 flex items-start gap-4">
-                        <Wind size={24} className="text-primary mt-1" />
-                        <div>
-                            <h4 className="font-bold">Installation Factors</h4>
-                            <p className="text-sm">Cables in conduits dissipate heat less effectively than cables on open trays, requiring larger sizes for the same current load.</p>
-                        </div>
-                    </div>
-                    <p>Whether you are designing industrial distribution boards, electrical switchgear panels, or motor control centers, this calculator saves time, ensures compliance with electrical codes, and improves system reliability.</p>
-                </div>
-            }
-            faq={[
-                { question: "What is the max allowed voltage drop?", answer: "Typically 3% for lighting and 5% for power circuits per IEC 60364." },
-                { question: "Does ambient temperature affect this?", answer: "Yes, extreme heat requires further derating of cable capacity." }
-            ]}
-        >
+        <>
             <Form {...form}>
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField control={form.control} name="current" render={({ field }) => (
@@ -149,6 +128,6 @@ export default function CableSizingExpert() {
                     </div>
                 </div>
             )}
-        </AdvancedCalculatorWrapper>
+        </>
     );
 }

@@ -67,43 +67,7 @@ export default function LoadCalculator() {
   }, [form.watch]);
 
   return (
-    <AdvancedCalculatorWrapper
-      title="Electrical Load Calculator"
-      shortDescription="Aggregate multiple industrial and commercial branches to determine total system Amperage and Apparent Power (kVA) requirements."
-      formula={
-        <div className="space-y-3">
-          <div className="flex justify-between items-center gap-4 text-primary-foreground/90">
-            <span className="text-xs font-bold uppercase tracking-tighter">Current (I)</span>
-            <span className="font-mono text-sm text-right">I = VA / (V &middot; 1.732)</span>
-          </div>
-          <div className="pt-3 border-t border-white/10 mt-2">
-            <p className="text-[10px] opacity-70 font-sans italic leading-tight">
-              Standard 3&phi; balanced system calculation.
-            </p>
-          </div>
-        </div>
-      }
-      educationalContent={
-        <div className="space-y-6">
-          <p>
-            Accurate load calculation is the foundation of any switchgear project. It ensures that busbars, breakers, and transformers are neither undersized (causing failure) nor vastly oversized (wasting budget).
-          </p>
-
-          <div className="bg-primary/5 p-6 md:p-8 rounded-2xl border border-primary/10 my-8 shadow-sm">
-            <h4 className="font-headline font-bold text-primary mb-4 flex items-center gap-3">
-              <InfoIcon className="h-5 w-5" /> Watts vs. VA
-            </h4>
-            <p className="m-0 text-sm md:text-base leading-relaxed text-muted-foreground font-medium">
-              In AC systems, <strong>Watts</strong> (Real Power) is the energy doing work, while <strong>VA</strong> (Apparent Power) is the total power flowing through the wires. Equipment MUST be sized for VA.
-            </p>
-          </div>
-        </div>
-      }
-      faq={[
-        { question: "What is the 125% rule?", answer: "NEC requires continuous loads to be sized at 125% of their rating to prevent heat buildup in breakers." },
-        { question: "How do I handle unbalanced loads?", answer: "This tool assumes a balanced 3-phase system. For significantly unbalanced phases, each phase must be calculated independently." }
-      ]}
-    >
+    <>
       <Form {...form}>
         <form className="space-y-8">
           <div className="bg-secondary/20 p-8 rounded-3xl border border-border/50 shadow-inner">
@@ -210,6 +174,6 @@ export default function LoadCalculator() {
           </div>
         </div>
       )}
-    </AdvancedCalculatorWrapper>
+    </>
   );
 }

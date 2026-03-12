@@ -56,33 +56,7 @@ export default function TransformerSizingCalculator() {
   }, [form.watch]);
 
   return (
-    <AdvancedCalculatorWrapper
-      title="Transformer Sizing Calculator"
-      shortDescription="Determine the optimal kVA rating for your electrical substation or distribution transformer, including safety margins and future growth factors."
-      formula={
-        <div className="space-y-3">
-          <div className="flex justify-between items-center gap-4 text-primary-foreground/90">
-            <span className="text-xs font-bold uppercase tracking-tighter">Required kVA</span>
-            <span className="font-mono text-sm text-right">kVA = (V &middot; I &middot; &radic;3) / 1000</span>
-          </div>
-        </div>
-      }
-      educationalContent={
-        <div className="space-y-6">
-          <p>
-            Sizing a transformer correctly is vital for maintaining voltage stability and ensuring long-term reliability.
-          </p>
-          <div className="bg-primary/5 p-6 md:p-8 rounded-2xl border border-primary/10 my-8 shadow-sm">
-            <h4 className="font-headline font-bold text-primary mb-4 flex items-center gap-3">
-              <ShieldAlert className="h-5 w-5" /> The 80% Loading Rule
-            </h4>
-            <p className="m-0 text-sm md:text-base leading-relaxed text-muted-foreground font-medium">
-              Standard practice suggests sizing a transformer so that it operates at <strong>80% capacity</strong> under maximum load.
-            </p>
-          </div>
-        </div>
-      }
-    >
+    <>
       <Form {...form}>
         <form className="space-y-8">
           <div className="flex flex-col gap-6">
@@ -128,6 +102,6 @@ export default function TransformerSizingCalculator() {
           </div>
         </div>
       )}
-    </AdvancedCalculatorWrapper>
+    </>
   );
 }

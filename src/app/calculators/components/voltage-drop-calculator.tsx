@@ -119,75 +119,7 @@ export default function VoltageDropCalculator() {
   }, [form.watch]); // Dependency array includes form.watch to re-subscribe if it changes (though it usually doesn't)
 
   return (
-    <AdvancedCalculatorWrapper
-      title="Voltage Drop Calculator"
-      shortDescription="Calculate precise voltage drop using NEC Chapter 9, Table 9 data for and ensuring your electrical circuits remain within safe operating limits."
-      formula={
-        <div className="space-y-3">
-          <div className="flex justify-between items-center gap-4 text-primary-foreground/90">
-            <span className="text-xs font-bold uppercase tracking-tighter">1&phi; / DC</span>
-            <span className="font-mono text-sm">V_drop = 2 &middot; I &middot; Z &middot; L</span>
-          </div>
-          <div className="flex justify-between items-center gap-4 text-primary-foreground/90">
-            <span className="text-xs font-bold uppercase tracking-tighter">3&phi; AC</span>
-            <span className="font-mono text-sm">V_drop = &radic;3 &middot; I &middot; Z &middot; L</span>
-          </div>
-          <div className="pt-3 border-t border-white/10 mt-2">
-            <p className="text-[10px] opacity-70 font-sans italic leading-tight">
-              Z (Effective Impedance) = R &middot; cos(&phi;) + X &middot; sin(&phi;)
-            </p>
-          </div>
-        </div>
-      }
-      educationalContent={
-        <div className="space-y-6">
-          <p>
-            When electrical current moves through a wire, it is pushed by electrical potential (voltage) and it needs to surpass a certain level of contrary pressure caused by the wire. The <strong>voltage drop</strong> is the amount of electrical potential (voltage) loss caused by the contrary pressure.
-          </p>
-
-          <div className="bg-primary/5 p-6 md:p-8 rounded-2xl border border-primary/10 my-8 shadow-sm">
-            <h4 className="font-headline font-bold text-primary mb-4 flex items-center gap-3">
-              <InfoIcon className="h-5 w-5" /> Standard Safety Recommendations
-            </h4>
-            <p className="m-0 text-sm md:text-base leading-relaxed text-muted-foreground font-medium">
-              The National Electrical Code (NEC) suggests a maximum voltage drop of <strong>3%</strong> for branch circuits and <strong>5%</strong> for combined feeder and branch circuits for optimal performance. Excessive drop leads to motor failure and inefficient energy use.
-            </p>
-          </div>
-
-          <h3 className="font-headline font-bold text-xl md:text-2xl mt-12 mb-6">Critical Factors Influencing Drop</h3>
-          <div className="flex flex-col gap-6">
-            <div className="space-y-2 p-5 rounded-xl bg-secondary/20 border border-border">
-              <h5 className="font-bold text-primary flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary" /> Wire Material
-              </h5>
-              <p className="text-sm opacity-80 leading-relaxed">Copper offers superior conductivity over aluminum, significantly reducing potential loss for identical wire gauges.</p>
-            </div>
-            <div className="space-y-2 p-5 rounded-xl bg-secondary/20 border border-border">
-              <h5 className="font-bold text-primary flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary" /> Cross Section
-              </h5>
-              <p className="text-sm opacity-80 leading-relaxed">Increasing wire diameter reduces resistance. In AWG, a 3-gauge decrease doubles the cross-sectional area.</p>
-            </div>
-            <div className="space-y-2 p-5 rounded-xl bg-secondary/20 border border-border">
-              <h5 className="font-bold text-primary flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary" /> System Length
-              </h5>
-              <p className="text-sm opacity-80 leading-relaxed">Voltage drop accumulates linearly. Long runs to outbuildings or well pumps require careful diameter selection.</p>
-            </div>
-            <div className="space-y-2 p-5 rounded-xl bg-secondary/20 border border-border">
-              <h5 className="font-bold text-primary flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary" /> Load Intensity
-              </h5>
-              <p className="text-sm opacity-80 leading-relaxed">As current (Amperage) increases, the potential loss follows Ohm's Law (V = IR) proportionally.</p>
-            </div>
-          </div>
-        </div>
-      }
-      faq={[
-        { question: "How does the conduit material affect calculation?", answer: "Ferromagnetic conduits like steel generate induction and eddy currents, increasing the reactance (X) of the circuit compared to PVC or Aluminum." },
-        { question: "When should I use the 'Other/Manual' tab?", answer: "Use this when you have specific data from a wire manufacturer for unique cables like shielded VFD cables or high-voltage lines that differ from NEC Table 9." }
-      ]}
-    >
+    <>
       <Tabs defaultValue="nec" onValueChange={(val) => {
         form.setValue('method', val as any);
         calculate(form.getValues());
@@ -367,6 +299,6 @@ export default function VoltageDropCalculator() {
           </div>
         </div>
       )}
-    </AdvancedCalculatorWrapper>
+    </>
   );
 }

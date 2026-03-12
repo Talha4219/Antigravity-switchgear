@@ -7,7 +7,6 @@ import { z } from 'zod';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { AlertCircle, ShieldAlert, Zap, ShieldCheck } from 'lucide-react';
-import AdvancedCalculatorWrapper from './AdvancedCalculatorWrapper';
 
 const formSchema = z.object({
     faultCurrent: z.coerce.number().min(1, "Current must be greater than 0"),
@@ -56,25 +55,7 @@ export default function ArcFlashCalculator() {
     }, [form.watch]);
 
     return (
-        <AdvancedCalculatorWrapper
-            title="Switchgear Arc Flash Calculator"
-            shortDescription="The Switchgear Arc Flash Calculator is a critical tool for electrical safety compliance. It calculates incident energy and recommended PPE."
-            formula={<span>E = 4.184 &middot; C<sub>f</sub> &middot; E<sub>n</sub> &middot; (t / 0.2) &middot; (20 / d)<sup>2</sup></span>}
-            educationalContent={
-                <div className="space-y-4">
-                    <p>Arc flash hazards are a major safety concern in switchgear panels, MCCs, and industrial electrical systems. This calculator helps determine safe working distances and PPE requirements.</p>
-                    <div className="bg-red-50 p-6 rounded-2xl border border-red-100">
-                        <h4 className="font-bold flex items-center gap-2 mb-2 text-red-700"><ShieldAlert size={18} /> High Risk Alert</h4>
-                        <p className="text-sm text-red-600">Incident energy above 40 cal/cm² is considered "Dangerous" - no safe PPE exists to protect against the pressure blast at these levels.</p>
-                    </div>
-                    <p>This tool is designed for safety engineers, switchgear operators, and maintenance personnel, helping to prevent accidents and maintain a safe working environment.</p>
-                </div>
-            }
-            faq={[
-                { question: "What is NFPA 70E?", answer: "The standard for electrical safety in the workplace, outlining requirements for PPE and safe work practices." },
-                { question: "How to reduce arc flash?", answer: "Using faster clearing protective devices or arc-resistant switchgear designs minimizes the energy released." }
-            ]}
-        >
+        <>
             <Form {...form}>
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField control={form.control} name="faultCurrent" render={({ field }) => (
@@ -118,6 +99,6 @@ export default function ArcFlashCalculator() {
                     </div>
                 </div>
             )}
-        </AdvancedCalculatorWrapper>
+        </>
     );
 }

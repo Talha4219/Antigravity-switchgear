@@ -7,7 +7,6 @@ import { z } from 'zod';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Coins, Zap, Activity, ShieldCheck } from 'lucide-react';
-import AdvancedCalculatorWrapper from './AdvancedCalculatorWrapper';
 
 const formSchema = z.object({
     power: z.coerce.number().min(0.1, "Power must be greater than 0"),
@@ -43,25 +42,7 @@ export default function EnergyCostCalculator() {
     }, [form.watch]);
 
     return (
-        <AdvancedCalculatorWrapper
-            title="Switchgear Energy Consumption Calculator"
-            shortDescription="The Switchgear Energy Consumption Calculator provides a simple way to estimate electrical energy usage and costs for industrial and commercial switchgear panels."
-            formula={<code>Cost = P * t * Rate</code>}
-            educationalContent={
-                <div className="space-y-4">
-                    <p>By entering load power, operating hours, and electricity rate, the calculator outputs total energy consumed in kWh and the estimated operating cost.</p>
-                    <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10">
-                        <h4 className="font-bold flex items-center gap-2 mb-2"><Coins size={18} className="text-primary" /> Financial Optimization</h4>
-                        <p className="text-sm">This tool is especially useful for facility managers and engineers looking to plan power budgets and identify energy-intensive equipment.</p>
-                    </div>
-                    <p>It also helps in identifying energy-intensive equipment and improving overall system efficiency by quantifying potential savings from power factor correction or equipment upgrades.</p>
-                </div>
-            }
-            faq={[
-                { question: "Is this for Single Phase?", answer: "It works for both, as long as you input the total Real Power (kW)." },
-                { question: "Does it include demand charges?", answer: "No, this calculates direct energy consumption cost. Utility bills may include additional fixed or peak-demand charges." }
-            ]}
-        >
+        <>
             <Form {...form}>
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField control={form.control} name="power" render={({ field }) => (
@@ -110,6 +91,6 @@ export default function EnergyCostCalculator() {
                     </div>
                 </div>
             )}
-        </AdvancedCalculatorWrapper>
+        </>
     );
 }

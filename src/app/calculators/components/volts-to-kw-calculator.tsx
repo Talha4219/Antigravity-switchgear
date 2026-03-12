@@ -58,52 +58,7 @@ export default function VoltsToKWCalculator() {
     const systemType = form.watch('systemType');
 
     return (
-        <AdvancedCalculatorWrapper
-            title="Volts to kW Calculator"
-            shortDescription="Convert electrical potential (Volts) and current (Amps) into real power (kiloWatts). Supports Direct Current (DC), Single-Phase AC, and Three-Phase AC systems."
-            formula={
-                <div className="space-y-3">
-                    <div className="flex justify-between items-center gap-4 text-primary-foreground/90">
-                        <span className="text-xs font-bold uppercase tracking-tighter">DC</span>
-                        <span className="font-mono text-sm">kW = (V &middot; I) / 1000</span>
-                    </div>
-                    <div className="flex justify-between items-center gap-4 text-primary-foreground/90">
-                        <span className="text-xs font-bold uppercase tracking-tighter">1&phi; AC</span>
-                        <span className="font-mono text-sm">kW = (V &middot; I &middot; PF) / 1000</span>
-                    </div>
-                    <div className="flex justify-between items-center gap-4 text-primary-foreground/90">
-                        <span className="text-xs font-bold uppercase tracking-tighter">3&phi; AC</span>
-                        <span className="font-mono text-sm">kW = (V &middot; I &middot; PF &middot; &radic;3) / 1000</span>
-                    </div>
-                </div>
-            }
-            educationalContent={
-                <div className="space-y-6">
-                    <p>
-                        Understanding the relationship between Voltage, Current, and Power is fundamental to electrical engineering. This calculator determines the **Real Power (kW)**, which is the actual power used to perform work in a circuit.
-                    </p>
-
-                    <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10">
-                        <h4 className="font-bold text-primary mb-2 flex items-center gap-2"><InfoIcon className="h-4 w-4" /> Power Factor (PF)</h4>
-                        <p className="text-sm opacity-80">
-                            In AC systems, Power Factor is the ratio of real power to apparent power. A unity PF (1.0) means all power is being used effectively. Inductive loads like motors typically have a PF between 0.7 and 0.9.
-                        </p>
-                    </div>
-
-                    <h3 className="font-headline font-bold text-xl md:text-2xl mt-12 mb-6 text-foreground">Calculation Modes</h3>
-                    <div className="flex flex-col gap-6">
-                        <div className="p-5 rounded-2xl bg-secondary/20 border border-border">
-                            <h5 className="font-bold text-primary mb-2 flex items-center gap-2">Direct Current (DC)</h5>
-                            <p className="text-sm opacity-80">Simple V &times; I calculation. Common in battery systems, solar panels (string level), and electronic circuits.</p>
-                        </div>
-                        <div className="p-5 rounded-2xl bg-secondary/20 border border-border">
-                            <h5 className="font-bold text-primary mb-2 flex items-center gap-2">Three-Phase AC</h5>
-                            <p className="text-sm opacity-80">Industrial standard. The &radic;3 (approx. 1.732) multiplier accounts for the phase displacement in balanced 3-phase systems.</p>
-                        </div>
-                    </div>
-                </div>
-            }
-        >
+        <>
             <Form {...form}>
                 <form className="space-y-8">
                     <div className="flex flex-col gap-6">
@@ -195,6 +150,6 @@ export default function VoltsToKWCalculator() {
                     </div>
                 </div>
             )}
-        </AdvancedCalculatorWrapper>
+        </>
     );
 }

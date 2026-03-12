@@ -54,25 +54,7 @@ export default function BreakerSelectionCalculator() {
     }, [form.watch]);
 
     return (
-        <AdvancedCalculatorWrapper
-            title="MCB & Circuit Breaker Selection Calculator for Switchgear"
-            shortDescription="Selecting the right protective device is essential for safe and reliable switchgear operation. Our MCB & Circuit Breaker Selection Calculator allows engineers and designers to quickly determine the correct rating."
-            formula={<span>Rating &ge; I<sub>load</sub> &middot; 1.25</span>}
-            educationalContent={
-                <div className="space-y-4">
-                    <p>By inputting load current, system type, and motor starting characteristics, this calculator provides recommended breaker sizes to prevent overcurrent, short-circuits, and equipment damage.</p>
-                    <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10">
-                        <h4 className="font-bold flex items-center gap-2 mb-2"><ShieldAlert size={18} className="text-primary" /> Protection Logic</h4>
-                        <p className="text-sm">For motor loads, circuit breakers must accommodate high starting currents (often 6-8x rated current) without nuisance tripping.</p>
-                    </div>
-                    <p>It’s an indispensable tool for switchgear panel manufacturers, electrical contractors, and maintenance teams looking to optimize panel protection and comply with industry standards.</p>
-                </div>
-            }
-            faq={[
-                { question: "What is the difference between MCB and MCCB?", answer: "MCBs are typically used for lower current circuits (up to 63A-125A), while MCCBs handle higher currents up to 2500A and offer adjustable trip settings." },
-                { question: "Why use a 1.25 safety factor?", answer: "The NEC requires breakers to be sized at 125% of the continuous load to prevent thermal fatigue of the tripping mechanism." }
-            ]}
-        >
+        <>
             <Form {...form}>
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField control={form.control} name="loadCurrent" render={({ field }) => (
@@ -116,6 +98,6 @@ export default function BreakerSelectionCalculator() {
                     </div>
                 </div>
             )}
-        </AdvancedCalculatorWrapper>
+        </>
     );
 }

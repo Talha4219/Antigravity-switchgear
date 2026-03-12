@@ -8,7 +8,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Cog, ShieldCheck, Zap, Activity } from 'lucide-react';
-import AdvancedCalculatorWrapper from './AdvancedCalculatorWrapper';
 
 const formSchema = z.object({
     power: z.coerce.number().min(0.1, "Power must be greater than 0"),
@@ -64,29 +63,7 @@ export default function MotorStarterCalculator() {
     }, [form.watch]);
 
     return (
-        <AdvancedCalculatorWrapper
-            title="Motor Starter & MCCB Selection Calculator for Switchgear"
-            shortDescription="Our Motor Starter & MCCB Selection Calculator simplifies the process of choosing the correct motor starter and molded case circuit breaker for motors in switchgear panels."
-            formula={<span>I<sub>rated</sub> &approx; kW / (V &middot; &eta; &middot; PF)</span>}
-            educationalContent={
-                <div className="space-y-4">
-                    <p>This ensures motors are protected from overcurrent, short-circuits, and electrical faults while maintaining compliance with electrical standards.</p>
-                    <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10">
-                        <h4 className="font-bold flex items-center gap-2 mb-2"><Cog size={18} className="text-primary" /> Starter Types</h4>
-                        <ul className="text-sm list-disc pl-5 space-y-1">
-                            <li><strong>DOL (Direct On Line):</strong> Simple, but high inrush current.</li>
-                            <li><strong>Star-Delta:</strong> Reduces starting current to 1/3 of DOL.</li>
-                            <li><strong>VFD:</strong> Full control over acceleration and speed.</li>
-                        </ul>
-                    </div>
-                    <p>Ideal for industrial automation, motor control centers, and switchgear panel designers, this tool saves time, reduces errors, and enhances system safety.</p>
-                </div>
-            }
-            faq={[
-                { question: "When to use Star-Delta?", answer: "Typically for motors above 5.5kW or 7.5kW to comply with utility starting current limits." },
-                { question: "Why size MCCB higher than FLC?", answer: "To avoid nuisance tripping during the high current motor start-up phase." }
-            ]}
-        >
+        <>
             <Form {...form}>
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField control={form.control} name="power" render={({ field }) => (
@@ -152,6 +129,6 @@ export default function MotorStarterCalculator() {
                     </div>
                 </div>
             )}
-        </AdvancedCalculatorWrapper>
+        </>
     );
 }

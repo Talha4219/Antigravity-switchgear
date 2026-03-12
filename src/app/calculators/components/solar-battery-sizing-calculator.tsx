@@ -46,29 +46,7 @@ export default function SolarBatterySizingCalculator() {
   }, [form.watch]);
 
   return (
-    <AdvancedCalculatorWrapper
-      title="Solar Battery Bank Sizing"
-      shortDescription="Size your energy storage system to provide reliable power during cloudy days and nighttime, accounting for Depth of Discharge and autonomy requirements."
-      formula={
-        <div className="space-y-3">
-          <div className="flex justify-between items-center gap-4 text-primary-foreground/90">
-            <span className="text-xs font-bold uppercase tracking-tighter">Capacity (Ah)</span>
-            <span className="font-mono text-sm text-right">Ah = (Wh_daily &middot; Days) / (V_sys &middot; DoD)</span>
-          </div>
-        </div>
-      }
-      educationalContent={
-        <div className="space-y-6">
-          <p>
-            The lifespan of a solar battery is directly linked to the **Depth of Discharge (DoD)**. Consistently draining a battery to 0% will rapidly degrade its capacity.
-          </p>
-          <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10">
-            <h4 className="font-bold text-primary mb-2 flex items-center gap-2"><InfoIcon className="h-4 w-4" /> Battery Chemistries</h4>
-            <p className="text-sm opacity-80">Lead-acid batteries are typically sized for 50% DoD, while advanced Lithium (LiFePO4) batteries safely support 80-90% DoD, allowing for a smaller backup bank.</p>
-          </div>
-        </div>
-      }
-    >
+    <>
       <Form {...form}>
         <form className="space-y-8">
           <div className="flex flex-col gap-6">
@@ -117,6 +95,6 @@ export default function SolarBatterySizingCalculator() {
           </div>
         </div>
       )}
-    </AdvancedCalculatorWrapper>
+    </>
   );
 }

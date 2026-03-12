@@ -45,29 +45,7 @@ export default function EmergencyLightingRunTimeCalculator() {
   }, [form.watch]);
 
   return (
-    <AdvancedCalculatorWrapper
-      title="Emergency Lighting Runtime"
-      shortDescription="Calculate the backup duration for emergency lighting systems to ensure compliance with life safety codes and fire regulations."
-      formula={
-        <div className="space-y-3">
-          <div className="flex justify-between items-center gap-4 text-primary-foreground/90">
-            <span className="text-xs font-bold uppercase tracking-tighter">Minutes</span>
-            <span className="font-mono text-sm text-right">T = (Ah &middot; V &middot; &eta; / W) &middot; 60</span>
-          </div>
-        </div>
-      }
-      educationalContent={
-        <div className="space-y-6">
-          <p>
-            Emergency lighting must remain operational during power failures to allow for safe evacuation. Standards like **NFPA 101** dictate minimum durations for critical egress paths.
-          </p>
-          <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10">
-            <h4 className="font-bold text-primary mb-2 flex items-center gap-2"><ShieldCheck className="h-4 w-4" /> The 90-Minute Rule</h4>
-            <p className="text-sm opacity-80">Most jurisdictions require emergency lighting systems to provide a minimum of **90 minutes** of illumination upon loss of normal power.</p>
-          </div>
-        </div>
-      }
-    >
+    <>
       <Form {...form}>
         <form className="space-y-8">
           <div className="flex flex-col gap-6">
@@ -110,6 +88,6 @@ export default function EmergencyLightingRunTimeCalculator() {
           </div>
         </div>
       )}
-    </AdvancedCalculatorWrapper>
+    </>
   );
 }
