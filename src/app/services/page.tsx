@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
 export const metadata = {
-  title: 'Engineering Services | Evergreen Switchgear (EG Switchgear)',
+  title: 'Engineering & Technical Services | EgSwitchGear',
   description: 'Explore the expert electrical services offered by Evergreen Switchgear, from custom CNC engineering to on-site support and maintenance.',
 };
 

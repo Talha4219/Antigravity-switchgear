@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Engineering Calculators & Electrical Tools | EgSwitchGear',
+    title: 'Electrical Engineering Calculators | EgSwitchGear',
     description: 'Professional electrical engineering calculators for cable sizing, voltage drop, arc flash analysis, and power factor correction. Optimized for NEC and IEC standards.',
     keywords: [
         'electrical calculators', 'cable sizing tool Pakistan', 'voltage drop calculator',

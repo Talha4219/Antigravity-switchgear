@@ -8,7 +8,7 @@ import * as motion from 'framer-motion/client';
 import AnimateOnScroll from '@/components/animations/animate-on-scroll';
 
 export const metadata = {
-    title: 'Industrial Switchgear Product Catalog | EgSwitchGear',
+    title: 'Switchgear Product Catalog | EgSwitchGear',
     description: 'Explore the complete range of industrial switchgear, automation panels, and power distribution solutions from EgSwitchGear. Premium quality LV/MV products engineered for safety.',
     keywords: [
         'switchgear catalog', 'LV panels list', 'MV switchgear products',

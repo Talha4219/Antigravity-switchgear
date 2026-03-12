@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata = {
-    title: 'Precision CNC Manufacturing Facility | Evergreen Switchgear',
+    title: 'CNC Manufacturing Facility | EgSwitchGear',
     description: 'EG Switchgear operates the largest CNC laser cutting machine in Pakistan, delivering high-precision, fast, and reliable switchgear manufacturing solutions. Precision sheet metal fabrication and bending.',
     keywords: [
         'CNC laser cutting Pakistan', 'precision metal fabrication Islamabad',

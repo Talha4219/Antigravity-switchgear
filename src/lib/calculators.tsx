@@ -30,6 +30,7 @@ export type CalculatorInfo = {
     icon: React.ElementType;
     formula: React.ReactNode;
     component: React.ElementType;
+    seoTitle?: string;
     category: 'System Analysis' | 'Power Distribution' | 'Cabling & Containment' | 'Lighting & Safety' | 'Renewable Energy';
 };
 
@@ -46,6 +47,7 @@ export const calculatorData: CalculatorInfo[] = [
     {
         slug: 'voltage-drop',
         title: 'Voltage Drop Calculator',
+        seoTitle: 'Voltage Drop Calculator | EgSwitchGear',
         description: <p>Engineered for electrical contractors and engineers, this tool uses NEC Chapter 9, Table 9 standards to calculate expected voltage drop. Includes adjustable power factors, conduit materials (Steel vs. PVC), and wiring configurations.</p>,
         icon: TrendingDown,
         formula: <code>VD = (PhaseMultiplier * Z * I * L) / 1000</code>,
@@ -145,6 +147,7 @@ export const calculatorData: CalculatorInfo[] = [
     {
         slug: 'short-circuit-current',
         title: 'Switchgear Short-Circuit Current Calculator',
+        seoTitle: 'Fault Current Calculator | EgSwitchGear',
         description: <p>Accurately determine the prospective short-circuit current in any electrical distribution system. Critical for selecting protective devices and designing switchgear panels.</p>,
         icon: Zap,
         formula: <code>I<sub>sc</sub> = (kVA * 1000) / (V * &radic;3 * Z%)</code>,
@@ -172,6 +175,7 @@ export const calculatorData: CalculatorInfo[] = [
     {
         slug: 'breaker-selection',
         title: 'MCB & Circuit Breaker Selection Calculator for Switchgear',
+        seoTitle: 'Breaker Selection Tool | EgSwitchGear',
         description: <p>Quickly determine the correct rating for MCB and MCCB devices. Recommended breaker sizes to prevent overcurrent and equipment damage.</p>,
         icon: Gauge,
         formula: <code>Rating &ge; I<sub>load</sub> * 1.25</code>,
@@ -181,6 +185,7 @@ export const calculatorData: CalculatorInfo[] = [
     {
         slug: 'voltage-drop-pro',
         title: 'Voltage Drop Calculator for Switchgear Systems',
+        seoTitle: 'Voltage Drop Pro | EgSwitchGear',
         description: <p>Ensure that voltage levels remain within safe limits across switchgear systems and electrical panels to avoid equipment malfunction and energy loss.</p>,
         icon: TrendingDown,
         formula: <code>V<sub>drop</sub> = (2 * L * I * &rho;) / Area</code>,
@@ -199,6 +204,7 @@ export const calculatorData: CalculatorInfo[] = [
     {
         slug: 'motor-starter-pro',
         title: 'Motor Starter & MCCB Selection Calculator for Switchgear',
+        seoTitle: 'Motor Starter Pro | EgSwitchGear',
         description: <p>Simplify the process of choosing the correct motor starter and molded case circuit breaker for motors in switchgear panels.</p>,
         icon: LayoutPanelLeft,
         formula: <code>I<sub>rated</sub> &approx; kW / (V * &eta; * PF)</code>,
@@ -208,6 +214,7 @@ export const calculatorData: CalculatorInfo[] = [
     {
         slug: 'energy-consumption',
         title: 'Switchgear Energy Consumption Calculator',
+        seoTitle: 'Energy Consumption Tool | EgSwitchGear',
         description: <p>Estimate electrical energy usage and costs for industrial and commercial switchgear panels based on power and rates.</p>,
         icon: Gauge,
         formula: <code>Cost = P * t * Rate</code>,
@@ -217,6 +224,7 @@ export const calculatorData: CalculatorInfo[] = [
     {
         slug: 'transformer-sizing-pro',
         title: 'Switchgear Transformer Sizing Calculator',
+        seoTitle: 'Transformer Sizing Pro | EgSwitchGear',
         description: <p>Select the right transformer capacity for switchgear and distribution systems to prevent overloading and ensure reliable power.</p>,
         icon: Network,
         formula: <code>kVA<sub>rec</sub> &ge; (Load * DF) * (1 + Growth)</code>,
@@ -226,6 +234,7 @@ export const calculatorData: CalculatorInfo[] = [
     {
         slug: 'arc-flash-hazard',
         title: 'NFPA 70E Arc Flash Calculator',
+        seoTitle: 'Arc Flash Hazard Tool | EgSwitchGear',
         description: <p>Comprehensive <strong>arc flash calculator</strong> and hazard assessment tool. Determine incident energy and safety boundaries as per NFPA 70E standards. Includes <strong>arc flash suit calculator</strong> and AIC rating analysis.</p>,
         icon: ShieldCheck,
         formula: <code>E = 4.184 * C * E_n * (t / 0.2) * (610^x / D^x)</code>,

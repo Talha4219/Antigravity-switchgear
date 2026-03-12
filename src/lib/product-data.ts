@@ -9,6 +9,7 @@ export interface ProductData {
     applications: string[];
     whyChooseUs: string[];
     imageUrl: string;
+    seoTitle?: string;
     relatedCalculators?: { slug: string; title: string }[];
 }
 
@@ -31,7 +32,7 @@ function createProduct(title: string, categoryGroup: string): ProductData {
     const slug = normalizeSlug(title);
     return {
         slug,
-        title: `${title} - Manufacturer in Pakistan`,
+        title: `${title} | Pakistan Manufacturer`,
         shortDescription: `Top-rated ${title} manufactured by EgSwitchGear in Pakistan. High-quality industrial solutions complying with IEC standards.`,
         keywords: [title, categoryGroup, 'Industrial Switchgear', 'Pakistan Electrical', 'EgSwitchgear', 'Manufacturer Pakistan', 'Supplier Karachi'],
         overview: `
@@ -73,6 +74,7 @@ const manualProducts: Record<string, ProductData> = {
     'lt-panels': {
         slug: 'lt-panels',
         title: 'LT Panels (Low Tension Switchgear)',
+        seoTitle: 'LT Switchgear Panels | EgSwitchGear',
         shortDescription: 'High-performance Low Tension (LT) Panels for efficient power distribution and protection in industrial and commercial facilities.',
         keywords: ['LT Panels', 'Low Tension Panels', 'Electrical Distribution Board', 'LT Switchgear Pakistan', 'Industrial Power Panels', '440V Panel', 'Power Distribution Center', 'EgSwitchgear LT Panel'],
         overview: `
@@ -114,6 +116,7 @@ const manualProducts: Record<string, ProductData> = {
     'ats-amf-panels': {
         slug: 'ats-amf-panels',
         title: 'ATS / AMF Panels (Automatic Transfer Switch)',
+        seoTitle: 'ATS & AMF Panels | EgSwitchGear',
         shortDescription: 'Seamless automatic power switching solutions between main grid and generators for uninterrupted operations.',
         keywords: ['ATS Panel', 'AMF Panel', 'Automatic Transfer Switch', 'Generator Control Panel', 'Auto Changeover Switch', 'Backup Power Solutions', 'EgSwitchgear AMF'],
         overview: `
@@ -152,6 +155,7 @@ const manualProducts: Record<string, ProductData> = {
     'pfi-plant': {
         slug: 'pfi-plant',
         title: 'PFI Plant (Power Factor Improvement)',
+        seoTitle: 'PFI Plants | EgSwitchGear',
         shortDescription: 'Industrial Power Factor Improvement plants to reduce electricity costs and eliminate utility penalties.',
         keywords: ['PFI Plant', 'Power Factor Correction', 'Capacitor Bank Panel', 'WAPDA Penalty SAVER', 'Reactive Power Compensation', 'Industrial Energy Saving', 'EgSwitchgear PFI'],
         overview: `
@@ -228,6 +232,7 @@ const manualProducts: Record<string, ProductData> = {
     'sync-panels': {
         slug: 'sync-panels',
         title: 'Synchronization & Load Sharing Panels',
+        seoTitle: 'Gen-Set Sync Panels | EgSwitchGear',
         shortDescription: 'Synchronize multiple generators to operate as a single power source.',
         keywords: ['Sync Panel', 'Generator Synchronization', 'Load Sharing Panel', 'Power Sync', 'Parallel Operation'],
         overview: `<p><strong>Synchronization Panels</strong> allow multiple generators to run in parallel, effectively combining their output. This provides flexibility, redundancy, and efficiency, as you can run only the number of generators needed for the current load.</p>`,
@@ -245,6 +250,7 @@ const manualProducts: Record<string, ProductData> = {
     'phase-correction-panel': {
         slug: 'phase-correction-panel',
         title: 'Phase Correction Panels',
+        seoTitle: 'Phase Correction Panels | EgSwitchGear',
         shortDescription: 'Advanced phase correction panels to balance electrical loads and improve system efficiency.',
         keywords: [
             'Phase Correction Panel',
@@ -289,6 +295,7 @@ const manualProducts: Record<string, ProductData> = {
     'sub-main-panels': {
         slug: 'sub-main-panels',
         title: 'Sub-Main Distribution Panels (SMDB)',
+        seoTitle: 'Sub-Main Panels (SMDB) | EgSwitchGear',
         shortDescription: 'Reliable sub-main panels for efficient downstream power distribution.',
         keywords: [
             'SMDB Panel',
@@ -372,6 +379,7 @@ const manualProducts: Record<string, ProductData> = {
     'control-relay-panels': {
         slug: 'control-relay-panels',
         title: 'Control & Relay Panels',
+        seoTitle: 'Control & Relay Panels | EgSwitchGear',
         shortDescription: 'Precision control and relay panels for automation and protection systems.',
         keywords: [
             'Control Panel',
@@ -456,6 +464,7 @@ const manualProducts: Record<string, ProductData> = {
     'feeder-pillar': {
         slug: 'feeder-pillar',
         title: 'Outdoor Feeder Pillars',
+        seoTitle: 'Outdoor Feeder Pillars | EgSwitchGear',
         shortDescription: 'Weatherproof outdoor feeder pillars for public and industrial power distribution.',
         keywords: [
             'Feeder Pillar',
@@ -628,6 +637,7 @@ const manualProducts: Record<string, ProductData> = {
     'cable-trays': {
         slug: 'cable-trays',
         title: 'Industrial Cable Trays',
+        seoTitle: 'Perforated Cable Trays | EgSwitchGear',
         shortDescription: 'Heavy-duty perforated and solid bottom cable trays for organized cable management.',
         keywords: [
             'Cable Tray',
@@ -799,6 +809,7 @@ const manualProducts: Record<string, ProductData> = {
     'services-boxes': {
         slug: 'services-boxes',
         title: 'Floor Service Boxes',
+        seoTitle: 'Floor Service Boxes | EgSwitchGear',
         shortDescription: 'Integrated floor boxes for convenient power and data access in modern offices.',
         keywords: [
             'Floor Box',
@@ -928,6 +939,7 @@ const manualProducts: Record<string, ProductData> = {
     'building-management-systems-bms': {
         slug: 'building-management-systems-bms',
         title: 'Building Management Systems (BMS)',
+        seoTitle: 'BMS Systems | EgSwitchGear',
         shortDescription: 'Integrated BMS solutions for centralized control of HVAC, lighting, and security.',
         keywords: [
             'BMS Panel',
@@ -971,6 +983,7 @@ const manualProducts: Record<string, ProductData> = {
     'energy-monitoring-systems': {
         slug: 'energy-monitoring-systems',
         title: 'Industrial Energy Monitoring Systems (EMS)',
+        seoTitle: 'Energy Monitoring (EMS) | EgSwitchGear',
         shortDescription: 'Real-time energy tracking systems to identify wastage and optimize industrial power consumption.',
         keywords: [
             'Energy Metering System',
@@ -1272,6 +1285,7 @@ const manualProducts: Record<string, ProductData> = {
     'access-control-solutions': {
         slug: 'access-control-solutions',
         title: 'Electronic Access Control Solutions',
+        seoTitle: 'Access Control Systems | EgSwitchGear',
         shortDescription: 'Secure and manageable access control systems for restricted areas and employee attendance.',
         keywords: [
             'Access Control System',
@@ -1315,6 +1329,7 @@ const manualProducts: Record<string, ProductData> = {
     'lightning-protection-earthing-systems': {
         slug: 'lightning-protection-earthing-systems',
         title: 'Lightning Protection Systems',
+        seoTitle: 'Lightning Protection | EgSwitchGear',
         shortDescription: 'Comprehensive lightning protection systems to shield structures and electronics from strikes.',
         keywords: [
             'Lightning Arrester',
@@ -1616,6 +1631,7 @@ const manualProducts: Record<string, ProductData> = {
     'employee-staff-lockers': {
         slug: 'employee-staff-lockers',
         title: 'Staff & Employee Lockers',
+        seoTitle: 'Staff Lockers | EgSwitchGear',
         shortDescription: 'Secure and ventilated steel lockers for staff and employee changing rooms.',
         keywords: [
             'Staff Locker',
@@ -1702,6 +1718,7 @@ const manualProducts: Record<string, ProductData> = {
     'powder-coating': {
         slug: 'powder-coating',
         title: 'Industrial Powder Coating Services',
+        seoTitle: 'Powder Coating Services | EgSwitchGear',
         shortDescription: 'Professional electrostatic powder coating for durable and aesthetic metal finishing.',
         keywords: [
             'Powder Coating Service',
@@ -1745,6 +1762,7 @@ const manualProducts: Record<string, ProductData> = {
     'hot-dip-galvanized-zinc-coating': {
         slug: 'hot-dip-galvanized-zinc-coating',
         title: 'Hot-Dip Galvanizing Services',
+        seoTitle: 'Hot-Dip Galvanizing | EgSwitchGear',
         shortDescription: 'Premium zinc coating services for unmatched corrosion protection of steel structures.',
         keywords: [
             'Hot Dip Galvanizing',
@@ -1788,6 +1806,7 @@ const manualProducts: Record<string, ProductData> = {
     'laser-cutting-services': {
         slug: 'laser-cutting-services',
         title: 'Precision CNC Laser Cutting',
+        seoTitle: 'Precision Laser Cutting | EgSwitchGear',
         shortDescription: 'High-precision laser cutting for sheet metal fabrication and custom parts.',
         keywords: [
             'Laser Cutting Service',
@@ -1874,6 +1893,7 @@ const manualProducts: Record<string, ProductData> = {
     'solar-panels': {
         slug: 'solar-panels',
         title: 'High-Efficiency Solar Modules (PV)',
+        seoTitle: 'Industrial Solar Panels | EgSwitchGear',
         shortDescription: 'Tier-1 Mono-PERC solar panels for residential, commercial, and industrial arrays.',
         keywords: [
             'Solar Panel',

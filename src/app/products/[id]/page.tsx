@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const product = getProductBySlug(id);
   if (product) {
     return {
-      title: `${product.title} | EgSwitchGear`,
+      title: product.seoTitle || `${product.title} | EgSwitchGear`,
       description: product.shortDescription,
       alternates: {
         canonical: `/products/${product.slug}`,

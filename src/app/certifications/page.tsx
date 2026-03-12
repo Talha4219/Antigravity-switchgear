@@ -6,7 +6,7 @@ import connectDB from '@/lib/db';
 import Certification from '@/models/Certification';
 
 export const metadata = {
-  title: 'Certifications & Compliance Standards | EgSwitchGear',
+  title: 'ISO & IEC Certifications | EgSwitchGear',
   description: 'View the international certifications and compliance standards (ISO 9001, IEC 61439) that demonstrate EgSwitchGear\'s commitment to quality and safety.',
 };
 

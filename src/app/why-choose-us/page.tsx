@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/table';
 
 export const metadata: Metadata = {
-    title: 'Why Choose EgSwitchGear? | Best Electrical Panel Manufacturer in Pakistan',
+    title: 'Why Choose EgSwitchGear? | Expert Panels',
     description: 'Compare EgSwitchGear against other local and imported switchgear suppliers. We offer certified quality, competitive pricing, and 24/7 support.',
     keywords: ['EgSwitchGear vs Competitors', 'Best Switchgear Pakistan', 'Certified Panel Builder', 'Schneider Electric Partner'],
 };

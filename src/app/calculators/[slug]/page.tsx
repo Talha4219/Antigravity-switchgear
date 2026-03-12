@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: CalculatorPageProps) {
   }
 
   return {
-    title: `${calculator.title} | EgSwitchgear Engineering Hub`,
+    title: calculator.seoTitle || `${calculator.title} | EgSwitchgear Engineering Hub`,
     description: `Professional ${calculator.title} for industrial electrical engineering. IEC 61439 & NEC compliant estimations for switchgear and power systems.`,
     keywords: [`${calculator.title}`, 'Electrical Engineering', 'Switchgear Design', 'Industrial Power', 'EgSwitchgear'],
     alternates: {
