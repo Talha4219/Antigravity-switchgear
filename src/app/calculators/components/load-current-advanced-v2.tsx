@@ -114,10 +114,8 @@ export default function LoadCurrentAdvanced() {
                         <div className="text-7xl md:text-8xl font-black my-6 tabular-nums text-white drop-shadow-2xl">
                             {current.toFixed(1)} <span className="text-3xl font-bold opacity-30">Amps</span>
                         </div>
-                        <div className="flex items-center justify-center gap-3">
-                            <Badge variant="outline" className="text-primary border-primary/30 px-4 py-1.5 uppercase font-black text-[10px] tracking-widest bg-primary/5">
-                                <ShieldCheck size={12} className="mr-2" /> Engineered for Precision
-                            </Badge>
+                        <div className="inline-flex items-center rounded-full border border-primary/30 px-4 py-1.5 text-[10px] font-black uppercase tracking-widest text-primary bg-primary/5">
+                            <ShieldCheck size={12} className="mr-2" /> Engineered for Precision
                         </div>
                     </div>
                 </div>
